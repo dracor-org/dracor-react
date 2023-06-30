@@ -5,5 +5,10 @@
   "main": "index.js",
   "repository": "git@github.com:dracor-org/dracor-react.git",
   "author": "Carsten Milling <cmil@hashtable.de>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "react": "^18.2.0",
+    "typescript": "^5.1.6"
+  }
 }
