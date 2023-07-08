@@ -5,5 +5,9 @@ export interface NavBarProps {
 }
 
 export default function NavBar ({title}: NavBarProps) {
-  return <nav>{title}</nav>;
+  return (
+    <nav className="text-center bg-blue-700 text-white p-2 text-xl">
+      {title}
+    </nav>
+  );
 };
