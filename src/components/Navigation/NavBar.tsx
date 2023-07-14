@@ -56,7 +56,7 @@ export default function NavBar ({title, logo, version, gitHubUrl, navItems}: Nav
         <div className={menuWrapperClasses}>
           <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col">
             {navItems.map(({ label, href, active }) => (
-              <NavItem label={label} href={href} active={active} />
+              <NavItem key={href} label={label} href={href} active={active} />
             ))}
           </div>
         </div>
