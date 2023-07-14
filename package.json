@@ -22,6 +22,9 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
@@ -55,6 +58,9 @@
     "vite": "^4.3.9"
   },
   "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-router-dom": "^6.14.1"
   }
