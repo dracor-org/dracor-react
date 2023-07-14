@@ -12,7 +12,7 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "rollup": "rollup -c --bundleConfigAsCjs",
+    "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
