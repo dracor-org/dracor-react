@@ -8,8 +8,30 @@ The components are documented in
 
 ## Installation
 
+First add the DraCor React components to your react project:
+
 ```sh
+npm i @dracor.org/react
+# or
 yarn add @dracor.org/react
+```
+
+Then adjust your tailwind.config.js to make the DraCor styles available to your
+project:
+
+```js
+// tailwind.config.js
+module.exports = {
+  // make the library available to the tailwind compiler
+  content: [
+    './node_modules/@dracor.org/react/**/*.js',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
+  // add the DraCor Tailwindcss plugin
+  plugins: [require('@dracor.org/react/tailwind')],
+
+  // ... your customisations
+};
 ```
 
 ## Publication
