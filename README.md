@@ -1,5 +1,10 @@
 # dracor-react
-DraCor React Component Library
+
+The *DraCor React Component Library* provides reusable [react](https://react.dev)
+components for various [DraCor](https://dracor.org) and related projects.
+
+The components are documented in
+[storybook](https://dracor-org.github.io/dracor-react/).
 
 ## Installation
 
