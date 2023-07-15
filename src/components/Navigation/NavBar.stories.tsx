@@ -16,7 +16,7 @@ const meta = {
   argTypes: {
     logo: {
       control: { type: 'select' },
-      options: ['/dracor.svg', '/ecocor.svg', '/einakter.svg'],
+      options: ['dracor.svg', 'ecocor.svg', 'einakter.svg'],
     }
   },
 } satisfies Meta<typeof NavBar>;
@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const EcoCor: Story = {
   args: {
     title: 'EcoCor',
-    logo: '/ecocor.svg',
+    logo: 'ecocor.svg',
     gitHubUrl: 'https://github.com/EcoCor',
     version: '1.2.3',
     navItems: [
