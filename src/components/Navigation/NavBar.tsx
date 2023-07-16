@@ -12,10 +12,18 @@ export interface NavBarProps {
   logo?: string;
   version?: string;
   gitHubUrl?: string;
+  gitHubIcon?: JSX.Element;
   navItems?: NavItemProps[];
 }
 
-export default function NavBar ({title, logo, version, gitHubUrl, navItems}: NavBarProps) {
+export default function NavBar ({
+  title,
+  logo,
+  version,
+  gitHubUrl,
+  gitHubIcon,
+  navItems
+}: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
 
   const menuWrapperClasses = classnames(
@@ -67,7 +75,10 @@ export default function NavBar ({title, logo, version, gitHubUrl, navItems}: Nav
               title="EcoCor Github"
               className="text-white text-2xl"
             >
-              <FontAwesomeIcon icon={faGithub} size="2xl" />
+              {gitHubIcon
+                ? gitHubIcon
+                : <FontAwesomeIcon icon={faGithub} size="2xl" />
+              }
             </a>
           </div>
         )}
