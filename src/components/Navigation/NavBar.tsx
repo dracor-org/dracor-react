@@ -52,27 +52,26 @@ export default function NavBar ({title, logo, version, gitHubUrl, navItems}: Nav
         </button>
       </div>
 
-      {navItems?.length && (
-        <div className={menuWrapperClasses}>
+      <div className={menuWrapperClasses}>
+        {navItems?.length && (
           <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col">
             {navItems.map(({ label, href, active }) => (
               <NavItem key={href} label={label} href={href} active={active} />
             ))}
           </div>
-        </div>
-      )}
-
-      {gitHubUrl && (
-        <div>
-          <a
-            href={gitHubUrl}
-            title="EcoCor Github"
-            className="text-white"
-          >
-            <FontAwesomeIcon icon={faGithub} size="2xl" />
-          </a>
-        </div>
-      )}
+        )}
+        {gitHubUrl && (
+          <div>
+            <a
+              href={gitHubUrl}
+              title="EcoCor Github"
+              className="text-white"
+            >
+              <FontAwesomeIcon icon={faGithub} size="2xl" />
+            </a>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };
