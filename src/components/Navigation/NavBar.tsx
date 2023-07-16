@@ -65,7 +65,7 @@ export default function NavBar ({title, logo, version, gitHubUrl, navItems}: Nav
             <a
               href={gitHubUrl}
               title="EcoCor Github"
-              className="text-white"
+              className="text-white text-2xl"
             >
               <FontAwesomeIcon icon={faGithub} size="2xl" />
             </a>
