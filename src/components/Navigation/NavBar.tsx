@@ -64,7 +64,7 @@ export default function NavBar ({
         {navItems?.length && (
           <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col">
             {navItems.map(({ label, href, active }) => (
-              <NavItem key={href} label={label} href={href} active={active} />
+              <NavItem key={label} label={label} href={href} active={active} />
             ))}
           </div>
         )}

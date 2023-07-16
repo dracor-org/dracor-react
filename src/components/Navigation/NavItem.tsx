@@ -6,7 +6,7 @@ import {
 } from 'tailwindcss-classnames';
 
 export interface Props {
-  label: ReactNode;
+  label: string;
   href: string;
   active?: boolean;
   className?: TTailwindString;
