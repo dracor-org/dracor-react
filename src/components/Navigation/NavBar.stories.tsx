@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
-
+import einakterGithubIcon from '../../einakter-gh';
 import NavBar from './NavBar';
 
 const meta = {
@@ -24,7 +24,39 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const EcoCor: Story = {
+export const Dracor: Story = {
+  args: {
+    title: 'Drama Corpora',
+    logo: 'dracor.svg',
+    gitHubUrl: 'https://github.com/dracor-org',
+    version: '1.2.3',
+    navItems: [
+      { label: 'About', href: '/about'},
+      { label: 'Corpora', href: '/corpora'},
+      { label: 'How To', href: '/howto'},
+      { label: 'Tools', href: '/tools' },
+      { label: 'Merch', href: '/merch' },
+    ],
+  },
+};
+
+export const Einakter: Story = {
+  args: {
+    title: 'Einakter',
+    logo: 'einakter.svg',
+    gitHubUrl: 'https://github.com/dracor-org/einakter',
+    gitHubIcon: einakterGithubIcon,
+    version: '1.2.3',
+    navItems: [
+      { label: 'Plays', href: '/plays', active: true},
+      { label: 'Locations', href: '/locations'},
+      { label: 'Originals', href: '/originals' },
+      { label: 'About', href: '/about'},
+    ],
+  },
+};
+
+export const Ecocor: Story = {
   args: {
     title: 'EcoCor',
     logo: 'ecocor.svg',
