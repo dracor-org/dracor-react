@@ -15,9 +15,9 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest",
-    "prepublish": "./prepublish.sh",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "release": "./prepublish.sh && yarn publish --access public"
   },
   "dependencies": {
     "tailwindcss-classnames": "^3.1.0"

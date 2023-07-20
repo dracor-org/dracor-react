@@ -40,7 +40,7 @@ To release a new version to npmjs.com you need to be a member of the
 [dracor.org organization](https://www.npmjs.com/org/dracor.org).
 
 ```sh
-yarn publish --access public
+yarn release
 ```
 
 ## License
