@@ -63,8 +63,15 @@ export const Ecocor: Story = {
     gitHubUrl: 'https://github.com/EcoCor',
     version: '1.2.3',
     navItems: [
-      { label: 'About', href: '/about' },
-      { label: 'Corpora', href: '/corpora', active: true },
+      { label: 'About', items: [
+        { href: '/about', label: 'What is EcoCor' },
+        { href: '/credits', label: 'Credits' },
+        { href: '/imprint', label: 'Imprint and GDPR' },
+      ]},
+      { label: 'Corpora', items: [
+        { href: '/corpora/en', label: 'English EcoCor', selected: true },
+        { href: '/corpora/de', label: 'German EcoCor' },
+      ]},
       { label: 'Merch', href: '/merch' },
     ],
   },

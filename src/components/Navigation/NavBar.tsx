@@ -6,6 +6,7 @@ import {
   classnames, display, width, textTransform, flexGrow, alignItems
 } from 'tailwindcss-classnames';
 import NavItem, { Props as NavItemProps} from './NavItem';
+import NavMenu, { Props as NavMenuProps} from './NavMenu';
 
 export interface NavBarProps {
   title: string;
@@ -13,7 +14,7 @@ export interface NavBarProps {
   version?: string;
   gitHubUrl?: string;
   gitHubIcon?: JSX.Element;
-  navItems?: NavItemProps[];
+  navItems?: (NavItemProps|NavMenuProps)[];
 }
 
 export default function NavBar ({
@@ -30,7 +31,6 @@ export default function NavBar ({
     display('block', 'md:flex', { hidden: !showNav }),
     flexGrow('grow'),
     alignItems('md:items-center'),
-    textTransform('uppercase'),
     width('w-full', 'md:w-auto'),
   );
 
@@ -62,9 +62,19 @@ export default function NavBar ({
 
       <div className={menuWrapperClasses}>
         {navItems?.length && (
-          <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col">
-            {navItems.map(({ label, href, active }) => (
-              <NavItem key={label} label={label} href={href} active={active} />
+          <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col gap-4">
+            {navItems.map((item) => (
+              'items' in item
+                ? <NavMenu
+                    key={item.label}
+                    label={item.label}
+                    items={item.items}
+                  />
+                : <NavItem
+                    key={item.label}
+                    label={item.label}
+                    href={item.href}
+                    active={item.active} />
             ))}
           </div>
         )}
