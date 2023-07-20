@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { Menu, Transition } from '@headlessui/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { itemClassNames } from './NavItem';
 
 interface Item {
@@ -18,7 +18,16 @@ export interface Props {
 }
 
 export default function NavMenu ({label, items, menuClass}: Props) {
-  const active = Boolean(items.find((item) => item.selected));
+  const location = useLocation();
+
+  function isActive ({href, selected }: Item) {
+    if (selected !== undefined) {
+      return selected;
+    }
+    return location.pathname.startsWith(href);
+  }
+
+  const active = Boolean(items.find((item) => isActive(item)));
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -44,18 +53,18 @@ export default function NavMenu ({label, items, menuClass}: Props) {
       >
         <Menu.Items className="absolute left-0 mt-2 min-w-fit whitespace-nowrap origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
-            {items.map(({ label, href, selected }) => (
-              <Menu.Item key={href}>
+            {items.map((item) => (
+              <Menu.Item key={item.href}>
                 {({ active }) => (
                   <Link
-                    to={href}
+                    to={item.href}
                     className={`${
                       active ? 'bg-blue-100' : ''
                     } ${
-                      selected ? 'bg-blue-300 text-white' : ''
+                      isActive(item) ? 'bg-blue-300 text-white' : ''
                     } text-gray-900 group flex w-full items-center rounded-md px-2 py-1 text-sm`}
                   >
-                    {label}
+                    {item.label}
                   </Link>
                 )}
               </Menu.Item>

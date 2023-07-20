@@ -25,6 +25,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Dracor: Story = {
+  parameters: {
+    reactRouter: {
+      routePath: '/corpora/shake',
+    },
+  },
   args: {
     title: 'Drama Corpora',
     logo: 'dracor.svg',
@@ -32,7 +37,14 @@ export const Dracor: Story = {
     version: '1.2.3',
     navItems: [
       { label: 'About', href: '/about'},
-      { label: 'Corpora', href: '/corpora'},
+      {
+        label: 'Corpora',
+        items: [
+          { href: "/corpora/ger", label: "German Drama Corpus" },
+          { href: "/corpora/shake", label: "Shakespeare Drama Corpus" },
+          { href: "/corpora/u", label: "Ukranian Drama Corpus" },
+        ]
+      },
       { label: 'How To', href: '/howto'},
       { label: 'Tools', href: '/tools' },
       { label: 'Merch', href: '/merch' },
@@ -57,6 +69,11 @@ export const Einakter: Story = {
 };
 
 export const Ecocor: Story = {
+  parameters: {
+    reactRouter: {
+      routePath: '/corpora/en',
+    },
+  },
   args: {
     title: 'EcoCor',
     logo: 'ecocor.svg',
@@ -69,7 +86,7 @@ export const Ecocor: Story = {
         { href: '/imprint', label: 'Imprint and GDPR' },
       ]},
       { label: 'Corpora', items: [
-        { href: '/corpora/en', label: 'English EcoCor', selected: true },
+        { href: '/corpora/en', label: 'English EcoCor' },
         { href: '/corpora/de', label: 'German EcoCor' },
       ]},
       { label: 'Merch', href: '/merch' },

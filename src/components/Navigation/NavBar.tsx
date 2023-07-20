@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -26,6 +26,14 @@ export default function NavBar ({
   navItems
 }: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
+  const location = useLocation();
+
+  function isActive ({href, active}: NavItemProps) {
+    if (active !== undefined) {
+      return active;
+    }
+    return location.pathname.startsWith(href);
+  }
 
   const menuWrapperClasses = classnames(
     display('block', 'md:flex', { hidden: !showNav }),
@@ -74,7 +82,7 @@ export default function NavBar ({
                     key={item.label}
                     label={item.label}
                     href={item.href}
-                    active={item.active} />
+                    active={isActive(item)} />
             ))}
           </div>
         )}
