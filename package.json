@@ -1,6 +1,6 @@
 {
   "name": "@dracor.org/react",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "DraCor react component library",
   "repository": "git@github.com:dracor-org/dracor-react.git",
   "author": "Carsten Milling <cmil@hashtable.de>",
