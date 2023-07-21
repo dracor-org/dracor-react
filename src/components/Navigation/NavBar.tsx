@@ -11,6 +11,7 @@ import NavMenu, { Props as NavMenuProps} from './NavMenu';
 export interface NavBarProps {
   title: string;
   logo?: string;
+  logoClass?: string;
   version?: string;
   gitHubUrl?: string;
   gitHubIcon?: JSX.Element;
@@ -20,6 +21,7 @@ export interface NavBarProps {
 export default function NavBar ({
   title,
   logo,
+  logoClass,
   version,
   gitHubUrl,
   gitHubIcon,
@@ -48,7 +50,7 @@ export default function NavBar ({
         <img
           alt={`${title} logo`}
           title={`${title}${version ? ` (${version})` : ''}`}
-          className="h-12"
+          className={`h-12 ${logoClass || ''}`}
           src={logo}
         />
       </Link>

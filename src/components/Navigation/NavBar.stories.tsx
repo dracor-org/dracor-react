@@ -77,6 +77,8 @@ export const Ecocor: Story = {
   args: {
     title: 'EcoCor',
     logo: 'ecocor.svg',
+    // custom class defined in tailwind.config.js
+    logoClass: 'animate-spin-slow infinite',
     gitHubUrl: 'https://github.com/EcoCor',
     version: '1.2.3',
     navItems: [
