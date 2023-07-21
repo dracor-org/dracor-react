@@ -29,6 +29,7 @@ export default defineConfig({
         'CETEIcean',
         'react-copy-to-clipboard',
         'react-helmet-async',
+        'react-markdown',
         'swagger-ui-react',
         'tailwindcss',
       ],

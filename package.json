@@ -36,7 +36,8 @@
     "release": "./prepublish.sh && pnpm publish --access public"
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.116.0"
+    "@tanstack/react-router": "^1.116.0",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
@@ -105,6 +106,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^2.0.5",
+    "react-markdown": "^10.1.0",
     "swagger-ui-react": "^5.20.0"
   },
   "eslintConfig": {
