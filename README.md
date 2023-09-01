@@ -11,9 +11,9 @@ The components are documented in
 First add the DraCor React components to your react project:
 
 ```sh
-npm i @dracor.org/react
+npm i @dracor/react
 # or
-yarn add @dracor.org/react
+yarn add @dracor/react
 ```
 
 Then adjust your tailwind.config.js to make the DraCor styles available to your
@@ -24,11 +24,11 @@ project:
 module.exports = {
   // make the library available to the tailwind compiler
   content: [
-    './node_modules/@dracor.org/react/**/*.js',
+    './node_modules/@dracor/react/**/*.js',
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   // add the DraCor Tailwindcss plugin
-  plugins: [require('@dracor.org/react/tailwind')],
+  plugins: [require('@dracor/react/tailwind')],
 
   // ... your customisations
 };
@@ -37,7 +37,7 @@ module.exports = {
 ## Publication
 
 To release a new version to npmjs.com you need to be a member of the
-[dracor.org organization](https://www.npmjs.com/org/dracor.org).
+[dracor organization](https://www.npmjs.com/org/dracor).
 
 ```sh
 yarn release
