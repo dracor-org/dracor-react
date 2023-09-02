@@ -1,3 +1,4 @@
 export { default as NavBar } from './Navigation';
 export { default as ApiDoc } from './ApiDoc';
 export { default as IdLink } from './IdLink';
+export { default as IdCopy } from './IdCopy';
