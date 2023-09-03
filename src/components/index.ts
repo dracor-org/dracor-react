@@ -4,3 +4,4 @@ export { default as IdCopy } from './IdCopy';
 export { default as IdLink } from './IdLink';
 export { default as NavBar } from './Navigation';
 export { default as Table } from './Table';
+export { default as Years } from './Years';
