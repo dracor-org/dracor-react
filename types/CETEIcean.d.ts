@@ -1,0 +1,45 @@
+export default CETEI;
+
+declare class CETEI {
+  static savePosition(): void;
+  static restorePosition(): void;
+  constructor(options?: any);
+  options: any;
+  document: any;
+  addBehaviors: any;
+  addBehavior: any;
+  removeBehavior: any;
+  utilities: {};
+  els: any[];
+  namespaces: Map<any, any>;
+  behaviors: {};
+  hasStyle: boolean;
+  prefixDefs: any[];
+  debug: boolean;
+  discardContent: boolean;
+  base: any;
+  getHTML5(XML_url: any, callback: any, perElementFn?: any): Promise<any>;
+  makeHTML5(XML: any, callback: any, perElementFn: any): any;
+  XML_dom: Document;
+  preprocess(XML_dom: any, callback: any, perElementFn: any): any;
+  dom: any;
+  domToHTML5(XML_dom: any, callback: any, perElementFn: any): any;
+  done: boolean;
+  processPage(): void;
+  unsetNamespace(ns: any): void;
+  setBaseUrl(base: any): void;
+  append(fn: any, elt: any): () => void;
+  appendBasic(elt: any, content: any): void;
+  bName(e: any): string;
+  childExists(elt: any, name: any): any;
+  decorator(template: any): (e: any) => void;
+  applyDecorator(strings: any): (elt: any) => any;
+  getFallback(behaviors: any, fn: any): any;
+  getHandler(behaviors: any, fn: any): () => void;
+  insert(elt: any, strings: any): any;
+  processElement(elt: any): void;
+  template(str: any, elt: any): any;
+  applyBehaviors(): void;
+  define(names: any): void;
+  fallback(names: any): void;
+}

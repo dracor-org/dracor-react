@@ -6,4 +6,5 @@ export { default as IdLink } from './IdLink';
 export { default as NavBar } from './Navigation';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
+export { default as TEIText } from './TEIText';
 export { default as Years } from './Years';
