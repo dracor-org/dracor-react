@@ -2043,6 +2043,15 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
+"@rollup/pluginutils@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.0.4.tgz#74f808f9053d33bafec0cc98e7b835c9667d32ba"
+  integrity sha512-0KJnIoRI8A+a1dqOYLxH8vBf8bphDmty5QvIm2hqm7oFCFYKCAZWWd2hXgMibaPsNDhI0AtpYfQZJG47pt/k4g==
+  dependencies:
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
+
 "@sinclair/typebox@^0.27.8":
   version "0.27.8"
   resolved "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.27.8.tgz#6667fac16c436b5434a387a34dedb013198f6e6e"
@@ -3542,6 +3551,11 @@
   version "1.1.0"
   resolved "https://registry.npmjs.org/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
+
+CETEIcean@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.npmjs.org/CETEIcean/-/CETEIcean-1.8.0.tgz#da5d1db0beed10fbcdfb2d9c4677183f1f0a8e2e"
+  integrity sha512-x0kEFFKpO21hkemPt5w8/IezQEL3suUfEeYpLbw98Y/0WH5wlbDKEpmpQLR02/2dTL2kFE+sHUCmeAVDD816YA==
 
 abab@^2.0.6:
   version "2.0.6"

@@ -21,6 +21,7 @@
     "release": "./prepublish.sh && yarn publish --access public"
   },
   "dependencies": {
+    "CETEIcean": "^1.8.0",
     "tailwindcss-classnames": "^3.1.0"
   },
   "devDependencies": {
