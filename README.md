@@ -27,8 +27,12 @@ module.exports = {
     './node_modules/@dracor/react/**/*.js',
     './src/**/*.{js,jsx,ts,tsx}',
   ],
-  // add the DraCor Tailwindcss plugin
-  plugins: [require('@dracor/react/tailwind')],
+  plugins: [
+    // main DraCor Tailwindcss customization
+    require('@dracor/react/tailwind'),
+    // support CETEIcean markup in the TEIText component
+    require('@dracor/react/ceteicean'),
+  ],
 
   // ... your customisations
 };
