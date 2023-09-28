@@ -10,7 +10,7 @@ const meta = {
   decorators: [withRouter],
   parameters: {
     reactRouter: {
-      routePath: '/',
+      routing: { path: '/' },
     }
   },
   argTypes: {
@@ -27,7 +27,10 @@ type Story = StoryObj<typeof meta>;
 export const Dracor: Story = {
   parameters: {
     reactRouter: {
-      routePath: '/corpora/shake',
+      location: {
+        pathParams: { corpusId: 'shake' },
+      },
+      routing: { path: '/corpora/:corpusId' },
     },
   },
   args: {
@@ -71,7 +74,10 @@ export const Einakter: Story = {
 export const Ecocor: Story = {
   parameters: {
     reactRouter: {
-      routePath: '/corpora/en',
+      location: {
+        pathParams: { corpusId: 'en' },
+      },
+      routing: { path: '/corpora/:corpusId' },
     },
   },
   args: {

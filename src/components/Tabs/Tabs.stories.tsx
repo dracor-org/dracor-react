@@ -10,7 +10,10 @@ const meta = {
   decorators: [withRouter],
   parameters: {
     reactRouter: {
-      routePath: '/metrics',
+      location: {
+        pathParams: { page: 'metrics' },
+      },
+      routing: { path: '/:page' },
     }
   },
 } satisfies Meta<typeof Tabs>;

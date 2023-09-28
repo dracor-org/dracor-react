@@ -12,7 +12,7 @@ const meta = {
   ],
   parameters: {
     reactRouter: {
-      routePath: '/',
+      routing: { path: '/' },
     }
   },
 } satisfies Meta<typeof ApiDoc>;
