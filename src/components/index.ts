@@ -1,4 +1,5 @@
 // export { default as ApiDoc } from './ApiDoc';
+export { default as AuthorInfo } from './AuthorInfo';
 export { default as Authors } from './Authors';
 export { default as DebouncedInput } from './DebouncedInput';
 export { default as IdCopy } from './IdCopy';
