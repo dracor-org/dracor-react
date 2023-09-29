@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
+import json from "@rollup/plugin-json";
 import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
@@ -22,8 +23,9 @@ export default [
       },
     ],
     plugins: [
+      json(),
       peerDepsExternal(),
-      resolve(),
+      resolve({ jsnext: true, preferBuiltins: true, browser: true }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
     ],
