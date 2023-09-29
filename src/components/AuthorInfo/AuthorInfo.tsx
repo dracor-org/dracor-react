@@ -8,8 +8,8 @@ const endpoint = 'https://query.wikidata.org/sparql';
 const commonsIcon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='102' height='137' viewBox='-305 -516 610 820'%3E%3Ctitle%3EWikimedia Commons Logo%3C/title%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Ccircle r='298'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle r='100' fill='%23900'/%3E%3Cg fill='%23069'%3E%3Cg id='arrow' clip-path='url(%23c)'%3E%3Cpath d='m-11 180v118h22v-118'/%3E%3Cpath d='m-43 185l43-75 43 75'/%3E%3C/g%3E%3Cg id='arrows3'%3E%3Cuse xlink:href='%23arrow' transform='rotate(45)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(90)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(135)'/%3E%3C/g%3E%3Cuse xlink:href='%23arrows3' transform='scale(-1 1)'/%3E%3Cpath id='blue_path' transform='rotate(-45)' stroke='%23069' stroke-width='84' fill='none' d='M 0,-256 A 256 256 0 1 0 256,0 C 256,-100 155,-150 250,-275'/%3E%3Cpath id='arrow_top' d='m-23-515s-36 135-80 185 116-62 170-5-90-180-90-180z'/%3E%3C/g%3E%3C/svg%3E";
 
 export interface Props {
-  name: string;
   wikidataId: string;
+  name?: string;
   birthLabel?: string;
   deathLabel?: string;
 };
@@ -24,8 +24,8 @@ interface Info {
 };
 
 export default function AuthorInfo({
-  name: fullname,
   wikidataId,
+  name: fullname,
   birthLabel = 'b.',
   deathLabel = 'd.'
 }: Props) {
