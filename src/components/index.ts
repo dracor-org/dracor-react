@@ -2,6 +2,7 @@
 export { default as AuthorInfo } from './AuthorInfo';
 export { default as Authors } from './Authors';
 export { default as DebouncedInput } from './DebouncedInput';
+export { default as DownloadButton } from './DownloadButton';
 export { default as IdCopy } from './IdCopy';
 export { default as IdLink } from './IdLink';
 export { default as NavBar } from './Navigation';
