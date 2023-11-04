@@ -38,6 +38,37 @@ module.exports = {
 };
 ```
 
+### React Helmet integration
+
+Several components optionally integrate with
+[React Helmet](https://github.com/staylor/react-helmet-async), which is a peer
+dependency of this package:
+
+```sh
+npm i react-helmet-async
+```
+
+If you intend to make use of this integration you need to set up the
+`HelmetProvider`:
+
+```jsx
+// index.tsx
+import { HelmetProvider } from 'react-helmet-async';
+import App from './App';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
+)
+```
+
+See https://github.com/staylor/react-helmet-async#usage for details.
+
 ## Publication
 
 To release a new version to npmjs.com you need to be a member of the
