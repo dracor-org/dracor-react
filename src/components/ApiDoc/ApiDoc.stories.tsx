@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {HelmetProvider} from 'react-helmet-async';
 
 import ApiDoc from './ApiDoc';
+import 'swagger-ui-react/swagger-ui.css';
 
 const meta = {
   title: 'Pages/ApiDoc',
