@@ -19,6 +19,7 @@ export interface NavBarProps {
   version?: string;
   gitHubUrl?: string;
   gitHubIcon?: JSX.Element;
+  gitHubTitle?: string;
   navItems?: (NavItemProps | NavMenuProps)[];
 }
 
@@ -29,6 +30,7 @@ export default function NavBar({
   version,
   gitHubUrl,
   gitHubIcon,
+  gitHubTitle,
   navItems,
 }: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
@@ -99,7 +101,7 @@ export default function NavBar({
           <div>
             <a
               href={gitHubUrl}
-              title="EcoCor Github"
+              title={gitHubTitle || 'GitHub'}
               className="text-white text-2xl"
             >
               {gitHubIcon ? (

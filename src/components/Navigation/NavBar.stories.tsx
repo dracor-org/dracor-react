@@ -37,6 +37,7 @@ export const Dracor: Story = {
     title: 'Drama Corpora',
     logo: 'dracor.svg',
     gitHubUrl: 'https://github.com/dracor-org',
+    gitHubTitle: 'DraCor GitHub',
     version: '1.2.3',
     navItems: [
       { label: 'About', href: '/about' },
