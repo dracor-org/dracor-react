@@ -11,13 +11,13 @@ const meta = {
   parameters: {
     reactRouter: {
       routing: { path: '/' },
-    }
+    },
   },
   argTypes: {
     logo: {
       control: { type: 'select' },
       options: ['dracor.svg', 'ecocor.svg', 'einakter.svg'],
-    }
+    },
   },
 } satisfies Meta<typeof NavBar>;
 
@@ -39,16 +39,16 @@ export const Dracor: Story = {
     gitHubUrl: 'https://github.com/dracor-org',
     version: '1.2.3',
     navItems: [
-      { label: 'About', href: '/about'},
+      { label: 'About', href: '/about' },
       {
         label: 'Corpora',
         items: [
-          { href: "/corpora/ger", label: "German Drama Corpus" },
-          { href: "/corpora/shake", label: "Shakespeare Drama Corpus" },
-          { href: "/corpora/u", label: "Ukranian Drama Corpus" },
-        ]
+          { href: '/corpora/ger', label: 'German Drama Corpus' },
+          { href: '/corpora/shake', label: 'Shakespeare Drama Corpus' },
+          { href: '/corpora/u', label: 'Ukranian Drama Corpus' },
+        ],
       },
-      { label: 'How To', href: '/howto'},
+      { label: 'How To', href: '/howto' },
       { label: 'Tools', href: '/tools' },
       { label: 'Merch', href: '/merch' },
     ],
@@ -63,10 +63,10 @@ export const Einakter: Story = {
     gitHubIcon: einakterGithubIcon,
     version: '1.2.3',
     navItems: [
-      { label: 'Plays', href: '/plays', active: true},
-      { label: 'Locations', href: '/locations'},
+      { label: 'Plays', href: '/plays', active: true },
+      { label: 'Locations', href: '/locations' },
       { label: 'Originals', href: '/originals' },
-      { label: 'About', href: '/about'},
+      { label: 'About', href: '/about' },
     ],
   },
 };
@@ -88,15 +88,21 @@ export const Ecocor: Story = {
     gitHubUrl: 'https://github.com/EcoCor',
     version: '1.2.3',
     navItems: [
-      { label: 'About', items: [
-        { href: '/about', label: 'What is EcoCor' },
-        { href: '/credits', label: 'Credits' },
-        { href: '/imprint', label: 'Imprint and GDPR' },
-      ]},
-      { label: 'Corpora', items: [
-        { href: '/corpora/en', label: 'English EcoCor' },
-        { href: '/corpora/de', label: 'German EcoCor' },
-      ]},
+      {
+        label: 'About',
+        items: [
+          { href: '/about', label: 'What is EcoCor' },
+          { href: '/credits', label: 'Credits' },
+          { href: '/imprint', label: 'Imprint and GDPR' },
+        ],
+      },
+      {
+        label: 'Corpora',
+        items: [
+          { href: '/corpora/en', label: 'English EcoCor' },
+          { href: '/corpora/de', label: 'German EcoCor' },
+        ],
+      },
       { label: 'Merch', href: '/merch' },
     ],
   },

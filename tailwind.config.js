@@ -15,8 +15,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('./tailwind'),
-    require('./ceteicean'),
-  ],
-}
+  plugins: [require('./tailwind'), require('./ceteicean')],
+};

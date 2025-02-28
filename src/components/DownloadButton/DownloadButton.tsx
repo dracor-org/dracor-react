@@ -26,7 +26,16 @@ export interface Props {
   /**
    * File type of the download
    */
-  type?: 'bibtex' | 'csv' | 'gexf' | 'graphml' | 'json' | 'rdf' | 'ris' | 'tei' | 'txt';
+  type?:
+    | 'bibtex'
+    | 'csv'
+    | 'gexf'
+    | 'graphml'
+    | 'json'
+    | 'rdf'
+    | 'ris'
+    | 'tei'
+    | 'txt';
 }
 
 /**
@@ -42,31 +51,31 @@ export default function DownloadButton({ href, type, name }: Props) {
   let icon;
   switch (type) {
     case 'bibtex':
-      icon = <Bibtex className={classes}/>
+      icon = <Bibtex className={classes} />;
       break;
     case 'csv':
-      icon = <Csv className={classes}/>
+      icon = <Csv className={classes} />;
       break;
     case 'gexf':
-      icon = <Gexf className={classes}/>
+      icon = <Gexf className={classes} />;
       break;
     case 'graphml':
-      icon = <Graphml className={classes}/>
+      icon = <Graphml className={classes} />;
       break;
     case 'json':
-      icon = <Json className={classes}/>
+      icon = <Json className={classes} />;
       break;
     case 'rdf':
-      icon = <Rdf className={classes}/>
+      icon = <Rdf className={classes} />;
       break;
     case 'ris':
-      icon = <Ris className={classes}/>
+      icon = <Ris className={classes} />;
       break;
     case 'tei':
-      icon = <Tei className={classes}/>
+      icon = <Tei className={classes} />;
       break;
     case 'txt':
-      icon = <Txt className={classes}/>
+      icon = <Txt className={classes} />;
       break;
   }
 
@@ -75,4 +84,4 @@ export default function DownloadButton({ href, type, name }: Props) {
       {icon || filename}
     </a>
   );
-};
+}

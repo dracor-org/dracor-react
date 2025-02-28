@@ -1,8 +1,8 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPenFancy,
   faTheaterMasks,
-  faBook
+  faBook,
 } from '@fortawesome/free-solid-svg-icons';
 import { formatYear } from '../../utils';
 
@@ -30,27 +30,28 @@ export default function Years({
       {written && (
         <>
           <span title={labelWritten}>
-            <FontAwesomeIcon icon={faPenFancy} size="sm"/>&nbsp;
+            <FontAwesomeIcon icon={faPenFancy} size="sm" />
+            &nbsp;
             {formatYear(written, locale)}
-          </span>
-          {' '}
+          </span>{' '}
         </>
       )}
       {premiere && (
         <>
           <span title={labelPremiered}>
-            <FontAwesomeIcon icon={faTheaterMasks} size="sm"/>&nbsp;
+            <FontAwesomeIcon icon={faTheaterMasks} size="sm" />
+            &nbsp;
             {formatYear(premiere, locale)}
-          </span>
-          {' '}
+          </span>{' '}
         </>
       )}
       {print && (
         <span title={labelPrinted}>
-          <FontAwesomeIcon icon={faBook} size="sm"/>&nbsp;
+          <FontAwesomeIcon icon={faBook} size="sm" />
+          &nbsp;
           {formatYear(print, locale)}
         </span>
       )}
     </>
   );
-};
+}

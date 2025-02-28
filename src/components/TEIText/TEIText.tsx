@@ -14,7 +14,7 @@ export interface Props {
  * plugin. Add `require('@dracor/react/ceteicean')` to the plugins array of your
  * tailwind.config.js.
  */
-export default function TEIText({url}: Props) {
+export default function TEIText({ url }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

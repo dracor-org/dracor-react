@@ -9,12 +9,12 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     withRouter,
-    (story) => <div className="p-4 bg-primary">{story()}</div>
+    (story) => <div className="p-4 bg-primary">{story()}</div>,
   ],
   parameters: {
     reactRouter: {
       routing: { path: '/' },
-    }
+    },
   },
 } satisfies Meta<typeof NavMenu>;
 
@@ -26,7 +26,7 @@ export const Simple: Story = {
     label: 'Things',
     items: [
       { label: 'Foo', href: '/foo' },
-      { label: 'Bar', href: '/bar'},
+      { label: 'Bar', href: '/bar' },
       { label: 'Lorem ipsum dolor', href: '/lorem' },
     ],
   },

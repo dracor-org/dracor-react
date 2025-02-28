@@ -12,7 +12,7 @@ const config = {
         neutral: {
           100: '#ebf0f7',
           200: '#1f244809',
-        }
+        },
       },
       typography: {
         DEFAULT: {
@@ -32,7 +32,7 @@ const config = {
             },
             a: {
               color: '#08f',
-                '&:hover': {
+              '&:hover': {
                 color: '#0056b3',
               },
               fontWeight: '400',
@@ -52,6 +52,6 @@ const config = {
       },
     },
   },
-}
+};
 
 module.exports = plugin(() => {}, config);

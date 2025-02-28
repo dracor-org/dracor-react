@@ -17,10 +17,10 @@ export interface Props {
   menuClass?: string;
 }
 
-export default function NavMenu ({label, items, menuClass}: Props) {
+export default function NavMenu({ label, items, menuClass }: Props) {
   const location = useLocation();
 
-  function isActive ({href, selected }: Item) {
+  function isActive({ href, selected }: Item) {
     if (selected !== undefined) {
       return selected;
     }
@@ -58,9 +58,7 @@ export default function NavMenu ({label, items, menuClass}: Props) {
                 {({ active }) => (
                   <Link
                     to={item.href}
-                    className={`${
-                      active ? 'bg-blue-100' : ''
-                    } ${
+                    className={`${active ? 'bg-blue-100' : ''} ${
                       isActive(item) ? 'bg-blue-300 text-white' : ''
                     } text-gray-900 group flex w-full items-center rounded-md px-2 py-1 text-sm`}
                   >

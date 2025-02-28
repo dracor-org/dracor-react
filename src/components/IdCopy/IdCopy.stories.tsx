@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     children: 'Q782653',
-    prefix: 'https://www.wikidata.org/entity/'
+    prefix: 'https://www.wikidata.org/entity/',
   },
 };
 

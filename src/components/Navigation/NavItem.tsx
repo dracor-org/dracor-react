@@ -7,7 +7,7 @@ export interface Props {
   className?: string;
 }
 
-export default function NavItem ({label, href, active, className}: Props) {
+export default function NavItem({ label, href, active, className }: Props) {
   return (
     <Link to={href} className={itemClassNames(active, className)}>
       {label}
@@ -15,13 +15,11 @@ export default function NavItem ({label, href, active, className}: Props) {
   );
 }
 
-export function itemClassNames (
+export function itemClassNames(
   active: boolean = false,
   className: string = ''
 ): string {
   return `block md:inline-block justify-center text-white hover:text-blue-100
     uppercase
-    ${
-      active ? 'border-b-4' : ''
-    } ${className}`;
+    ${active ? 'border-b-4' : ''} ${className}`;
 }

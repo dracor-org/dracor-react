@@ -9,12 +9,12 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     withRouter,
-    (story) => <div className="p-4 bg-primary inline-block">{story()}</div>
+    (story) => <div className="p-4 bg-primary inline-block">{story()}</div>,
   ],
   parameters: {
     reactRouter: {
       routing: { path: '/' },
-    }
+    },
   },
 } satisfies Meta<typeof NavItem>;
 

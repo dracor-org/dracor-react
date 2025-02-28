@@ -18,7 +18,7 @@ interface Play {
   author: {
     name: string;
     ref: string;
-  },
+  };
   year: number;
 }
 
@@ -28,9 +28,9 @@ const data: Play[] = [
     title: 'Emilia Galotti',
     author: {
       name: 'Lessing, Gotthold Ephraim',
-      ref: ''
+      ref: '',
     },
-    year: 1772
+    year: 1772,
   },
   {
     id: 'ita000110',
@@ -39,7 +39,7 @@ const data: Play[] = [
       name: 'Metastasio, Pietro',
       ref: 'Q29473',
     },
-    year: 1751
+    year: 1751,
   },
 ];
 
@@ -62,7 +62,6 @@ const columns: ColumnDef<Play>[] = [
     accessorFn: (row) => row.year,
     cell: (info) => info.row.original.year,
   },
-
 ];
 
 export const Basic: Story = {

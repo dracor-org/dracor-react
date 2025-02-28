@@ -1,12 +1,17 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  classnames, display, width, textTransform, flexGrow, alignItems
+  classnames,
+  display,
+  width,
+  textTransform,
+  flexGrow,
+  alignItems,
 } from 'tailwindcss-classnames';
-import NavItem, { Props as NavItemProps} from './NavItem';
-import NavMenu, { Props as NavMenuProps} from './NavMenu';
+import NavItem, { Props as NavItemProps } from './NavItem';
+import NavMenu, { Props as NavMenuProps } from './NavMenu';
 
 export interface NavBarProps {
   title: string;
@@ -15,22 +20,22 @@ export interface NavBarProps {
   version?: string;
   gitHubUrl?: string;
   gitHubIcon?: JSX.Element;
-  navItems?: (NavItemProps|NavMenuProps)[];
+  navItems?: (NavItemProps | NavMenuProps)[];
 }
 
-export default function NavBar ({
+export default function NavBar({
   title,
   logo,
   logoClass,
   version,
   gitHubUrl,
   gitHubIcon,
-  navItems
+  navItems,
 }: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
   const location = useLocation();
 
-  function isActive ({href, active}: NavItemProps) {
+  function isActive({ href, active }: NavItemProps) {
     if (active !== undefined) {
       return active;
     }
@@ -41,7 +46,7 @@ export default function NavBar ({
     display('block', 'md:flex', { hidden: !showNav }),
     flexGrow('grow'),
     alignItems('md:items-center'),
-    width('w-full', 'md:w-auto'),
+    width('w-full', 'md:w-auto')
   );
 
   return (
@@ -73,19 +78,22 @@ export default function NavBar ({
       <div className={menuWrapperClasses}>
         {navItems?.length && (
           <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col gap-4">
-            {navItems.map((item) => (
-              'items' in item
-                ? <NavMenu
-                    key={item.label}
-                    label={item.label}
-                    items={item.items}
-                  />
-                : <NavItem
-                    key={item.label}
-                    label={item.label}
-                    href={item.href}
-                    active={isActive(item)} />
-            ))}
+            {navItems.map((item) =>
+              'items' in item ? (
+                <NavMenu
+                  key={item.label}
+                  label={item.label}
+                  items={item.items}
+                />
+              ) : (
+                <NavItem
+                  key={item.label}
+                  label={item.label}
+                  href={item.href}
+                  active={isActive(item)}
+                />
+              )
+            )}
           </div>
         )}
         {gitHubUrl && (
@@ -95,14 +103,15 @@ export default function NavBar ({
               title="EcoCor Github"
               className="text-white text-2xl"
             >
-              {gitHubIcon
-                ? gitHubIcon
-                : <FontAwesomeIcon icon={faGithub} size="2xl" />
-              }
+              {gitHubIcon ? (
+                gitHubIcon
+              ) : (
+                <FontAwesomeIcon icon={faGithub} size="2xl" />
+              )}
             </a>
           </div>
         )}
       </div>
     </nav>
   );
-};
+}

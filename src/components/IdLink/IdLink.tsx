@@ -10,13 +10,13 @@ const types = [
     schema: 'dracor',
     label: 'DraCor',
     url: 'https://dracor.org/id',
-    classes: 'pl-[23px] bg-dracor bg-[length:13px]'
+    classes: 'pl-[23px] bg-dracor bg-[length:13px]',
   },
   {
     schema: 'wega',
     label: 'Carl-Maria-von-Weber-Gesamtausgabe (WeGA)',
     url: 'https://weber-gesamtausgabe.de',
-    classes: 'pl-[23px] bg-wega bg-[length:13px]'
+    classes: 'pl-[23px] bg-wega bg-[length:13px]',
   },
   {
     schema: 'isni',
@@ -40,12 +40,14 @@ export interface Props {
 }
 
 export default function IdLink({ showLabel, children, className }: Props) {
-  let spanClasses = 'inline-flex bg-white bg-no-repeat bg-[5px] rounded px-1.5 gap-1 align-text-bottom';
+  let spanClasses =
+    'inline-flex bg-white bg-no-repeat bg-[5px] rounded px-1.5 gap-1 align-text-bottom';
 
   let id;
-  const type = types.find(({pattern, url, schema}) => {
+  const type = types.find(({ pattern, url, schema }) => {
     const rx = new RegExp(
-      `^(?:${pattern || url}/|${schema}:)([a-z\\d]+)$`, 'i'
+      `^(?:${pattern || url}/|${schema}:)([a-z\\d]+)$`,
+      'i'
     );
     const m = children.match(rx);
     if (m) {
@@ -59,9 +61,9 @@ export default function IdLink({ showLabel, children, className }: Props) {
     return <span className={spanClasses}>{children}</span>;
   }
 
-  const {url, label, schema, classes = ''} = type;
+  const { url, label, schema, classes = '' } = type;
 
-  spanClasses += ` ${classes}`
+  spanClasses += ` ${classes}`;
 
   return (
     <span className={spanClasses}>

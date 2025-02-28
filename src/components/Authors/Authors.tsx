@@ -7,18 +7,18 @@ interface Author {
 }
 
 export interface Props {
-  data: Author[]
-};
+  data: Author[];
+}
 
-const Authors = ({data}: Props) => {
+const Authors = ({ data }: Props) => {
   return (
     <>
       {data.map((author, i) => (
         <span key={`${i}-${author.name}`}>
-          {i > 0 &&  <br/> }
+          {i > 0 && <br />}
           {author.name}
-          {author.pseudonym && (<i> ({author.pseudonym})</i>)}
-          {(author.ref) && (
+          {author.pseudonym && <i> ({author.pseudonym})</i>}
+          {author.ref && (
             <>
               {' '}
               <small>

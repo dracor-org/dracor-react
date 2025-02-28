@@ -46,13 +46,13 @@ export const RDF: Story = {
 export const NoType: Story = {
   args: {
     href: 'data:text/csv;charset=utf-8;base64,aWQsbmFtZSx0eXBlLG92ZXJhbGxGcmVxdWVuY3kNClExMTY4ODY5Nywic29sZSIsQW5pbWFsLDM5DQpRMzAwOTAyNDQsImJlYXIiLEFuaW1hbCwxMDkNClEyOTM0LCJnb2F0IixBbmltYWwsMg==',
-    name: 'entities.csv'
+    name: 'entities.csv',
   },
 };
 
 export const EmptyName: Story = {
   args: {
     href: 'data:text/csv;charset=utf-8;base64,aWQsbmFtZSx0eXBlLG92ZXJhbGxGcmVxdWVuY3kNClExMTY4ODY5Nywic29sZSIsQW5pbWFsLDM5DQpRMzAwOTAyNDQsImJlYXIiLEFuaW1hbCwxMDkNClEyOTM0LCJnb2F0IixBbmltYWwsMg==',
-    name: ''
+    name: '',
   },
 };

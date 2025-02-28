@@ -1,4 +1,4 @@
-export function formatEra (year: string, ceBefore = 0) {
+export function formatEra(year: string, ceBefore = 0) {
   if (year === null) {
     return '';
   }
@@ -16,11 +16,11 @@ export function formatEra (year: string, ceBefore = 0) {
   return String(y);
 }
 
-export function formatYear (year: number | string, locale = 'en-GB') {
-  const yearString = `${year}`
+export function formatYear(year: number | string, locale = 'en-GB') {
+  const yearString = `${year}`;
   // range, both BCE
   if (yearString.match('^-[0-9]{4}/-[0-9]{4}$')) {
-    const years = yearString.split('/').map(y => parseInt(y, 10) * -1);
+    const years = yearString.split('/').map((y) => parseInt(y, 10) * -1);
     return `${years[0]}-${years[1]} BCE`;
   }
 
@@ -33,7 +33,7 @@ export function formatYear (year: number | string, locale = 'en-GB') {
   // YYYY-MM
   if (yearString.match('^[0-9]{4}-[0-9]{2}$')) {
     const date = new Date(yearString);
-    return date.toLocaleDateString(locale, {month: 'long', year: 'numeric'});
+    return date.toLocaleDateString(locale, { month: 'long', year: 'numeric' });
   }
 
   // YYYY-MM-DD
@@ -42,7 +42,7 @@ export function formatYear (year: number | string, locale = 'en-GB') {
     return date.toLocaleDateString(locale, {
       day: 'numeric',
       month: 'long',
-      year: 'numeric'
+      year: 'numeric',
     });
   }
 

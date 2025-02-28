@@ -1,7 +1,7 @@
 const { textAlign } = require('tailwindcss-classnames');
 const plugin = require('tailwindcss/plugin');
 
-module.exports = plugin(({addBase, addComponents, theme}) => {
+module.exports = plugin(({ addBase, addComponents, theme }) => {
   addBase({
     'tei-div': {
       display: 'block',

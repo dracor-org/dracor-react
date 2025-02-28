@@ -1,35 +1,36 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import IdLink from '../IdLink';
-import {formatYear} from '../../utils';
+import { formatYear } from '../../utils';
 
 const endpoint = 'https://query.wikidata.org/sparql';
 
-const commonsIcon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='102' height='137' viewBox='-305 -516 610 820'%3E%3Ctitle%3EWikimedia Commons Logo%3C/title%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Ccircle r='298'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle r='100' fill='%23900'/%3E%3Cg fill='%23069'%3E%3Cg id='arrow' clip-path='url(%23c)'%3E%3Cpath d='m-11 180v118h22v-118'/%3E%3Cpath d='m-43 185l43-75 43 75'/%3E%3C/g%3E%3Cg id='arrows3'%3E%3Cuse xlink:href='%23arrow' transform='rotate(45)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(90)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(135)'/%3E%3C/g%3E%3Cuse xlink:href='%23arrows3' transform='scale(-1 1)'/%3E%3Cpath id='blue_path' transform='rotate(-45)' stroke='%23069' stroke-width='84' fill='none' d='M 0,-256 A 256 256 0 1 0 256,0 C 256,-100 155,-150 250,-275'/%3E%3Cpath id='arrow_top' d='m-23-515s-36 135-80 185 116-62 170-5-90-180-90-180z'/%3E%3C/g%3E%3C/svg%3E";
+const commonsIcon =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='102' height='137' viewBox='-305 -516 610 820'%3E%3Ctitle%3EWikimedia Commons Logo%3C/title%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Ccircle r='298'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle r='100' fill='%23900'/%3E%3Cg fill='%23069'%3E%3Cg id='arrow' clip-path='url(%23c)'%3E%3Cpath d='m-11 180v118h22v-118'/%3E%3Cpath d='m-43 185l43-75 43 75'/%3E%3C/g%3E%3Cg id='arrows3'%3E%3Cuse xlink:href='%23arrow' transform='rotate(45)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(90)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(135)'/%3E%3C/g%3E%3Cuse xlink:href='%23arrows3' transform='scale(-1 1)'/%3E%3Cpath id='blue_path' transform='rotate(-45)' stroke='%23069' stroke-width='84' fill='none' d='M 0,-256 A 256 256 0 1 0 256,0 C 256,-100 155,-150 250,-275'/%3E%3Cpath id='arrow_top' d='m-23-515s-36 135-80 185 116-62 170-5-90-180-90-180z'/%3E%3C/g%3E%3C/svg%3E";
 
 export interface Props {
   wikidataId: string;
   name?: string;
   birthLabel?: string;
   deathLabel?: string;
-};
+}
 
 interface Info {
-  name: string
-  imageUrl?: string
-  commonsPage?: string
-  birth?: string[]
-  death?: string[]
-  gender?: string
-};
+  name: string;
+  imageUrl?: string;
+  commonsPage?: string;
+  birth?: string[];
+  death?: string[];
+  gender?: string;
+}
 
 export default function AuthorInfo({
   wikidataId,
   name: fullname,
   birthLabel = 'b.',
-  deathLabel = 'd.'
+  deathLabel = 'd.',
 }: Props) {
-  const [info, setInfo] = useState<Info|null>(null);
+  const [info, setInfo] = useState<Info | null>(null);
 
   useEffect(() => {
     async function fetchInfo(id: string) {
@@ -99,20 +100,20 @@ WHERE {
           console.log(response.status);
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
 
     if (wikidataId) fetchInfo(wikidataId);
   }, [wikidataId]);
 
-  const {name, imageUrl, commonsPage, birth = [], death = []} = info || {};
+  const { name, imageUrl, commonsPage, birth = [], death = [] } = info || {};
 
   return (
     <div className="flex whitespace-nowrap">
       <div
         className="relative w-[5em] h-[6em] overflow-hidden bg-author bg-no-repeat bg-center bg-primary rounded-md border-2 border-primary mr-4"
-        style={{backgroundSize: '70%'}}
+        style={{ backgroundSize: '70%' }}
       >
         {imageUrl && (
           <img
@@ -144,9 +145,17 @@ WHERE {
             <IdLink>{`wikidata:${wikidataId}`}</IdLink>
           </div>
         )}
-        {birth.length > 0 && <div>{birthLabel} {birth.join(', ')}</div>}
-        {death.length > 0 && <div>{deathLabel} {death.join(', ')}</div>}
+        {birth.length > 0 && (
+          <div>
+            {birthLabel} {birth.join(', ')}
+          </div>
+        )}
+        {death.length > 0 && (
+          <div>
+            {deathLabel} {death.join(', ')}
+          </div>
+        )}
       </span>
     </div>
   );
-};
+}

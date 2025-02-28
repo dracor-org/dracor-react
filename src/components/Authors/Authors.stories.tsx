@@ -13,9 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Single: Story = {
   args: {
-    data: [
-      { name: 'William Shakespeare' },
-    ]
+    data: [{ name: 'William Shakespeare' }],
   },
 };
 
@@ -24,10 +22,10 @@ export const WithLink: Story = {
     data: [
       {
         name: 'William Shakespeare',
-        ref: 'https://www.wikidata.org/entity/Q692'
+        ref: 'https://www.wikidata.org/entity/Q692',
       },
-    ]
-  }
+    ],
+  },
 };
 
 export const WithPseudonym: Story = {
@@ -36,10 +34,10 @@ export const WithPseudonym: Story = {
       {
         name: 'Alfred Henschke',
         pseudonym: 'Klabund',
-        ref: 'https://www.wikidata.org/entity/Q61263'
+        ref: 'https://www.wikidata.org/entity/Q61263',
       },
-    ]
-  }
+    ],
+  },
 };
 
 export const MultipleAuthors: Story = {
@@ -48,12 +46,12 @@ export const MultipleAuthors: Story = {
       {
         name: 'Jean-Baptiste Poquelin',
         pseudonym: 'Molière',
-        ref: 'wikidata:Q687'
+        ref: 'wikidata:Q687',
       },
       {
         name: 'Jean-Baptiste Lully',
-        ref: 'wikidata:Q1192'
+        ref: 'wikidata:Q1192',
       },
-    ]
-  }
+    ],
+  },
 };
