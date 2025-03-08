@@ -30,7 +30,7 @@ const types = [
   },
 ];
 
-type LinkType = 'isni' | 'pnd' | 'wikidata';
+// type LinkType = 'isni' | 'pnd' | 'wikidata';
 
 export interface Props {
   button?: boolean;
@@ -61,7 +61,7 @@ export default function IdLink({ showLabel, children, className }: Props) {
     return <span className={spanClasses}>{children}</span>;
   }
 
-  const { url, label, schema, classes = '' } = type;
+  const { url, label, classes = '' } = type;
 
   spanClasses += ` ${classes}`;
 

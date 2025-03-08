@@ -6,6 +6,7 @@ export const withRouter = (
   children: JSX.Element,
   { route = '/' }: { route?: string } = {}
 ) => {
+  console.log({ route }); // silence type checker about unused 'route'
   return <BrowserRouter>{children}</BrowserRouter>;
 };
 

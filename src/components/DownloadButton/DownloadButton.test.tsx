@@ -1,4 +1,4 @@
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { composeStory } from '@storybook/react';
 import Meta, { CSV as CsvStory } from './DownloadButton.stories';
 
