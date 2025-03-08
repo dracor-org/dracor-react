@@ -24,3 +24,19 @@ export const WithUri: Story = {
     uri: 'https://www.wikidata.org/entity/Q42',
   },
 };
+
+export const Einakter: Story = {
+  args: {
+    children: 'ein00123',
+    prefix: 'https://einakter.dracor.org/id/',
+    icon: 'ein',
+  },
+};
+
+export const Dracor: Story = {
+  args: {
+    children: 'ger000088',
+    prefix: 'https://dracor.org/id/',
+    icon: 'dracor',
+  },
+};

@@ -1,5 +1,7 @@
 export { default as Bibtex } from './Bibtex';
 export { default as Csv } from './Csv';
+export { default as Dracor } from './Dracor';
+export { default as Ein } from './Ein';
 export { default as Gexf } from './Gexf';
 export { default as Graphml } from './Graphml';
 export { default as Json } from './Json';

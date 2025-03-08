@@ -30,7 +30,7 @@
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate-icon-components": "svgr --typescript --out-dir src/components/icons src/icons",
+    "generate-icon-components": "svgr --typescript --jsx-runtime automatic --ignore-existing --out-dir src/components/icons src/icons",
     "release": "./prepublish.sh && yarn publish --access public"
   },
   "devDependencies": {
