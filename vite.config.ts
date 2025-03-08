@@ -2,6 +2,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import dts from 'vite-plugin-dts';
 
 // https://vite.dev/config/
@@ -29,15 +30,14 @@ export default defineConfig({
         'react-helmet-async',
         'react-router-dom',
         'swagger-ui-react',
+        'tailwindcss',
         'tailwindcss-classnames',
-
-        // 'tailwindcss',
       ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          // tailwindcss: 'tailwindcss',
+          tailwindcss: 'tailwindcss',
         },
       },
     },
@@ -46,6 +46,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    tailwindcss(),
     dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
   ],
   test: {

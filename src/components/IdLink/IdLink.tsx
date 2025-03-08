@@ -41,7 +41,7 @@ export interface Props {
 
 export default function IdLink({ showLabel, children, className }: Props) {
   let spanClasses =
-    'inline-flex bg-white bg-no-repeat bg-[5px] rounded px-1.5 gap-1 align-text-bottom';
+    'inline-flex bg-white bg-no-repeat bg-[5px] rounded-sm px-1.5 gap-1 align-text-bottom';
 
   let id;
   const type = types.find(({ pattern, url, schema }) => {

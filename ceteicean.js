@@ -1,4 +1,3 @@
-const { textAlign } = require('tailwindcss-classnames');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = plugin(({ addBase, addComponents, theme }) => {
@@ -18,9 +17,6 @@ module.exports = plugin(({ addBase, addComponents, theme }) => {
       display: 'block',
       marginBottom: theme('spacing.6'),
     },
-  });
-
-  addComponents({
     'tei-front > tei-titlepage > tei-doctitle': {
       display: 'block',
       textAlign: 'center',

@@ -22,7 +22,7 @@ export default function IdCopy({
   const text = uri || `${prefix || defaultPrefix}${id}`;
   return (
     <span
-      className={`inline-flex bg-white rounded px-1.5 gap-1 align-text-bottom cursor-pointer ${className}`}
+      className={`inline-flex bg-white rounded-sm px-1.5 gap-1 align-text-bottom cursor-pointer ${className}`}
     >
       <CopyToClipboard text={text}>
         <span title="copy to clipboard">

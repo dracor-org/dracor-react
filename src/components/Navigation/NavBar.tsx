@@ -76,7 +76,7 @@ export default function NavBar({
 
       <div className={menuWrapperClasses}>
         {navItems?.length && (
-          <div className="my-2 md:flex-grow md:flex-row flex justify-center flex-col gap-4">
+          <div className="my-2 md:grow md:flex-row flex justify-center flex-col gap-4">
             {navItems.map((item) =>
               'items' in item ? (
                 <NavMenu
