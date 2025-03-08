@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import IdLink from '../IdLink';
 import { formatYear } from '../../utils';
 
@@ -54,51 +53,57 @@ WHERE {
 `;
 
       const url = `${endpoint}?query=${encodeURIComponent(sparql)}`;
+      const opts = {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+        },
+      };
 
       try {
-        const response = await axios.get(url);
-        if (response.status === 200) {
-          const sparqlResults = response.data.results?.bindings || [];
-
-          const {
-            authorLabel,
-            img,
-            birthDate,
-            birthPlaceLabel,
-            deathDate,
-            deathPlaceLabel,
-          } = sparqlResults[0];
-
-          const birth = [];
-          const death = [];
-
-          if (birthDate?.value) {
-            birth.push(
-              formatYear(birthDate?.value.replace(/^(-?\d{4}).*$/, '$1'))
-            );
-          }
-          if (birthPlaceLabel?.value) birth.push(birthPlaceLabel.value);
-
-          if (deathDate?.value) {
-            death.push(
-              formatYear(deathDate?.value.replace(/^(-?\d{4}).*$/, '$1'))
-            );
-          }
-          if (deathPlaceLabel?.value) death.push(deathPlaceLabel.value);
-
-          const aInfo: Info = { name: authorLabel.value, birth, death };
-
-          if (img?.value) {
-            aInfo.imageUrl = img.value.replace(/^http:/, 'https:');
-            aInfo.commonsPage = img.value
-              .replace(/Special:FilePath\//, 'File:')
-              .replace(/^http:/, 'https:');
-          }
-
-          setInfo(aInfo);
-        } else {
+        const response = await fetch(url, opts);
+        if (response.status !== 200) {
           console.log(response.status);
+          return;
         }
+        const data = await response.json();
+        const sparqlResults = data.results?.bindings || [];
+        const {
+          authorLabel,
+          img,
+          birthDate,
+          birthPlaceLabel,
+          deathDate,
+          deathPlaceLabel,
+        } = sparqlResults[0];
+
+        const birth = [];
+        const death = [];
+
+        if (birthDate?.value) {
+          birth.push(
+            formatYear(birthDate?.value.replace(/^(-?\d{4}).*$/, '$1'))
+          );
+        }
+        if (birthPlaceLabel?.value) birth.push(birthPlaceLabel.value);
+
+        if (deathDate?.value) {
+          death.push(
+            formatYear(deathDate?.value.replace(/^(-?\d{4}).*$/, '$1'))
+          );
+        }
+        if (deathPlaceLabel?.value) death.push(deathPlaceLabel.value);
+
+        const aInfo: Info = { name: authorLabel.value, birth, death };
+
+        if (img?.value) {
+          aInfo.imageUrl = img.value.replace(/^http:/, 'https:');
+          aInfo.commonsPage = img.value
+            .replace(/Special:FilePath\//, 'File:')
+            .replace(/^http:/, 'https:');
+        }
+
+        setInfo(aInfo);
       } catch (error) {
         console.log(error);
       }
