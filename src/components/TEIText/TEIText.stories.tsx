@@ -16,3 +16,9 @@ export const MobyDick: Story = {
     url: 'moby-dick.xml',
   },
 };
+
+export const DracorOdd: Story = {
+  args: {
+    url: 'https://raw.githubusercontent.com/dracor-org/dracor-schema/refs/heads/main/dracor.odd',
+  },
+};
