@@ -2,13 +2,6 @@ import { JSX, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  classnames,
-  display,
-  width,
-  flexGrow,
-  alignItems,
-} from 'tailwindcss-classnames';
 import NavItem, { Props as NavItemProps } from './NavItem';
 import NavMenu, { Props as NavMenuProps } from './NavMenu';
 
@@ -43,13 +36,6 @@ export default function NavBar({
     return location.pathname.startsWith(href);
   }
 
-  const menuWrapperClasses = classnames(
-    display('block', 'md:flex', { hidden: !showNav }),
-    flexGrow('grow'),
-    alignItems('md:items-center'),
-    width('w-full', 'md:w-auto')
-  );
-
   return (
     <nav className="flex items-center justify-between flex-wrap p-4 bg-primary text-white font-medium">
       <Link to="/">
@@ -76,7 +62,9 @@ export default function NavBar({
         </button>
       </div>
 
-      <div className={menuWrapperClasses}>
+      <div
+        className={`block md:flex grow md:items-center w-full md:w-auto ${!showNav ? 'hidden' : ''}`}
+      >
         {navItems?.length && (
           <div className="my-2 md:grow md:flex-row flex justify-center flex-col gap-4">
             {navItems.map((item) =>

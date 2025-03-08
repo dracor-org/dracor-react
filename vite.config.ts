@@ -31,7 +31,6 @@ export default defineConfig({
         'react-router-dom',
         'swagger-ui-react',
         'tailwindcss',
-        'tailwindcss-classnames',
       ],
       output: {
         globals: {
