@@ -1,8 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap')
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '../tailwind';
+@plugin '../ceteicean';
+
+@theme {
+  --animate-spin-slow: reverse-spin 120s linear infinite;
+
+  @keyframes reverse-spin {
+    from {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   body {
@@ -17,7 +47,7 @@
   }
 
   table {
-    @apply -mx-4 -mb-4 flex-grow;
+    @apply -mx-4 -mb-4 grow;
   }
 
   th {
@@ -33,6 +63,6 @@
   }
 
   input {
-    @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 mb-4;
+    @apply shadow-sm appearance-none border rounded-sm py-2 px-3 text-gray-700 mb-4;
   }
 }

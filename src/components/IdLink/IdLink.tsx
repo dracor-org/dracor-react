@@ -30,7 +30,7 @@ const types = [
   },
 ];
 
-type LinkType = 'isni' | 'pnd' | 'wikidata';
+// type LinkType = 'isni' | 'pnd' | 'wikidata';
 
 export interface Props {
   button?: boolean;
@@ -41,7 +41,7 @@ export interface Props {
 
 export default function IdLink({ showLabel, children, className }: Props) {
   let spanClasses =
-    'inline-flex bg-white bg-no-repeat bg-[5px] rounded px-1.5 gap-1 align-text-bottom';
+    'inline-flex bg-white bg-no-repeat bg-[5px] rounded-sm px-1.5 gap-1 align-text-bottom';
 
   let id;
   const type = types.find(({ pattern, url, schema }) => {
@@ -61,7 +61,7 @@ export default function IdLink({ showLabel, children, className }: Props) {
     return <span className={spanClasses}>{children}</span>;
   }
 
-  const { url, label, schema, classes = '' } = type;
+  const { url, label, classes = '' } = type;
 
   spanClasses += ` ${classes}`;
 
