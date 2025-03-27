@@ -31,7 +31,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "generate-icon-components": "svgr --typescript --jsx-runtime automatic --ignore-existing --out-dir src/components/icons src/icons",
-    "release": "./prepublish.sh && yarn publish --access public"
+    "release": "./prepublish.sh && pnpm publish --access public"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
@@ -103,10 +103,10 @@
     "react-router-dom": "6.30.0",
     "swagger-ui-react": "^5.20.0"
   },
-  "packageManager": "yarn@4.7.0",
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
 }

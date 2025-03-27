@@ -1,6 +1,6 @@
 # dracor-react
 
-The *DraCor React Component Library* provides reusable [react](https://react.dev)
+The _DraCor React Component Library_ provides reusable [react](https://react.dev)
 components for various [DraCor](https://dracor.org) and related projects.
 
 The components are documented in
@@ -14,6 +14,8 @@ First add the DraCor React components to your react project:
 npm i @dracor/react
 # or
 yarn add @dracor/react
+# or
+pnpm add @dracor/react
 ```
 
 Then adjust your tailwind.config.js to make the DraCor styles available to your
@@ -75,7 +77,7 @@ To release a new version to npmjs.com you need to be a member of the
 [dracor organization](https://www.npmjs.com/org/dracor).
 
 ```sh
-yarn release
+pnpm release
 ```
 
 ## License

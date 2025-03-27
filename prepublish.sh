@@ -8,6 +8,6 @@ if [[ $(git status --porcelain --untracked-files=no) != '' ]]; then
   exit 1
 fi
 
-yarn test --silent
+pnpm test --silent
 rm -r ./dist
-yarn build
+pnpm build
