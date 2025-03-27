@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import ApiDoc from './ApiDoc';
 import 'swagger-ui-react/swagger-ui.css';
 
-const meta = {
+const meta: Meta<typeof ApiDoc> = {
   title: 'Pages/ApiDoc',
   component: ApiDoc,
   tags: ['autodocs'],
@@ -14,7 +14,7 @@ const meta = {
       routing: { path: '/' },
     },
   },
-} satisfies Meta<typeof ApiDoc>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import IdLink from './IdLink';
 
-const meta = {
+const meta: Meta<typeof IdLink> = {
   title: 'Atoms/IdLink',
   component: IdLink,
   tags: ['autodocs'],
-} satisfies Meta<typeof IdLink>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

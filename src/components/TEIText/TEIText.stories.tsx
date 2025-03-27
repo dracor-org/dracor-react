@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import TEIText from './TEIText';
 
-const meta = {
+const meta: Meta<typeof TEIText> = {
   title: 'Pages/TEIText',
   component: TEIText,
   tags: ['autodocs'],
-} satisfies Meta<typeof TEIText>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

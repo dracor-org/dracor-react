@@ -3,7 +3,7 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 
 import NavItem from './NavItem';
 
-const meta = {
+const meta: Meta<typeof NavItem> = {
   title: 'Navigation/NavItem',
   component: NavItem,
   tags: ['autodocs'],
@@ -16,7 +16,7 @@ const meta = {
       routing: { path: '/' },
     },
   },
-} satisfies Meta<typeof NavItem>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

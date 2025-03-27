@@ -3,7 +3,7 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 import einakterGithubIcon from '../../einakter-gh';
 import NavBar from './NavBar';
 
-const meta = {
+const meta: Meta<typeof NavBar> = {
   title: 'Navigation/NavBar',
   component: NavBar,
   tags: ['autodocs'],
@@ -19,7 +19,7 @@ const meta = {
       options: ['dracor.svg', 'ecocor.svg', 'einakter.svg'],
     },
   },
-} satisfies Meta<typeof NavBar>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

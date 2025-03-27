@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import IdCopy from './IdCopy';
 
-const meta = {
+const meta: Meta<typeof IdCopy> = {
   title: 'Atoms/IdCopy',
   component: IdCopy,
   tags: ['autodocs'],
-} satisfies Meta<typeof IdCopy>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

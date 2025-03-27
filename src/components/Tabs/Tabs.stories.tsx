@@ -3,7 +3,7 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 
 import Tabs from './Tabs';
 
-const meta = {
+const meta: Meta<typeof Tabs> = {
   title: 'Organisms/Tabs',
   component: Tabs,
   tags: ['autodocs'],
@@ -16,7 +16,7 @@ const meta = {
       routing: { path: '/:page' },
     },
   },
-} satisfies Meta<typeof Tabs>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -3,11 +3,11 @@ import { ColumnDef } from '@tanstack/react-table';
 
 import Table from './Table';
 
-const meta = {
+const meta: Meta<typeof Table> = {
   title: 'Organisms/Table',
   component: Table,
   tags: ['autodocs'],
-} satisfies Meta<typeof Table>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

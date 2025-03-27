@@ -3,7 +3,7 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 
 import NavMenu from './NavMenu';
 
-const meta = {
+const meta: Meta<typeof NavMenu> = {
   title: 'Navigation/NavMenu',
   component: NavMenu,
   tags: ['autodocs'],
@@ -16,7 +16,7 @@ const meta = {
       routing: { path: '/' },
     },
   },
-} satisfies Meta<typeof NavMenu>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

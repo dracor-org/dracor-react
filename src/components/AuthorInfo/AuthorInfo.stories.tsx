@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import AuthorInfo from './AuthorInfo';
 
-const meta = {
+const meta: Meta<typeof AuthorInfo> = {
   title: 'Organisms/AuthorInfo',
   component: AuthorInfo,
   tags: ['autodocs'],
-} satisfies Meta<typeof AuthorInfo>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

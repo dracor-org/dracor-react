@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import DownloadButton from './DownloadButton';
 
-const meta = {
+const meta: Meta<typeof DownloadButton> = {
   title: 'Atoms/DownloadButton',
   component: DownloadButton,
   tags: ['autodocs'],
-} satisfies Meta<typeof DownloadButton>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
