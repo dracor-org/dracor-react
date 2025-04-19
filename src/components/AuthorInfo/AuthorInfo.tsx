@@ -117,7 +117,7 @@ WHERE {
   return (
     <div className="flex whitespace-nowrap">
       <div
-        className="relative w-[5em] h-[6em] overflow-hidden bg-author bg-no-repeat bg-center bg-primary rounded-md border-2 border-primary mr-4"
+        className="relative w-[5em] h-[6em] overflow-hidden bg-(image:--img-author) bg-no-repeat bg-center bg-primary rounded-md border-2 border-primary mr-4"
         style={{ backgroundSize: '70%' }}
       >
         {imageUrl && (

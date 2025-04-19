@@ -4,19 +4,19 @@ const types = [
     label: 'Wikidata',
     url: 'https://www.wikidata.org/wiki',
     pattern: 'https://www.wikidata.org/(?:wiki|entity)',
-    classes: 'pl-[26px] bg-wikidata bg-[length:17px]',
+    classes: 'pl-[26px] bg-(image:--img-wikidata) bg-[length:17px]',
   },
   {
     schema: 'dracor',
     label: 'DraCor',
     url: 'https://dracor.org/id',
-    classes: 'pl-[23px] bg-dracor bg-[length:13px]',
+    classes: 'pl-[23px] bg-(image:--img-dracor) bg-[length:13px]',
   },
   {
     schema: 'wega',
     label: 'Carl-Maria-von-Weber-Gesamtausgabe (WeGA)',
     url: 'https://weber-gesamtausgabe.de',
-    classes: 'pl-[23px] bg-wega bg-[length:13px]',
+    classes: 'pl-[23px] bg-(image:--img-wega) bg-[length:13px]',
   },
   {
     schema: 'isni',

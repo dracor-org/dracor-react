@@ -10,9 +10,8 @@ export interface Props {
 /**
  * Component rendering a TEI document using [CETEIcean](https://github.com/TEIC/CETEIcean)
  *
- * Styling of the TEI elements is supported via the `ceteicean` tailwindcss
- * plugin. Add `require('@dracor/react/ceteicean')` to the plugins array of your
- * tailwind.config.js.
+ * The DraCor Tailwind theme provides some styling for the TEI elements. Import
+ * the theme adding `@import "@dracor/react/dracor.css";` to your index.css.
  */
 export default function TEIText({ url }: Props) {
   const ref = useRef<HTMLDivElement>(null);

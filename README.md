@@ -18,26 +18,13 @@ yarn add @dracor/react
 pnpm add @dracor/react
 ```
 
-Then adjust your tailwind.config.js to make the DraCor styles available to your
-project:
+Then add the following two lines to your index.css file to import the DraCor
+Tailwind theme and make the tailwind compiler aware of the utility classes the
+DraCor components are using:
 
-```js
-// tailwind.config.js
-module.exports = {
-  // make the library available to the tailwind compiler
-  content: [
-    './node_modules/@dracor/react/**/*.js',
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
-  plugins: [
-    // main DraCor Tailwindcss customization
-    require('@dracor/react/tailwind'),
-    // support CETEIcean markup in the TEIText component
-    require('@dracor/react/ceteicean'),
-  ],
-
-  // ... your customisations
-};
+```css
+@import "@dracor/react/dracor.css";
+@source "../node_modules/@dracor/react";
 ```
 
 ### React Helmet integration
