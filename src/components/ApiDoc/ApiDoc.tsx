@@ -22,15 +22,11 @@ export interface Props {
  * For proper styling the Swagger UI stylesheet needs to be imported:
  *
  * ```
- * import ApiDoc from '@dracor/react/dist/components/ApiDoc';
+ * import {ApiDoc} from '@dracor/react';
  * import 'swagger-ui-react/swagger-ui.css';
  *
  * <ApiDoc url="/api.yaml" />
  * ```
- *
- * Note: Because swagger-ui-react uses package exports which cause problems when
- * loaded into jest we currently do not include the component in the package
- * bundle. It needs to be imported from `@dracor/react/dist/components/ApiDoc`.
  */
 export default function ApiDoc({ url, title }: Props) {
   return (

@@ -46,12 +46,10 @@ export default function Theme() {
       <h2>Animation</h2>
       <p>
         <code>spin-slow</code>
-        <div className="p-3 bg-primary">
+        <span className="p-3 bg-primary inline-block ml-2">
           <img src="/ecocor.svg" alt="EcoCor Logo" width="50" className="animate-spin-slow"/>
-        </div>
+        </span>
       </p>
-      <div className="h-8 border bg-yellow-200 bg-(image:--img-dracor) bg-no-repeat bg-center">
-      </div>
     </>
   );
 }
