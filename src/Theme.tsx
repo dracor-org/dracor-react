@@ -47,7 +47,7 @@ export default function Theme() {
       <p>
         <code>spin-slow</code>
         <span className="p-3 bg-primary inline-block ml-2">
-          <img src="/ecocor.svg" alt="EcoCor Logo" width="50" className="animate-spin-slow"/>
+          <img src="ecocor.svg" alt="EcoCor Logo" width="50" className="animate-spin-slow"/>
         </span>
       </p>
     </>
