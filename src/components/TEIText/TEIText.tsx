@@ -23,7 +23,7 @@ export default function TEIText({ url }: Props) {
       ref.current.removeChild(ref.current.firstChild);
     }
 
-    CETEIcean.getHTML5(url, (data: any) => {
+    CETEIcean.getHTML5(url, (data: never) => {
       ref.current?.appendChild(data);
     });
   }, [url]);
