@@ -5,6 +5,7 @@ export { default as DebouncedInput } from './DebouncedInput';
 export { default as DownloadButton } from './DownloadButton';
 export { default as IdCopy } from './IdCopy';
 export { default as IdLink } from './IdLink';
+export { default as LanguageMenu } from './LanguageMenu';
 export { default as NavBar } from './Navigation';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
