@@ -12,6 +12,7 @@ export interface Props {
   name?: string;
   birthLabel?: string;
   deathLabel?: string;
+  unknownLabel?: string;
 }
 
 interface Info {
@@ -28,10 +29,20 @@ export default function AuthorInfo({
   name: fullname,
   birthLabel = 'b.',
   deathLabel = 'd.',
+  unknownLabel = 'unknown',
 }: Props) {
   const [info, setInfo] = useState<Info | null>(null);
 
   useEffect(() => {
+    function formatDate(value: string): string {
+      // test for unknown values
+      // see https://www.mediawiki.org/wiki/Wikidata_Query_Service/Blank_Node_Skolemization
+      if (value.startsWith('http://www.wikidata.org/.well-known/genid')) {
+        return unknownLabel;
+      }
+      return formatYear(value.replace(/^(-?\d{4}).*$/, '$1'));
+    }
+
     async function fetchInfo(id: string) {
       const sparql = `
 SELECT ?author ?authorLabel ?birthDate ?deathDate ?gender ?genderLabel
@@ -81,16 +92,12 @@ WHERE {
         const death = [];
 
         if (birthDate?.value) {
-          birth.push(
-            formatYear(birthDate?.value.replace(/^(-?\d{4}).*$/, '$1'))
-          );
+          birth.push(formatDate(birthDate.value));
         }
         if (birthPlaceLabel?.value) birth.push(birthPlaceLabel.value);
 
         if (deathDate?.value) {
-          death.push(
-            formatYear(deathDate?.value.replace(/^(-?\d{4}).*$/, '$1'))
-          );
+          death.push(formatDate(deathDate.value));
         }
         if (deathPlaceLabel?.value) death.push(deathPlaceLabel.value);
 
@@ -110,7 +117,7 @@ WHERE {
     }
 
     if (wikidataId) fetchInfo(wikidataId);
-  }, [wikidataId]);
+  }, [wikidataId, unknownLabel]);
 
   const { name, imageUrl, commonsPage, birth = [], death = [] } = info || {};
 

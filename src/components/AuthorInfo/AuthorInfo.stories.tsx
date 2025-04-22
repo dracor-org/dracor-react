@@ -17,3 +17,20 @@ export const Shakespeare: Story = {
     wikidataId: 'Q692',
   },
 };
+
+export const UnknownDate: Story = {
+  args: {
+    name: 'Victor Grayson',
+    wikidataId: 'Q7925945',
+  },
+};
+
+export const Localised: Story = {
+  args: {
+    name: 'Victor Grayson',
+    wikidataId: 'Q7925945',
+    birthLabel: 'geb.',
+    deathLabel: 'gest.',
+    unknownLabel: 'unbekannt',
+  },
+};
