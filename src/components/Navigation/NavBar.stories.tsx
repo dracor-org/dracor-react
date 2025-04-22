@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import einakterGithubIcon from '../../einakter-gh';
 import NavBar from './NavBar';
+import LanguageMenu from '../LanguageMenu/LanguageMenu';
 
 const meta: Meta<typeof NavBar> = {
   title: 'Navigation/NavBar',
@@ -69,6 +70,13 @@ export const Einakter: Story = {
       { label: 'Originals', href: '/originals' },
       { label: 'About', href: '/about' },
     ],
+    addItem: (
+      <LanguageMenu
+        languages={['en', 'de', 'fr']}
+        onSelect={(l) => console.log(l)}
+        current="en"
+      />
+    ),
   },
 };
 

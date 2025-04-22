@@ -14,6 +14,7 @@ export interface NavBarProps {
   gitHubIcon?: JSX.Element;
   gitHubTitle?: string;
   navItems?: (NavItemProps | NavMenuProps)[];
+  addItem?: JSX.Element;
 }
 
 export default function NavBar({
@@ -24,6 +25,7 @@ export default function NavBar({
   gitHubUrl,
   gitHubIcon,
   gitHubTitle,
+  addItem,
   navItems,
 }: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
@@ -85,6 +87,7 @@ export default function NavBar({
             )}
           </div>
         )}
+        {addItem}
         {gitHubUrl && (
           <div>
             <a
