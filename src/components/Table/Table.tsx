@@ -12,8 +12,8 @@ import {
 import DebouncedInput from '../DebouncedInput';
 
 export interface Props {
-  data: any[];
-  columns: ColumnDef<any>[];
+  data: unknown[];
+  columns: ColumnDef<unknown>[];
   defaultSort?: SortingState;
 }
 
