@@ -1,7 +1,13 @@
 import { Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { Menu, Transition } from '@headlessui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuItems,
+  MenuItem,
+  Transition,
+} from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
 import { itemClassNames } from './NavItem';
 
@@ -32,7 +38,7 @@ export default function NavMenu({ label, items, menuClass }: Props) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className={itemClassNames(active, menuClass)}>
+        <MenuButton className={itemClassNames(active, menuClass)}>
           {label}
           <FontAwesomeIcon
             icon={faCaretDown}
@@ -40,7 +46,7 @@ export default function NavMenu({ label, items, menuClass }: Props) {
             size="sm"
             aria-hidden="true"
           />
-        </Menu.Button>
+        </MenuButton>
       </div>
       <Transition
         as={Fragment}
@@ -51,24 +57,25 @@ export default function NavMenu({ label, items, menuClass }: Props) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute left-0 mt-2 min-w-fit whitespace-nowrap origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden">
+        <MenuItems className="absolute left-0 mt-2 min-w-fit whitespace-nowrap origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg focus:outline-hidden">
           <div className="px-1 py-1">
             {items.map((item) => (
-              <Menu.Item key={item.href}>
-                {({ active }) => (
-                  <Link
-                    to={item.href}
-                    className={`${active ? 'bg-blue-100' : ''} ${
-                      isActive(item) ? 'bg-blue-300 text-white' : ''
-                    } text-gray-900 group flex w-full items-center rounded-md px-2 py-1 text-sm`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </Menu.Item>
+              <MenuItem key={item.href}>
+                <Link
+                  to={item.href}
+                  className={`group flex w-full items-center rounded-sm px-2 py-1
+                    text-sm ${
+                      isActive(item)
+                        ? 'bg-blue-300 text-white font-medium'
+                        : 'text-gray-900 hover:text-gray-900 hover:bg-blue-100'
+                    }`}
+                >
+                  {item.label}
+                </Link>
+              </MenuItem>
             ))}
           </div>
-        </Menu.Items>
+        </MenuItems>
       </Transition>
     </Menu>
   );
