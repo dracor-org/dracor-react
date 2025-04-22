@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { withRouter } from 'storybook-addon-react-router-v6';
+import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import einakterGithubIcon from '../../einakter-gh';
-import NavBar from './NavBar';
 import LanguageMenu from '../LanguageMenu/LanguageMenu';
+import NavBar from './NavBar';
 
 const meta: Meta<typeof NavBar> = {
   title: 'Navigation/NavBar',

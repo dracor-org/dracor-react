@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { withRouter } from 'storybook-addon-react-router-v6';
-
+import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import NavMenu from './NavMenu';
 
 const meta: Meta<typeof NavMenu> = {

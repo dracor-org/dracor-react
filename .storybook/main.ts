@@ -12,7 +12,6 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    'storybook-addon-react-router-v6',
     '@chromatic-com/storybook',
     '@storybook/experimental-addon-test',
     {

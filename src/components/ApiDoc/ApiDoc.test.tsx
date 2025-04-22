@@ -1,5 +1,5 @@
-import { render, act } from '@testing-library/react';
-import { withProviders } from '../../testHelpers';
+import { act } from '@testing-library/react';
+import { renderWithProviders } from '../../testHelpers';
 
 import ApiDoc from './ApiDoc';
 
@@ -8,7 +8,7 @@ describe('ApiDoc', () => {
   // React was rendered..."
   test.skip('renders the ApiDoc component', () => {
     act(() => {
-      render(withProviders(<ApiDoc url="ecocor.yml" title="EcoCor API" />));
+      renderWithProviders('/', <ApiDoc url="ecocor.yml" title="EcoCor API" />);
     });
   });
 });
