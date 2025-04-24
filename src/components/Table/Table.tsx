@@ -11,13 +11,13 @@ import {
 } from '@tanstack/react-table';
 import DebouncedInput from '../DebouncedInput';
 
-export interface Props {
-  data: unknown[];
-  columns: ColumnDef<unknown>[];
+export interface Props<TData = unknown> {
+  data: TData[];
+  columns: ColumnDef<TData>[];
   defaultSort?: SortingState;
 }
 
-const Table = ({ columns, data: initialData, defaultSort = [] }: Props) => {
+function Table<T>({ columns, data: initialData, defaultSort = [] }: Props<T>) {
   const [sorting, setSorting] = useState<SortingState>(defaultSort);
   const [globalFilter, setGlobalFilter] = useState('');
   const [data] = useState(initialData);
@@ -92,7 +92,7 @@ const Table = ({ columns, data: initialData, defaultSort = [] }: Props) => {
       </div>
     </>
   );
-};
+}
 
 export default Table;
 
