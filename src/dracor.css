@@ -107,7 +107,10 @@
 
 /* Basic styling for CETEIcean */
 @layer base {
-  tei-div, tei-p, tei-head, tei-front {
+  tei-div,
+  tei-p,
+  tei-head,
+  tei-front {
     display: block;
   }
   tei-p {
@@ -123,17 +126,17 @@
     text-align: center;
     margin-bottom: var(--spacing-4);
   }
-  tei-doctitle > tei-titlepart[type=main] {
+  tei-doctitle > tei-titlepart[type='main'] {
     font-size: var(--text-2xl);
     margin-top: var(--spacing-3);
     margin-bottom: var(--spacing-3);
   }
-  tei-doctitle > tei-titlepart[type=sub] {
+  tei-doctitle > tei-titlepart[type='sub'] {
     font-size: var(--text-xl);
     margin-top: var(--spacing-3);
     margin-bottom: var(--spacing-3);
   }
-  tei-div[type=chapter] > tei-head {
+  tei-div[type='chapter'] > tei-head {
     font-size: var(--text-xl);
     font-weight: bold;
     margin-top: var(--spacing-8);
