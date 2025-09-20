@@ -67,6 +67,6 @@ const columns: ColumnDef<Play>[] = [
 export const Basic: Story = {
   args: {
     data,
-    columns,
+    columns: columns as ColumnDef<unknown>[],
   },
 };
