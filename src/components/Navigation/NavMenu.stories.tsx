@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import NavMenu from './NavMenu';
 

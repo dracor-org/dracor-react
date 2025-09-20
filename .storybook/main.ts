@@ -11,9 +11,8 @@ const config: StorybookConfig = {
 
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/experimental-addon-test',
+    '@storybook/addon-vitest',
     {
       name: '@storybook/addon-docs',
       options: {
