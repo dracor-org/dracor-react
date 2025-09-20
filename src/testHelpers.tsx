@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import {
   RouterProvider,
+  Outlet,
   createRootRoute,
   createRoute,
   createMemoryHistory,
@@ -61,16 +62,27 @@ export const renderWithProviders = (
 };
 
 export function createStoryRouter(component: () => ReactElement) {
-  const rootRoute = createRootRoute();
+  const rootRoute = createRootRoute({
+    component: () => <Outlet />,
+  });
   const storyRoute = createRoute({
     getParentRoute: () => rootRoute,
-    path: '/*',
+    path: '/',
+    component,
+  });
+
+  const catchAllRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/$', // This catches any remaining paths
     component,
   });
 
   const router = createRouter({
-    routeTree: rootRoute.addChildren([storyRoute]),
+    routeTree: rootRoute.addChildren([storyRoute, catchAllRoute]),
     history: createMemoryHistory({ initialEntries: ['/'] }),
+    defaultNotFoundComponent: () => {
+      return <div>Page not found</div>;
+    },
   });
 
   return <RouterProvider router={router} />;
