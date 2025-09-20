@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
+import { composeStory } from '@storybook/react-vite';
 import Meta, { CSV as CsvStory } from './DownloadButton.stories';
 
 const CsvDownloadButton = composeStory(CsvStory, Meta);

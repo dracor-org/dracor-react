@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
+import { composeStory } from '@storybook/react-vite';
 import Meta, { Shakespeare as ShakespeareStory } from './AuthorInfo.stories';
 
 const ShakespeareInfo = composeStory(ShakespeareStory, Meta);

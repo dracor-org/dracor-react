@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
+import { composeStory } from '@storybook/react-vite';
 import Meta, {
   Single as SingleStory,
   WithLink as WithLinkStory,
