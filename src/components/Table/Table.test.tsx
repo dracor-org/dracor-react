@@ -4,7 +4,7 @@ import Meta, { Basic as BasicStory } from './Table.stories';
 
 const BasicTable = composeStory(BasicStory, Meta);
 
-describe('Years', () => {
+describe('Table', () => {
   test('renders basic Table component', () => {
     render(<BasicTable />);
   });
