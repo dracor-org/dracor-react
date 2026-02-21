@@ -51,6 +51,8 @@ export default function IdLink({ showLabel, children, className }: Props) {
     );
     const m = children.match(rx);
     if (m) {
+      // see https://github.com/facebook/react/issues/31569
+      // eslint-disable-next-line
       id = m[1];
       return true;
     }
