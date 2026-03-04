@@ -1,15 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import NavMenu from './NavMenu';
 
 const meta: Meta<typeof NavMenu> = {
   title: 'Navigation/NavMenu',
   component: NavMenu,
   tags: ['autodocs'],
-  decorators: [
-    withRouter,
-    (story) => <div className="p-4 bg-primary">{story()}</div>,
-  ],
+  decorators: [(story) => <div className="p-4 bg-primary">{story()}</div>],
   parameters: {
     reactRouter: {
       routing: { path: '/' },

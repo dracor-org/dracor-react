@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import einakterGithubIcon from '../../einakter-gh';
 import LanguageMenu from '../LanguageMenu/LanguageMenu';
 import NavBar from './NavBar';
@@ -8,12 +7,6 @@ const meta: Meta<typeof NavBar> = {
   title: 'Navigation/NavBar',
   component: NavBar,
   tags: ['autodocs'],
-  decorators: [withRouter],
-  parameters: {
-    reactRouter: {
-      routing: { path: '/' },
-    },
-  },
   argTypes: {
     logo: {
       control: { type: 'select' },

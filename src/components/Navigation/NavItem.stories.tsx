@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import NavItem from './NavItem';
 
 const meta: Meta<typeof NavItem> = {
@@ -7,7 +6,6 @@ const meta: Meta<typeof NavItem> = {
   component: NavItem,
   tags: ['autodocs'],
   decorators: [
-    withRouter,
     (story) => <div className="p-4 bg-primary inline-block">{story()}</div>,
   ],
   parameters: {

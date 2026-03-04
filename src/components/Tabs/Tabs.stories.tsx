@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { createStoryRouter as withRouter } from '../../../src/testHelpers';
 import Tabs from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Organisms/Tabs',
   component: Tabs,
   tags: ['autodocs'],
-  decorators: [withRouter],
   parameters: {
     reactRouter: {
       location: {
