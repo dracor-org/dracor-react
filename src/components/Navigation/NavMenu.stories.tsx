@@ -17,24 +17,74 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Simple: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/'],
+      routes: ['/', '/foo', '/bar'],
+    },
+  },
   args: {
     label: 'Things',
     items: [
-      { label: 'Foo', href: '/foo' },
-      { label: 'Bar', href: '/bar' },
-      { label: 'Lorem ipsum dolor', href: '/lorem' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Foo', to: '/foo' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Bar', to: '/bar' },
+      { label: 'Lorem ipsum dolor', href: 'https://example.com' },
     ],
   },
 };
 
 export const Active: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/foo'],
+      routes: ['/', '/foo', '/bar'],
+    },
+  },
   args: {
     label: 'Active',
     items: [
-      { label: 'Foo', href: '/foo' },
-      { label: 'Bar', href: '/bar', selected: true },
-      { label: 'Lorem ipsum dolor', href: '/lorem' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Foo', to: '/foo' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Bar', to: '/bar' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Lorem ipsum dolor', to: '/lorem' },
       { label: 'DraCor', href: 'https://dracor.org' },
+    ],
+  },
+};
+
+export const RouteParams: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/corpora/$corpusId'],
+      routes: ['/', '/corpora/$corpusId'],
+      params: { corpusId: 'shake' },
+    },
+  },
+  args: {
+    label: 'Corpora',
+    items: [
+      {
+        label: 'Greek',
+        // @ts-expect-error - FIXME: `to` is not fully typed
+        to: '/corpora/$corpusId',
+        params: { corpusId: 'greek' },
+      },
+      {
+        label: 'Roman',
+        // @ts-expect-error - FIXME: `to` is not fully typed
+        to: '/corpora/$corpusId',
+        params: { corpusId: 'rom' },
+      },
+      {
+        label: 'Shakespeare',
+        // @ts-expect-error - FIXME: `to` is not fully typed
+        to: '/corpora/$corpusId',
+        params: { corpusId: 'shake' },
+      },
     ],
   },
 };

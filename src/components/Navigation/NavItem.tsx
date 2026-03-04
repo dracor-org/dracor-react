@@ -1,25 +1,35 @@
-import { Link } from '@tanstack/react-router';
+import { Link, type LinkProps } from '@tanstack/react-router';
 
-export interface Props {
+export type Props = LinkProps & {
   label: string;
-  href: string;
-  active?: boolean;
   className?: string;
-}
+};
 
-export default function NavItem({ label, href, active, className }: Props) {
+export default function NavItem({ label, to, params, href, className }: Props) {
+  const linkClasses =
+    `block md:inline-block justify-center text-white ` +
+    `hover:text-blue-100 uppercase ${className}`;
+
+  if (href?.startsWith('http') || href?.startsWith('mailto:')) {
+    return (
+      <a
+        href={href}
+        className={linkClasses}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {label}
+      </a>
+    );
+  }
+
   return (
-    <Link to={href} className={itemClassNames(active, className)}>
+    <Link
+      to={to}
+      params={params}
+      className={`[&.active]:border-b-4  ${linkClasses}`}
+    >
       {label}
     </Link>
   );
-}
-
-export function itemClassNames(
-  active: boolean = false,
-  className: string = ''
-): string {
-  return `block md:inline-block justify-center text-white hover:text-blue-100
-    uppercase
-    ${active ? 'border-b-4' : ''} ${className}`;
 }

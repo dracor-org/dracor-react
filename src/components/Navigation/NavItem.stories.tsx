@@ -8,27 +8,34 @@ const meta: Meta<typeof NavItem> = {
   decorators: [
     (story) => <div className="p-4 bg-primary inline-block">{story()}</div>,
   ],
-  parameters: {
-    reactRouter: {
-      routing: { path: '/' },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Home: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/foo'],
+      routes: ['/', '/foo'],
+    },
+  },
   args: {
-    href: '/',
+    to: '/',
     label: 'Home',
   },
 };
 
 export const Active: Story = {
   args: {
-    href: '/',
+    to: '/',
     label: 'Active',
-    active: true,
+  },
+};
+
+export const External: Story = {
+  args: {
+    href: 'https://dracor.org',
+    label: 'DraCor',
   },
 };

@@ -20,11 +20,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Dracor: Story = {
   parameters: {
-    reactRouter: {
-      location: {
-        pathParams: { corpusId: 'shake' },
-      },
-      routing: { path: '/corpora/:corpusId' },
+    router: {
+      initialEntries: ['/'],
+      routes: ['/', '/corpora/$corpusId', '/about', '/howto'],
+      routeParams: { corpusId: 'shake' },
     },
   },
   args: {
@@ -34,23 +33,48 @@ export const Dracor: Story = {
     gitHubTitle: 'DraCor GitHub',
     version: '1.2.3',
     navItems: [
-      { label: 'About', href: '/about' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'About', to: '/about' },
       {
         label: 'Corpora',
         items: [
-          { href: '/corpora/ger', label: 'German Drama Corpus' },
-          { href: '/corpora/shake', label: 'Shakespeare Drama Corpus' },
-          { href: '/corpora/u', label: 'Ukranian Drama Corpus' },
+          {
+            // @ts-expect-error - FIXME: `to` is not fully typed
+            to: '/corpora/$corpusId',
+            params: { corpusId: 'ger' },
+            label: 'German Drama Corpus',
+          },
+          {
+            // @ts-expect-error - FIXME: `to` is not fully typed
+            to: '/corpora/$corpusId',
+            params: { corpusId: 'shake' },
+            label: 'Shakespeare Drama Corpus',
+          },
+          {
+            // @ts-expect-error - FIXME: `to` is not fully typed
+            to: '/corpora/$corpusId',
+            params: { corpusId: 'u' },
+            label: 'Ukranian Drama Corpus',
+          },
         ],
       },
-      { label: 'How To', href: '/howto' },
-      { label: 'Tools', href: '/tools' },
-      { label: 'Merch', href: '/merch' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'How To', to: '/howto' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Tools', to: '/tools' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Merch', to: '/merch' },
     ],
   },
 };
 
 export const Einakter: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/plays'],
+      routes: ['/', '/about', '/locations', '/originals', '/plays'],
+    },
+  },
   args: {
     title: 'Einakter',
     logo: 'einakter.svg',
@@ -58,10 +82,14 @@ export const Einakter: Story = {
     gitHubIcon: einakterGithubIcon,
     version: '1.2.3',
     navItems: [
-      { label: 'Plays', href: '/plays', active: true },
-      { label: 'Locations', href: '/locations' },
-      { label: 'Originals', href: '/originals' },
-      { label: 'About', href: '/about' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Plays', to: '/plays' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Locations', to: '/locations' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Originals', to: '/originals' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'About', to: '/about' },
     ],
     addItem: (
       <LanguageMenu
@@ -75,6 +103,11 @@ export const Einakter: Story = {
 
 export const Ecocor: Story = {
   parameters: {
+    router: {
+      initialEntries: ['/corpora/$corpusId'],
+      routes: ['/', '/about', '/credits', '/imprint', '/corpora/$corpusId'],
+      routeParams: { corpusId: 'en' },
+    },
     reactRouter: {
       location: {
         pathParams: { corpusId: 'en' },
@@ -93,19 +126,33 @@ export const Ecocor: Story = {
       {
         label: 'About',
         items: [
-          { href: '/about', label: 'What is EcoCor' },
-          { href: '/credits', label: 'Credits' },
-          { href: '/imprint', label: 'Imprint and GDPR' },
+          // @ts-expect-error - FIXME: `to` is not fully typed
+          { to: '/about', label: 'What is EcoCor' },
+          // @ts-expect-error - FIXME: `to` is not fully typed
+          { to: '/credits', label: 'Credits' },
+          // @ts-expect-error - FIXME: `to` is not fully typed
+          { to: '/imprint', label: 'Imprint and GDPR' },
         ],
       },
       {
         label: 'Corpora',
         items: [
-          { href: '/corpora/en', label: 'English EcoCor' },
-          { href: '/corpora/de', label: 'German EcoCor' },
+          {
+            label: 'English EcoCor',
+            // @ts-expect-error - FIXME: `to` is not fully typed
+            to: '/corpora/$corpusId',
+            params: { corpusId: 'en' },
+          },
+          {
+            label: 'German EcoCor',
+            // @ts-expect-error - FIXME: `to` is not fully typed
+            to: '/corpora/$corpusId',
+            params: { corpusId: 'de' },
+          },
         ],
       },
-      { label: 'Merch', href: '/merch' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Merch', to: '/merch' },
     ],
   },
 };

@@ -8,14 +8,15 @@ import {
   MenuItem,
   Transition,
 } from '@headlessui/react';
-import { Link, useLocation } from '@tanstack/react-router';
-import { itemClassNames } from './NavItem';
+import { Link, useLocation, type LinkProps } from '@tanstack/react-router';
 
-interface Item {
+const menuLinkClasses =
+  'group flex w-full items-center rounded-sm px-2 py-1 text-sm text-gray-900 ' +
+  'hover:text-gray-900 hover:bg-blue-100';
+
+type Item = LinkProps & {
   label: string;
-  href: string;
-  selected?: boolean;
-}
+};
 
 export interface Props {
   label: string;
@@ -26,11 +27,8 @@ export interface Props {
 export default function NavMenu({ label, items, menuClass }: Props) {
   const location = useLocation();
 
-  function isActive({ href, selected }: Item) {
-    if (selected !== undefined) {
-      return selected;
-    }
-    return location.pathname.startsWith(href);
+  function isActive({ to }: Item) {
+    return to && location.pathname.startsWith(to);
   }
 
   const active = Boolean(items.find((item) => isActive(item)));
@@ -38,7 +36,12 @@ export default function NavMenu({ label, items, menuClass }: Props) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <MenuButton className={itemClassNames(active, menuClass)}>
+        <MenuButton
+          className={
+            'block md:inline-block justify-center text-white ' +
+            `hover:text-blue-100 uppercase ${active ? 'border-b-4' : ''} ${menuClass}`
+          }
+        >
           {label}
           <FontAwesomeIcon
             icon={faCaretDown}
@@ -59,19 +62,29 @@ export default function NavMenu({ label, items, menuClass }: Props) {
       >
         <MenuItems className="absolute left-0 mt-2 min-w-fit whitespace-nowrap origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg focus:outline-hidden">
           <div className="px-1 py-1">
-            {items.map((item) => (
-              <MenuItem key={item.href}>
-                <Link
-                  to={item.href}
-                  className={`group flex w-full items-center rounded-sm px-2 py-1
-                    text-sm ${
-                      isActive(item)
-                        ? 'bg-blue-300 text-white font-medium'
-                        : 'text-gray-900 hover:text-gray-900 hover:bg-blue-100'
-                    }`}
-                >
-                  {item.label}
-                </Link>
+            {items.map(({ to, href, params, label }) => (
+              <MenuItem key={label}>
+                {href?.startsWith('http') || href?.startsWith('mailto:') ? (
+                  <a
+                    href={href}
+                    className={menuLinkClasses}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link
+                    to={to}
+                    params={params}
+                    className={
+                      menuLinkClasses +
+                      ' [&.active]:bg-blue-300 [&.active]:text-white [&.active]:font-medium [&.active]:hover:bg-blue-100 [&.active]:hover:text-gray-900'
+                    }
+                  >
+                    {label}
+                  </Link>
+                )}
               </MenuItem>
             ))}
           </div>

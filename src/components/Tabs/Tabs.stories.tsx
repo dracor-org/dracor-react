@@ -5,25 +5,26 @@ const meta: Meta<typeof Tabs> = {
   title: 'Organisms/Tabs',
   component: Tabs,
   tags: ['autodocs'],
-  parameters: {
-    reactRouter: {
-      location: {
-        pathParams: { page: 'metrics' },
-      },
-      routing: { path: '/:page' },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/entities'],
+      routes: ['/entities', '/metrics', '/text'],
+    },
+  },
   args: {
     data: [
-      { label: 'Entities', href: '/entities', active: true },
-      { label: 'Metrics', href: '/metrics' },
-      { label: 'Full text', href: '/text' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Entities', to: '/entities' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Metrics', to: '/metrics' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'Full text', to: '/text' },
     ],
   },
 };

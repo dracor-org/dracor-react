@@ -1,5 +1,5 @@
 import { JSX, useState } from 'react';
-import { Link, useLocation } from '@tanstack/react-router';
+import { Link } from '@tanstack/react-router';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavItem, { Props as NavItemProps } from './NavItem';
@@ -29,14 +29,6 @@ export default function NavBar({
   navItems,
 }: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
-  const location = useLocation();
-
-  function isActive({ href, active }: NavItemProps) {
-    if (active !== undefined) {
-      return active;
-    }
-    return location.pathname.startsWith(href);
-  }
 
   return (
     <nav className="flex items-center justify-between flex-wrap p-4 bg-primary text-white font-medium">
@@ -77,12 +69,7 @@ export default function NavBar({
                   items={item.items}
                 />
               ) : (
-                <NavItem
-                  key={item.label}
-                  label={item.label}
-                  href={item.href}
-                  active={isActive(item)}
-                />
+                <NavItem key={item.label} label={item.label} to={item.to} />
               )
             )}
           </div>
