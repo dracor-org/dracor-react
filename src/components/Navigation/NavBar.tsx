@@ -33,12 +33,18 @@ export default function NavBar({
   return (
     <nav className="flex items-center justify-between flex-wrap p-4 bg-primary text-white font-medium">
       <Link to="/">
-        <img
-          alt={`${title} logo`}
-          title={`${title}${version ? ` (${version})` : ''}`}
-          className={`h-12 ${logoClass || ''}`}
-          src={logo}
-        />
+        {logo ? (
+          <img
+            alt={`${title} logo`}
+            title={`${title}${version ? ` (${version})` : ''}`}
+            className={`h-12 ${logoClass || ''}`}
+            src={logo}
+          />
+        ) : (
+          <span title={version} className="text-white font-bold text-xl">
+            {title}
+          </span>
+        )}
       </Link>
       <div className="block md:hidden">
         <button
