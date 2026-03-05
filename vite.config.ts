@@ -50,7 +50,11 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' }),
+    dts({
+      tsconfigPath: './tsconfig.app.json',
+      insertTypesEntry: true,
+      exclude: ['**/*.stories.*', '**/*.test.*'],
+    }),
   ],
   test: {
     globals: true,

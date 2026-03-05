@@ -36,7 +36,6 @@
     "release": "./prepublish.sh && pnpm publish --access public"
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.163.3",
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
@@ -54,6 +53,7 @@
     "@storybook/react-vite": "^10.2.14",
     "@svgr/cli": "^8.1.0",
     "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-router": "^1.163.3",
     "@tanstack/react-table": "^8.21.3",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
