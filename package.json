@@ -78,7 +78,6 @@
     "react": "^19.2.4",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^19.2.4",
-    "react-helmet-async": "^2.0.5",
     "remark-gfm": "^4.0.1",
     "storybook": "^10.2.14",
     "swagger-ui-react": "^5.32.0",
@@ -102,7 +101,6 @@
     "react": "^19.0.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^19.0.0",
-    "react-helmet-async": "^2.0.5",
     "react-markdown": "^10.1.0",
     "swagger-ui-react": "^5.31.2"
   },

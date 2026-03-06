@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import SwaggerUI from 'swagger-ui-react';
 
 export interface Props {
@@ -8,7 +7,7 @@ export interface Props {
   url: string;
 
   /**
-   * Optional page title passed to `Helmet`
+   * Optional page title
    */
   title?: string;
 }
@@ -31,11 +30,7 @@ export interface Props {
 export default function ApiDoc({ url, title }: Props) {
   return (
     <div>
-      {title !== undefined && (
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-      )}
+      {title !== undefined && <title>{title}</title>}
       <SwaggerUI url={url} deepLinking />
     </div>
   );

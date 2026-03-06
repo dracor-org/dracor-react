@@ -7,7 +7,6 @@ import {
   createMemoryHistory,
   createRouter,
 } from '@tanstack/react-router';
-import { HelmetProvider } from 'react-helmet-async';
 import { render, RenderResult } from '@testing-library/react';
 
 // Just for type augmentation (we’ll override it in each test)
@@ -56,9 +55,7 @@ export const renderWithProviders = (
   path: string,
   component: ReactElement
 ): RenderResult => {
-  return renderWithRouter(path, () => (
-    <HelmetProvider>{component}</HelmetProvider>
-  ));
+  return renderWithRouter(path, () => <>{component}</>);
 };
 
 export function createStoryRouter(component: () => ReactElement) {

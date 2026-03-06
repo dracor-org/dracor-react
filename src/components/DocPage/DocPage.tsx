@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
 
 export interface Props {
@@ -59,11 +58,7 @@ export default function DocPage({ url, match }: Props) {
 
   return (
     <div>
-      {title && (
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-      )}
+      {title && <title>{title}</title>}
       <ReactMarkdown children={markdown} />
     </div>
   );

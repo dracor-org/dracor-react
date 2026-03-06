@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HelmetProvider } from 'react-helmet-async';
 
 import DocPage from './DocPage';
 
@@ -7,7 +6,6 @@ const meta: Meta<typeof DocPage> = {
   title: 'Pages/DocPage',
   component: DocPage,
   tags: ['autodocs'],
-  decorators: [(story) => <HelmetProvider>{story()}</HelmetProvider>],
 };
 
 export default meta;
