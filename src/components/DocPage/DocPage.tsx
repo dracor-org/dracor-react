@@ -24,7 +24,6 @@ export default function DocPage({ url, match }: Props) {
           throw new Error(`Request failed with status ${response.status}`);
         }
         const contentType = response.headers.get('content-type');
-        console.log({ contentType });
         if (!contentType || !contentType.includes('text/markdown')) {
           setMarkdown("Oops, we haven't got Markdown!");
           setTitle('No Markdown');
