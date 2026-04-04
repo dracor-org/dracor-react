@@ -125,7 +125,7 @@ importers:
         version: 19.2.4
       react-copy-to-clipboard:
         specifier: ^5.1.0
-        version: 5.1.0(react@19.2.4)
+        version: 5.1.1(react@19.2.4)
       react-dom:
         specifier: ^19.2.4
         version: 19.2.4(react@19.2.4)
@@ -3435,6 +3435,11 @@ packages:
     resolution: {integrity: sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A==}
     peerDependencies:
       react: ^15.3.0 || 16 || 17 || 18
+
+  react-copy-to-clipboard@5.1.1:
+    resolution: {integrity: sha512-s+HrzLyJBxrpGTYXF15dTgMjAJpEPZT/Yp6NytAtZMRngejxt6Pt5WrfFxLAcsqUDU6sY1Jz6tyHwIicE1U2Xg==}
+    peerDependencies:
+      react: '>=15.3.0'
 
   react-debounce-input@3.3.0:
     resolution: {integrity: sha512-VEqkvs8JvY/IIZvh71Z0TC+mdbxERvYF33RcebnodlsUZ8RSgyKe2VWaHXv4+/8aoOgXLxWrdsYs2hDhcwbUgA==}
@@ -8087,6 +8092,12 @@ snapshots:
       safe-buffer: 5.2.1
 
   react-copy-to-clipboard@5.1.0(react@19.2.4):
+    dependencies:
+      copy-to-clipboard: 3.3.3
+      prop-types: 15.8.1
+      react: 19.2.4
+
+  react-copy-to-clipboard@5.1.1(react@19.2.4):
     dependencies:
       copy-to-clipboard: 3.3.3
       prop-types: 15.8.1
