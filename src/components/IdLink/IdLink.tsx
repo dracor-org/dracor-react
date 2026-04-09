@@ -24,8 +24,14 @@ const types = [
     url: 'https://isni.org/isni',
   },
   {
+    schema: 'gnd',
+    label: 'GND',
+    url: 'https://d-nb.info/gnd',
+    pattern: 'https?://d-nb.info/gnd',
+  },
+  {
     schema: 'pnd',
-    label: 'PND',
+    label: 'GND',
     url: 'https://d-nb.info/gnd',
   },
   {
