@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown, { type Components } from 'react-markdown';
+import type { PluggableList } from 'unified';
 
 export interface Props {
   url?: string;
   match?: () => string | null;
+  components?: Components;
+  rehypePlugins?: PluggableList;
 }
 
-export default function DocPage({ url, match }: Props) {
+export default function DocPage({
+  url,
+  match,
+  components,
+  rehypePlugins,
+}: Props) {
   const [markdown, setMarkdown] = useState('');
   const [title, setTitle] = useState('');
 
@@ -58,7 +66,11 @@ export default function DocPage({ url, match }: Props) {
   return (
     <div>
       {title && <title>{title}</title>}
-      <ReactMarkdown children={markdown} />
+      <Markdown
+        children={markdown}
+        components={components}
+        rehypePlugins={rehypePlugins}
+      />
     </div>
   );
 }
