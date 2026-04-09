@@ -28,6 +28,7 @@ const types = [
     label: 'GND',
     url: 'https://d-nb.info/gnd',
     pattern: 'https?://d-nb.info/gnd',
+    classes: 'pl-[23px] bg-(image:--img-dnb) bg-[length:15px]',
   },
   {
     schema: 'pnd',
