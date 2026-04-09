@@ -28,6 +28,12 @@ const types = [
     label: 'PND',
     url: 'https://d-nb.info/gnd',
   },
+  {
+    schema: 'viaf',
+    label: 'VIAF',
+    url: 'https://viaf.org/viaf',
+    classes: 'pl-[23px] bg-(image:--img-oclc) bg-[length:15px]',
+  },
 ];
 
 // type LinkType = 'isni' | 'pnd' | 'wikidata';

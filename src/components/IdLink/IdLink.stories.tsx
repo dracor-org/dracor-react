@@ -35,6 +35,12 @@ export const DracorURI: Story = {
   },
 };
 
+export const Viaf: Story = {
+  args: {
+    children: 'viaf:76323989',
+  },
+};
+
 export const Wega: Story = {
   args: {
     children: 'wega:A020816',
