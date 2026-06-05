@@ -38,7 +38,7 @@ export default function NavMenu({ label, items, menuClass }: Props) {
       <div>
         <MenuButton
           className={
-            'block md:inline-block justify-center text-white ' +
+            'cursor-pointer block md:inline-block justify-center text-white ' +
             `hover:text-blue-100 uppercase ${active ? 'border-b-4' : ''} ${menuClass}`
           }
         >
