@@ -1,5 +1,7 @@
 # dracor-react
 
+[![codecov](https://codecov.io/gh/dracor-org/dracor-react/graph/badge.svg)](https://codecov.io/gh/dracor-org/dracor-react)
+
 The _DraCor React Component Library_ provides reusable [react](https://react.dev)
 components for various [DraCor](https://dracor.org) and related projects.
 
