@@ -29,6 +29,26 @@ DraCor components are using:
 @source '../node_modules/@dracor/react';
 ```
 
+## Local testing
+
+To test a local build in a consuming project before publishing, use `pnpm pack`:
+
+```sh
+# In this repo
+pnpm build
+pnpm pack
+# creates dracor-react-<version>.tgz
+
+# In the consuming project
+pnpm add /path/to/dracor-react/dracor-react-<version>.tgz
+```
+
+To restore the published version afterwards:
+
+```sh
+pnpm add @dracor/react@<version>
+```
+
 ## Publication
 
 To release a new version to npmjs.com you need to be a member of the
