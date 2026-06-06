@@ -22,6 +22,9 @@ function Table<T>({ columns, data: initialData, defaultSort = [] }: Props<T>) {
   const [globalFilter, setGlobalFilter] = useState('');
   const [data] = useState(initialData);
 
+  // useReactTable may not work with the React Compiler:
+  // https://tanstack.com/table/latest/docs/installation
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,
