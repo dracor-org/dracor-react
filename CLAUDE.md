@@ -9,6 +9,7 @@ pnpm dev              # Vite dev server
 pnpm build            # TypeScript check + Vite build (ESM + UMD)
 pnpm lint             # ESLint
 pnpm test             # Vitest (includes Storybook interaction tests)
+pnpm coverage         # Vitest coverage report (v8)
 pnpm storybook        # Storybook dev server (port 6006)
 pnpm build-storybook  # Static Storybook build
 pnpm generate-icon-components  # Regenerate SVG icon components from src/icons/
