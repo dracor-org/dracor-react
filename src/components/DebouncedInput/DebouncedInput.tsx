@@ -11,10 +11,13 @@ export default function DebouncedInput({
   debounce?: number;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'>) {
   const [value, setValue] = useState(initialValue);
+  const [prevInitialValue, setPrevInitialValue] = useState(initialValue);
 
-  useEffect(() => {
+  // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
+  if (prevInitialValue !== initialValue) {
+    setPrevInitialValue(initialValue);
     setValue(initialValue);
-  }, [initialValue]);
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
