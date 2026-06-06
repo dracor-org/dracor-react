@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="ger000451" xml:lang="de">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Die Verschwörung des Fiesco zu Genua</title>
+        <title type="sub">Ein republikanisches Trauerspiel</title>
+        <author>
+          <persName>
+            <forename>Friedrich</forename>
+            <surname>Schiller</surname>
+          </persName>
+          <idno type="wikidata">Q22670</idno>
+          <idno type="pnd">118607626</idno>
+        </author>
+      </titleStmt>
+      <publicationStmt>
+        <publisher xml:id="dracor">DraCor</publisher>
+        <idno type="URL">https://dracor.org</idno>
+        <availability>
+          <licence target="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl type="digitalSource">
+          <name>TextGrid Repository</name>
+          <idno type="URL">http://www.textgridrep.org/textgrid:tzgk.0</idno>
+          <availability>
+            <licence target="http://creativecommons.org/licenses/by/3.0/de/legalcode">CC-BY-3.0</licence>
+          </availability>
+          <bibl type="originalSource">
+            <author>Friedrich Schiller</author>: <title level="a">Die Verschwörung des Fiesco zu
+              Genua. Ein republikanisches Trauerspiel</title>. In: ders.: <title level="s">Sämtliche
+              Werke</title>. Auf Grund der Originaldrucke herausgegeben von <editor>Gerhard
+              Fricke</editor> und <editor>Herbert G. Göpfert</editor> in Verbindung mit
+              <editor>Herbert Stubenrauch</editor>. <biblScope unit="volume">Erster</biblScope>
+            Band: Gedichte. Dramen I. <edition>3. Auflage</edition>. <pubPlace>München</pubPlace>:
+              <publisher>Hanser</publisher>
+            <date>1962</date>, S. <biblScope unit="page" from="639" to="751">639–751</biblScope>.</bibl>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <particDesc>
+        <listPerson>
+          <person xml:id="leonore" sex="FEMALE">
+            <persName>Leonore</persName>
+          </person>
+          <person xml:id="arabella" sex="FEMALE">
+            <persName>Arabella/Bella</persName>
+          </person>
+          <person xml:id="rosa" sex="FEMALE">
+            <persName>Rosa</persName>
+          </person>
+          <person xml:id="gianettino" sex="MALE">
+            <persName>Gianettino</persName>
+          </person>
+          <person xml:id="mohr" sex="MALE">
+            <persName>Mohr</persName>
+          </person>
+          <person xml:id="calcagno" sex="MALE">
+            <persName>Calcagno</persName>
+          </person>
+          <person xml:id="sacco" sex="MALE">
+            <persName>Sacco</persName>
+          </person>
+          <person xml:id="julia" sex="FEMALE">
+            <persName>Julia</persName>
+          </person>
+          <person xml:id="fiesco" sex="MALE">
+            <persName>Fiesco</persName>
+          </person>
+          <personGrp xml:id="gaeste" sex="UNKNOWN">
+            <name>Gäste</name>
+          </personGrp>
+          <person xml:id="lomellin" sex="MALE">
+            <persName>Lomellin</persName>
+          </person>
+          <person xml:id="eine_von_den_drei_masken" sex="MALE">
+            <persName>Eine von den drei Masken</persName>
+          </person>
+          <personGrp xml:id="masken" sex="MALE">
+            <name>Masken</name>
+          </personGrp>
+          <person xml:id="verrina" sex="MALE">
+            <persName>Verrina</persName>
+          </person>
+          <person xml:id="bourgognino" sex="MALE">
+            <persName>Bourgognino</persName>
+          </person>
+          <person xml:id="berta" sex="FEMALE">
+            <persName>Berta</persName>
+          </person>
+          <person xml:id="zibo" sex="MALE">
+            <persName>Zibo</persName>
+          </person>
+          <person xml:id="zenturione" sex="MALE">
+            <persName>Zenturione</persName>
+          </person>
+          <person xml:id="asserato" sex="MALE">
+            <persName>Asserato</persName>
+          </person>
+          <personGrp xml:id="zwoelf_handwerker" sex="MALE">
+            <name>Zwölf Handwerker</name>
+            <name type="variant">Alle</name>
+            <name type="variant">Einige</name>
+          </personGrp>
+          <person xml:id="erster_handwerker" sex="MALE">
+            <persName>Erster Handwerker</persName>
+            <persName type="variant">Erster Bürger</persName>
+          </person>
+          <person xml:id="zweiter_handwerker" sex="MALE">
+            <persName>Zweiter Handwerker</persName>
+          </person>
+          <person xml:id="dritter_handwerker" sex="MALE">
+            <persName>Dritter Handwerker</persName>
+          </person>
+          <person xml:id="andreas" sex="MALE">
+            <persName>Andreas</persName>
+          </person>
+          <person xml:id="romano" sex="MALE">
+            <persName>Romano</persName>
+          </person>
+          <personGrp xml:id="verschworene" sex="MALE">
+            <name>Verschworene</name>
+            <persName type="variant">Alle</persName>
+            <persName type="variant">Einige Verschworene</persName>
+          </personGrp>
+          <person xml:id="teutscher_3-11" sex="MALE">
+            <persName>Teutscher (III/11)</persName>
+          </person>
+          <personGrp xml:id="wachen_am_hoftor" sex="MALE">
+            <name>Wachen am Hoftor</name>
+            <name type="variant">Wachen</name>
+            <name type="variant">Wache</name>
+            <name type="variant">Schildwachen</name>
+            <name type="variant">Schildwachen am Hoftor</name>
+          </personGrp>
+          <person xml:id="linke_wache" sex="MALE">
+            <persName>Linke Wache</persName>
+          </person>
+          <person xml:id="rechte_wache" sex="MALE">
+            <persName>Rechte Wache</persName>
+          </person>
+          <person xml:id="teutscher_4-8" sex="MALE">
+            <persName>Teutscher (IV/8)</persName>
+            <persName type="variant">Eine Stimme</persName>
+          </person>
+          <person xml:id="bedienter" sex="MALE">
+            <persName>Bedienter</persName>
+          </person>
+          <personGrp xml:id="bediente" sex="UNKNOWN">
+            <name>Bediente</name>
+          </personGrp>
+          <person xml:id="teutscher_5-4" sex="MALE">
+            <persName>Teutscher (V/4)</persName>
+          </person>
+          <personGrp xml:id="teutsche" sex="MALE">
+            <name>Teutsche</name>
+          </personGrp>
+          <personGrp xml:id="alle_5-12" sex="UNKNOWN">
+            <name>Alle (V/12)</name>
+          </personGrp>
+        </listPerson>
+      </particDesc>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <pb n="639"/>
+    <front>
+      <titlePage>
+        <docAuthor>Friedrich Schiller</docAuthor>
+        <docTitle>
+          <titlePart type="main">Die Verschwörung des Fiesco zu Genua</titlePart>
+          <titlePart type="sub">Ein republikanisches Trauerspiel</titlePart>
+        </docTitle>
+      </titlePage>
+      <epigraph>
+        <cit>
+          <bibl>Sallust vom Katilina</bibl>
+          <quote>
+            <l>Nam id facinus inprimis ego memorabile</l>
+            <l>existimo sceleris atque periculi novitate.</l></quote>
+        </cit>
+      </epigraph>
+      <pb n="640"/>
+      <div type="preface">
+        <head>Vorrede</head>
+        <p>...</p>
+      </div>
+      <pb n="642"/>
+      <castList>
+        <head>Personen des Stücks</head>
+        <castGroup>
+          <castGroup>
+            <castItem><role>Andreas Doria,</role>
+              <roleDesc>Doge von Genua</roleDesc>
+              <roleDesc>Ehrwürdiger Greis von achtzig Jahren, Spuren von Feuer. Ein Hauptzug:
+                Gewicht und strenge befehlende Kürze</roleDesc></castItem>
+            <castItem><role>Gianettino Doria,</role>
+              <roleDesc>Neffe des Vorigen. Prätendent</roleDesc>
+              <roleDesc>Mann von sechsundzwanzig Jahren. Rauh und anstößig in Sprache, Gang und
+                Manieren. Bäurisch-stolz. Die Bildung zerrissen</roleDesc></castItem>
+            <roleDesc>Beide Doria tragen Scharlach.</roleDesc>
+          </castGroup>
+          <castItem><role>Fiesco, Graf von Lavagna.</role>
+            <roleDesc>Haupt der Verschwörung</roleDesc>
+            <roleDesc>Junger, schlanker, blühend-schöner Mann von dreiundzwanzig Jahren – stolz mit
+              Anstand – freundlich mit Majestät – höfisch-geschmeidig und ebenso
+            tückisch</roleDesc></castItem>
+          <roleDesc>Alle Nobili gehen schwarz. Die Tracht ist durchaus altteutsch</roleDesc>
+        </castGroup>
+        <castItem><role>Verrina,</role>
+          <roleDesc>verschworner Republikaner</roleDesc>
+          <roleDesc>Mann von sechzig Jahren. Schwer, ernst und düster. Tiefe
+          Züge</roleDesc></castItem>
+        <castItem><role>Bourgognino,</role>
+          <roleDesc>Verschworner</roleDesc>
+          <roleDesc>Jüngling von zwanzig Jahren. Edel und angenehm. Stolz, rasch und
+            natürlich</roleDesc></castItem>
+        <castItem><role>Calcagno,</role>
+          <roleDesc>Verschworner</roleDesc>
+          <roleDesc>Hagrer Wollüstling. Dreißig Jahre. Bildung gefällig und
+          unternehmend</roleDesc></castItem>
+        <castItem><role>Sacco,</role>
+          <roleDesc>Verschworner</roleDesc>
+          <roleDesc>Mann von fünfundvierzig Jahren. Gewöhnlicher Mensch</roleDesc></castItem>
+        <castItem><role>Lomellino,</role>
+          <roleDesc>Gianettinos Vertrauter</roleDesc>
+          <roleDesc>Ein ausgetrockneter Hofmann</roleDesc></castItem>
+        <castGroup>
+          <castItem><role>Zenturione,</role></castItem>
+          <castItem><role>Zibo,</role></castItem>
+          <castItem><role>Asserato,</role></castItem>
+          <roleDesc>Mißvergnügte</roleDesc>
+        </castGroup>
+        <pb n="643"/>
+        <castItem><role>Romano,</role>
+          <roleDesc>Maler</roleDesc>
+          <roleDesc>Frei, einfach und stolz</roleDesc></castItem>
+        <castItem><role>Muley Hassan,</role>
+          <roleDesc>Mohr von Tunis</roleDesc>
+          <roleDesc>Ein konfiszierter Mohrenkopf. Die Physiognomie eine originelle Mischung von
+            Spitzbüberei und Laune</roleDesc></castItem>
+        <castItem><role>Teutscher der herzoglichen Leibwache</role>
+          <roleDesc>Ehrliche Einfalt. Handfeste Tapferkeit</roleDesc></castItem>
+        <castItem><role>Drei aufrührerische Bürger</role></castItem>
+        <castItem><role>Leonore,</role>
+          <roleDesc>Fiescos Gemahlin</roleDesc>
+          <roleDesc>Dame von achtzehn Jahren. Blaß und schmächtig. Fein und empfindsam. Sehr
+            anziehend, aber weniger blendend. Im Gesicht schwärmerische Melancholie. Schwarze
+            Kleidung</roleDesc></castItem>
+        <castItem><role>Julia, Gräfinwitwe Imperiali,</role>
+          <roleDesc>Dorias Schwester</roleDesc>
+          <roleDesc>Dame von fünfundzwanzig Jahren. Groß und voll. Stolze Kokette. Schönheit
+            verdorben durch Bizarrerie. Blendend und nicht gefallend. Im Gesicht ein böser mokanter
+            Charakter. Schwarze Kleidung</roleDesc></castItem>
+        <castItem><role>Berta,</role>
+          <roleDesc>Verrinas Tochter</roleDesc>
+          <roleDesc>Unschuldiges Mädchen</roleDesc></castItem>
+        <castItem><role>Rosa,</role>
+          <role>Arabella,</role>
+          <roleDesc>Leonorens Kammermädchen.</roleDesc></castItem>
+        <castItem><role>Mehrere Nobili, Bürger, Teutsche, Soldaten, Bediente,
+          Diebe.</role></castItem>
+      </castList>
+      <set>
+        <p>Der Schauplatz Genua. Die Zeit 1547.</p>
+      </set>
+    </front>
+    <pb n="644"/>
+    <body>
+      <div type="act">
+        <head>Erster Aufzug</head>
+        <stage>Saal bei Fiesco.</stage>
+        <stage>Man hört in der Ferne eine Tanzmusik und den Tumult eines Balls.</stage>
+        <div type="scene">
+          <p>...</p>
+        </div>
+      </div>
+    </body>
+  </text>
+</TEI>

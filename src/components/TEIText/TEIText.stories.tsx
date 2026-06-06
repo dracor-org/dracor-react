@@ -17,6 +17,12 @@ export const MobyDick: Story = {
   },
 };
 
+export const SchillerCastGroup: Story = {
+  args: {
+    url: 'schiller.xml',
+  },
+};
+
 export const DracorOdd: Story = {
   args: {
     url: 'https://raw.githubusercontent.com/dracor-org/dracor-schema/refs/heads/main/dracor.odd',

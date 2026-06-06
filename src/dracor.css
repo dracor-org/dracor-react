@@ -144,4 +144,69 @@
     margin-top: var(--spacing-8);
     margin-bottom: var(--spacing-4);
   }
+
+  tei-castGroup {
+    display: block;
+  }
+  tei-castItem {
+    display: list-item;
+  }
+  tei-castList {
+    list-style-type: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-castgroup {
+    position: relative;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto;
+  }
+  tei-castgroup tei-castitem {
+    grid-column: 1 / 2;
+  }
+  tei-castgroup > tei-castgroup {
+    grid-column: 1 / 2;
+  }
+  tei-castgroup > tei-roledesc {
+    position: relative;
+    grid-area: 999 / 2 / -1 / -1;
+    top: 0;
+    height: 100%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    margin-left: 2.4em;
+  }
+  tei-castgroup::before {
+    content: '';
+    position: relative;
+    grid-area: 999 / 2 / -1 / -1;
+    display: block;
+    width: 13px;
+    height: calc(100% - 1rem);
+    top: 0.5rem;
+    right: -0.4em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+  tei-castgroup::after {
+    content: '';
+    position: relative;
+    grid-area: 999 / 2 / -1 / -1;
+    right: -1.3em;
+    height: calc(50% + 1px);
+    width: 0.7em;
+    border-bottom: 2px solid black;
+  }
+  tei-castlist > tei-head {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  tei-role {
+    font-variant: small-caps;
+  }
 }
