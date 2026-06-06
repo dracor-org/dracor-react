@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { userEvent, within } from 'storybook/test';
 import { ColumnDef } from '@tanstack/react-table';
 
 import Table from './Table';
@@ -68,5 +69,11 @@ export const Basic: Story = {
   args: {
     data,
     columns: columns as ColumnDef<unknown>[],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.type(canvas.getByRole('textbox'), 'Lessing');
+    // Wait for DebouncedInput's 500ms delay then check the row count appears
+    await canvas.findByText('(1)', {}, { timeout: 1000 });
   },
 };

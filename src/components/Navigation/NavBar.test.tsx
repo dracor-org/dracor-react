@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
 import NavBar, { NavBarProps } from './NavBar';
 import '@testing-library/jest-dom';
@@ -26,6 +27,28 @@ vi.mock('./NavMenu', () => ({
 }));
 
 describe('NavBar', () => {
+  it('renders title as text when no logo is provided', () => {
+    render(<NavBar title="MyApp" />);
+    expect(screen.getByRole('link', { name: 'MyApp' })).toBeInTheDocument();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
+
+  it('shows mobile nav when menu button is clicked', async () => {
+    const { container } = render(
+      <NavBar title="MyApp" logo="/logo.png" navItems={[{ label: 'Home', to: '/' }]} />
+    );
+    const navDiv = container.querySelector('.grow') as HTMLElement;
+    expect(navDiv.classList).toContain('hidden');
+    await userEvent.click(screen.getByRole('button'));
+    expect(navDiv.classList).not.toContain('hidden');
+  });
+
+  it('renders custom gitHubIcon when provided', () => {
+    const icon = <span data-testid="custom-icon">★</span>;
+    render(<NavBar title="MyApp" gitHubUrl="https://github.com" gitHubIcon={icon} />);
+    expect(screen.getByTestId('custom-icon')).toBeInTheDocument();
+  });
+
   it('renders the logo image with the correct src and title', () => {
     render(<NavBar title="MyApp" logo="/logo.png" version="1.0.0" />);
 

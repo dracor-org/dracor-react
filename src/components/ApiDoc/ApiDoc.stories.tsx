@@ -17,3 +17,10 @@ export const Ecocor: Story = {
     url: 'ecocor.yaml',
   },
 };
+
+export const WithTitle: Story = {
+  args: {
+    url: 'ecocor.yaml',
+    title: 'EcoCor API',
+  },
+};
