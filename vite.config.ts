@@ -23,6 +23,8 @@ export default defineConfig({
         '@fortawesome/free-solid-svg-icons',
         '@fortawesome/react-fontawesome',
         'react',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
         'react-copy-to-clipboard',
         'react-dom',
         '@headlessui/react',
