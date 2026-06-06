@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import rehypeRaw from 'rehype-raw';
+import { restoreAllMocks, spyOn, within } from 'storybook/test';
 
 import DocPage from './DocPage';
 
@@ -34,5 +35,25 @@ export const NotFound: Story = {
 export const NoMarkdown: Story = {
   args: {
     url: 'dracor.svg',
+  },
+};
+
+export const ServerError: Story = {
+  args: { url: 'error.md' },
+  beforeEach() {
+    spyOn(globalThis, 'fetch').mockResolvedValueOnce(
+      new Response('', { status: 500 })
+    );
+    return () => restoreAllMocks();
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await canvas.findByText('Something went wrong.');
+  },
+};
+
+export const WithMatch: Story = {
+  args: {
+    match: () => 'about.md',
   },
 };

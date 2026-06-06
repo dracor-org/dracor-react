@@ -43,6 +43,46 @@ export const RDF: Story = {
   },
 };
 
+export const Bibtex: Story = {
+  args: {
+    href: 'data:text/plain;charset=utf-8;foo',
+    name: 'foo.bib',
+    type: 'bibtex',
+  },
+};
+
+export const GEXF: Story = {
+  args: {
+    href: 'data:text/plain;charset=utf-8;foo',
+    name: 'foo.gexf',
+    type: 'gexf',
+  },
+};
+
+export const GraphML: Story = {
+  args: {
+    href: 'data:text/plain;charset=utf-8;foo',
+    name: 'foo.graphml',
+    type: 'graphml',
+  },
+};
+
+export const RIS: Story = {
+  args: {
+    href: 'data:text/plain;charset=utf-8;foo',
+    name: 'foo.ris',
+    type: 'ris',
+  },
+};
+
+export const TEI: Story = {
+  args: {
+    href: 'data:text/plain;charset=utf-8;foo',
+    name: 'foo.xml',
+    type: 'tei',
+  },
+};
+
 export const NoType: Story = {
   args: {
     href: 'data:text/csv;charset=utf-8;base64,aWQsbmFtZSx0eXBlLG92ZXJhbGxGcmVxdWVuY3kNClExMTY4ODY5Nywic29sZSIsQW5pbWFsLDM5DQpRMzAwOTAyNDQsImJlYXIiLEFuaW1hbCwxMDkNClEyOTM0LCJnb2F0IixBbmltYWwsMg==',

@@ -43,17 +43,9 @@ export default function DocPage({
         const m = firstLine.match(/^#\s*(.+)/);
         setTitle(m ? m[1] : '...');
       } catch (error) {
-        if (
-          error instanceof Error &&
-          error.message === 'Request failed with status code 404'
-        ) {
-          setMarkdown('Not Found');
-          setTitle('Not Found');
-        } else {
-          setMarkdown('Something went wrong.');
-          setTitle('Error');
-          console.error(error);
-        }
+        setMarkdown('Something went wrong.');
+        setTitle('Error');
+        console.error(error);
       }
     }
 
