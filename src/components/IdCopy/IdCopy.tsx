@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Dracor, Ein } from '../icons';
 
 interface Props {
@@ -29,12 +28,10 @@ export default function IdCopy({
     >
       {icon === 'ein' && <Ein style={{ width: '25px' }} />}
       {icon === 'dracor' && <Dracor style={{ width: '15px' }} />}
-      <CopyToClipboard text={text}>
-        <span title="copy to clipboard">
-          <span className="pr-1">{id}</span>
-          <FontAwesomeIcon icon={faClipboard} size="sm" />
-        </span>
-      </CopyToClipboard>
+      <span title="copy to clipboard" onClick={() => navigator.clipboard.writeText(text)}>
+        <span className="pr-1">{id}</span>
+        <FontAwesomeIcon icon={faClipboard} size="sm" />
+      </span>
     </span>
   );
 }
