@@ -1,2 +1,10 @@
+allowBuilds:
+  '@scarf/scarf': false
+  '@tree-sitter-grammars/tree-sitter-yaml': false
+  core-js-pure: false
+  esbuild: true
+  msw: false
+  tree-sitter: false
+  tree-sitter-json: false
 onlyBuiltDependencies:
   - core-js-pure
