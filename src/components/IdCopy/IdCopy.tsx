@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Dracor, Ein } from '../icons';
 
 interface Props {
@@ -20,17 +21,25 @@ export default function IdCopy({
   prefix,
   icon,
 }: Props) {
+  const [copied, setCopied] = useState(false);
   const id = children;
   const text = uri || `${prefix || defaultPrefix}${id}`;
+
+  function handleClick() {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
   return (
     <span
       className={`inline-flex bg-white rounded-sm px-1.5 gap-1 align-text-bottom cursor-pointer ${className}`}
     >
       {icon === 'ein' && <Ein style={{ width: '25px' }} />}
       {icon === 'dracor' && <Dracor style={{ width: '15px' }} />}
-      <span title="copy to clipboard" onClick={() => navigator.clipboard.writeText(text)}>
+      <span title="copy to clipboard" onClick={handleClick}>
         <span className="pr-1">{id}</span>
-        <FontAwesomeIcon icon={faClipboard} size="sm" />
+        <FontAwesomeIcon icon={copied ? faCheck : faClipboard} size="sm" />
       </span>
     </span>
   );
