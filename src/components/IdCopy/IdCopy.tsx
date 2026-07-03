@@ -37,7 +37,7 @@ export default function IdCopy({
     >
       {icon === 'ein' && <Ein style={{ width: '25px' }} />}
       {icon === 'dracor' && <Dracor style={{ width: '15px' }} />}
-      <span title="copy to clipboard" onClick={handleClick}>
+      <span title={copied ? 'Copied!' : 'copy to clipboard'} onClick={handleClick}>
         <span className="pr-1">{id}</span>
         <FontAwesomeIcon icon={copied ? faCheck : faClipboard} size="sm" />
       </span>
