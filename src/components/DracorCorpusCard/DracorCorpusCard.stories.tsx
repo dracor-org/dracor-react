@@ -65,8 +65,6 @@ export const NoGender: Story = {
       characters: 1742,
       male: 0,
       female: 0,
-      sp: 68900,
-      stage: 12400,
       wordcount: { text: 3200000, sp: 2900000, stage: 300000 },
       updated: '2024-10-20T12:00:00Z',
     },

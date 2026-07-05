@@ -21,7 +21,6 @@ export const Default: Story = {
   args: {
     title: 'EcoCor Corpus of English Novels',
     to: '/',
-    className: 'w-full md:w-96',
     children: (
       <>
         <CorpusCardRow label="Number of texts" value={128} />
