@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import CorpusCard from './CorpusCard';
+import DracorCorpusCard from './DracorCorpusCard';
 
-const meta: Meta<typeof CorpusCard> = {
-  title: 'Molecules/CorpusCard',
-  component: CorpusCard,
+const meta: Meta<typeof DracorCorpusCard> = {
+  title: 'Molecules/DracorCorpusCard',
+  component: DracorCorpusCard,
   tags: ['autodocs'],
   parameters: {
     router: {

@@ -29,7 +29,7 @@ export interface Props {
 
 const badge = 'bg-primary text-white px-1.5 py-0.5 rounded-full text-xs';
 
-export default function CorpusCard({
+export default function DracorCorpusCard({
   name,
   title,
   to,
