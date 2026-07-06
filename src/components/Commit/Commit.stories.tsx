@@ -23,3 +23,10 @@ export const NoRepo: Story = {
     children: '108eb6db0feec0fa2278221507c8897d1cb46158',
   },
 };
+
+export const RepoWithBranchFragment: Story = {
+  args: {
+    repo: 'https://github.com/dracor-org/dracor-react#main',
+    children: 'fbc84064706416da8a5c70705fa3730319ebe7ce',
+  },
+};
