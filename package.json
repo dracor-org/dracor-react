@@ -7,7 +7,6 @@
   "author": "Carsten Milling <cmil@hashtable.de>",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -17,8 +16,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+      "import": "./dist/index.es.js"
     },
     "./dracor.css": {
       "default": "./src/dracor.css"

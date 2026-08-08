@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(import.meta.dirname, './src/index.ts'),
-      name: 'dracor-react',
+      formats: ['es'],
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
@@ -33,13 +33,6 @@ export default defineConfig({
         'swagger-ui-react',
         'tailwindcss',
       ],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          tailwindcss: 'tailwindcss',
-        },
-      },
     },
     sourcemap: true,
     emptyOutDir: true,

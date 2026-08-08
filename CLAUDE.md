@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm dev              # Vite dev server
-pnpm build            # TypeScript check + Vite build (ESM + UMD)
+pnpm build            # TypeScript check + Vite build (ESM)
 pnpm lint             # ESLint
 pnpm test             # Vitest (includes Storybook interaction tests)
 pnpm coverage         # Vitest coverage report (v8)
@@ -22,7 +22,7 @@ Run `pnpm lint` and `pnpm test` after every code change.
 
 ## Architecture
 
-This is a **published npm component library** (`@dracor/react`, v1.1.0), not a standalone app. All components are exported from `src/index.ts` and consumed by external projects.
+This is a **published npm component library** (`@dracor/react`), not a standalone app. All components are exported from `src/index.ts` and consumed by external projects.
 
 **Key architectural constraints:**
 - Components are purely presentational — props-driven, no global state, no API calls
@@ -30,7 +30,7 @@ This is a **published npm component library** (`@dracor/react`, v1.1.0), not a s
 - All peer dependencies (React 19, TanStack Router/Table, FontAwesome, HeadlessUI, CETEIcean, Swagger UI) must be installed by consumers
 
 **Build output** (library mode via Vite):
-- `dist/index.es.js` + `dist/index.umd.js` + `dist/index.d.ts`
+- `dist/index.es.js` + `dist/index.d.ts` (ESM only — consumed via bundlers)
 - CSS exported separately as `@dracor/react/dracor.css`
 
 ## Component Conventions
