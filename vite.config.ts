@@ -1,6 +1,5 @@
 /// <reference types="vitest/config" />
-import { resolve, join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve, join } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
@@ -12,7 +11,7 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, './src/index.ts'),
+      entry: resolve(import.meta.dirname, './src/index.ts'),
       name: 'dracor-react',
       fileName: (format) => `index.${format}.js`,
     },
@@ -84,12 +83,7 @@ export default defineConfig({
           // The plugin will run tests for the stories defined in your Storybook config
           // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
           storybookTest({
-            configDir: join(
-              typeof __dirname !== 'undefined'
-                ? __dirname
-                : dirname(fileURLToPath(import.meta.url)),
-              '.storybook'
-            ),
+            configDir: join(import.meta.dirname, '.storybook'),
           }),
         ],
         test: {
