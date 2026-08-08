@@ -5,7 +5,13 @@ export type Props = LinkProps & {
   className?: string;
 };
 
-export default function NavItem({ label, to, params, href, className }: Props) {
+export default function NavItem({
+  label,
+  to,
+  params,
+  href,
+  className = '',
+}: Props) {
   const linkClasses =
     `block md:inline-block justify-center text-white ` +
     `hover:text-blue-100 uppercase ${className}`;

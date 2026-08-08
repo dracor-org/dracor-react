@@ -69,13 +69,9 @@ export default function NavBar({
           <div className="my-2 md:grow md:flex-row flex justify-center flex-col gap-4">
             {navItems.map((item) =>
               'items' in item ? (
-                <NavMenu
-                  key={item.label}
-                  label={item.label}
-                  items={item.items}
-                />
+                <NavMenu key={item.label} {...item} />
               ) : (
-                <NavItem key={item.label} label={item.label} to={item.to} />
+                <NavItem key={item.label} {...item} />
               )
             )}
           </div>
