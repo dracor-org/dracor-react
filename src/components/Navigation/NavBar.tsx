@@ -15,6 +15,7 @@ export interface NavBarProps {
   gitHubTitle?: string;
   navItems?: (NavItemProps | NavMenuProps)[];
   addItem?: JSX.Element;
+  badge?: JSX.Element;
 }
 
 export default function NavBar({
@@ -27,6 +28,7 @@ export default function NavBar({
   gitHubTitle,
   addItem,
   navItems,
+  badge,
 }: NavBarProps) {
   const [showNav, setShowNav] = useState(false);
 
@@ -63,7 +65,7 @@ export default function NavBar({
       </div>
 
       <div
-        className={`block md:flex grow md:items-center w-full md:w-auto ${!showNav ? 'hidden' : ''}`}
+        className={`block md:flex grow md:items-center md:self-stretch w-full md:w-auto ${!showNav ? 'hidden' : ''}`}
       >
         {navItems?.length && (
           <div className="my-2 md:grow md:flex-row flex justify-center flex-col gap-4">
@@ -92,6 +94,7 @@ export default function NavBar({
             </a>
           </div>
         )}
+        {badge}
       </div>
     </nav>
   );

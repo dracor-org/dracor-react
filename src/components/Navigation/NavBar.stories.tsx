@@ -101,6 +101,35 @@ export const Einakter: Story = {
   },
 };
 
+export const WithBadge: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/'],
+      routes: ['/', '/about'],
+    },
+  },
+  args: {
+    title: 'Drama Corpora',
+    logo: 'dracor.svg',
+    gitHubUrl: 'https://github.com/dracor-org',
+    gitHubTitle: 'DraCor GitHub',
+    navItems: [
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'About', to: '/about' },
+    ],
+    badge: (
+      <a
+        href="https://example.org/prize"
+        title="Example Badge"
+        className="md:ml-2 md:-mt-4 md:self-start md:self-stretch flex md:flex-col items-center text-white md:bg-white md:text-primary rounded-b-lg md:px-3 py-1 text-xs font-bold leading-tight no-underline"
+      >
+        <span>Example</span>
+        <span>Badge</span>
+      </a>
+    ),
+  },
+};
+
 export const Ecocor: Story = {
   parameters: {
     router: {
