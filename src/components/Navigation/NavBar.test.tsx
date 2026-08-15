@@ -71,6 +71,21 @@ describe('NavBar', () => {
     expect(link).toHaveAttribute('href', 'https://github.com/example');
   });
 
+  it('renders badge after the GitHub link', () => {
+    render(
+      <NavBar
+        {...baseProps}
+        gitHubUrl="https://github.com/example"
+        badge={<span data-testid="badge">prize</span>}
+      />
+    );
+    const badge = screen.getByTestId('badge');
+    const github = screen.getByRole('link', { name: /GitHub/i });
+    expect(
+      github.compareDocumentPosition(badge) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+  });
+
   it('renders NavItem and NavMenu', () => {
     render(
       <NavBar
