@@ -1,4 +1,5 @@
-import SwaggerUI from 'swagger-ui-react';
+import { ApiReferenceReact } from '@scalar/api-reference-react';
+import '@scalar/api-reference-react/style.css';
 
 export interface Props {
   /**
@@ -13,16 +14,14 @@ export interface Props {
 }
 
 /**
- * Renders a Swagger UI page for the provided OpenAPI specification.
+ * Renders a Scalar API Reference page for the provided OpenAPI specification.
  *
- * This component requires `swagger-ui-react` and `@types/swagger-ui-react` to
- * be installed as peer dependencies.
- *
- * For proper styling the Swagger UI stylesheet needs to be imported:
+ * This component requires `@scalar/api-reference-react` to be installed as a
+ * peer dependency. Its stylesheet (`@scalar/api-reference-react/style.css`)
+ * is imported by this module and will be pulled in automatically.
  *
  * ```
  * import {ApiDoc} from '@dracor/react';
- * import 'swagger-ui-react/swagger-ui.css';
  *
  * <ApiDoc url="/api.yaml" />
  * ```
@@ -31,7 +30,7 @@ export default function ApiDoc({ url, title }: Props) {
   return (
     <div>
       {title !== undefined && <title>{title}</title>}
-      <SwaggerUI url={url} deepLinking />
+      <ApiReferenceReact configuration={{ url }} />
     </div>
   );
 }

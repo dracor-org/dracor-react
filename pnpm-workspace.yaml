@@ -6,5 +6,6 @@ allowBuilds:
   msw: false
   tree-sitter: false
   tree-sitter-json: false
+  vue-demi: false
 onlyBuiltDependencies:
   - core-js-pure

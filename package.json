@@ -45,6 +45,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
     "@headlessui/react": "^2.2.10",
+    "@scalar/api-reference-react": "^0.9.62",
     "@storybook/addon-docs": "^10.5.7",
     "@storybook/addon-links": "^10.5.7",
     "@storybook/addon-vitest": "10.5.7",
@@ -61,7 +62,6 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
-    "@types/swagger-ui-react": "^5.18.0",
     "@vitejs/plugin-react": "^6.0.5",
     "@vitest/browser": "^4.1.10",
     "@vitest/browser-playwright": "^4.1.10",
@@ -73,6 +73,7 @@
     "eslint-plugin-storybook": "^10.5.7",
     "globals": "^17.9.0",
     "jsdom": "^30.0.1",
+    "pathe": "^2.0.3",
     "playwright": "^1.62.1",
     "prettier": "^3.9.6",
     "react": "^19.2.8",
@@ -80,7 +81,6 @@
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
     "storybook": "^10.5.7",
-    "swagger-ui-react": "^5.32.12",
     "tailwindcss": "^4.3.3",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.66.0",
@@ -95,13 +95,13 @@
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.2.0",
     "@headlessui/react": "^2.2.9",
+    "@scalar/api-reference-react": "^0.9.62",
     "@tanstack/react-router": "^1.166.2",
     "@tanstack/react-table": "^8.21.3",
     "CETEIcean": "^1.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-markdown": "^10.1.0",
-    "swagger-ui-react": "^5.31.2"
+    "react-markdown": "^10.1.0"
   },
   "eslintConfig": {
     "extends": [
