@@ -33,29 +33,36 @@ export const Dracor: Story = {
     gitHubTitle: 'DraCor GitHub',
     version: '1.2.3',
     navItems: [
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'About', to: '/about' },
       {
         label: 'Corpora',
         items: [
           {
+            // @ts-expect-error - FIXME: `to` is not fully typed
             to: '/corpora/$corpusId',
             params: { corpusId: 'ger' },
             label: 'German Drama Corpus',
           },
           {
+            // @ts-expect-error - FIXME: `to` is not fully typed
             to: '/corpora/$corpusId',
             params: { corpusId: 'shake' },
             label: 'Shakespeare Drama Corpus',
           },
           {
+            // @ts-expect-error - FIXME: `to` is not fully typed
             to: '/corpora/$corpusId',
             params: { corpusId: 'u' },
             label: 'Ukranian Drama Corpus',
           },
         ],
       },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'How To', to: '/howto' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'Tools', to: '/tools' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'Merch', to: '/merch' },
     ],
   },
@@ -75,9 +82,13 @@ export const Einakter: Story = {
     gitHubIcon: einakterGithubIcon,
     version: '1.2.3',
     navItems: [
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'Plays', to: '/plays' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'Locations', to: '/locations' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'Originals', to: '/originals' },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'About', to: '/about' },
     ],
     addItem: (
@@ -102,7 +113,10 @@ export const WithBadge: Story = {
     logo: 'dracor.svg',
     gitHubUrl: 'https://github.com/dracor-org',
     gitHubTitle: 'DraCor GitHub',
-    navItems: [{ label: 'About', to: '/about' }],
+    navItems: [
+      // @ts-expect-error - FIXME: `to` is not fully typed
+      { label: 'About', to: '/about' },
+    ],
     badge: (
       <a
         href="https://example.org/prize"
@@ -141,8 +155,11 @@ export const Ecocor: Story = {
       {
         label: 'About',
         items: [
+          // @ts-expect-error - FIXME: `to` is not fully typed
           { to: '/about', label: 'What is EcoCor' },
+          // @ts-expect-error - FIXME: `to` is not fully typed
           { to: '/credits', label: 'Credits' },
+          // @ts-expect-error - FIXME: `to` is not fully typed
           { to: '/imprint', label: 'Imprint and GDPR' },
         ],
       },
@@ -151,16 +168,19 @@ export const Ecocor: Story = {
         items: [
           {
             label: 'English EcoCor',
+            // @ts-expect-error - FIXME: `to` is not fully typed
             to: '/corpora/$corpusId',
             params: { corpusId: 'en' },
           },
           {
             label: 'German EcoCor',
+            // @ts-expect-error - FIXME: `to` is not fully typed
             to: '/corpora/$corpusId',
             params: { corpusId: 'de' },
           },
         ],
       },
+      // @ts-expect-error - FIXME: `to` is not fully typed
       { label: 'Merch', to: '/merch' },
     ],
   },
