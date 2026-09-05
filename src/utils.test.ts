@@ -48,11 +48,27 @@ describe('formatYear', () => {
   });
 
   test('formats not-before year with >', () => {
-    expect(formatYear('>1600')).toBe('after 1600');
+    expect(formatYear('>1600')).toBe('not before 1600');
+  });
+
+  test('formats not-before year with >=', () => {
+    expect(formatYear('>=1600')).toBe('not before 1600');
+  });
+
+  test('formats not-before year with ≥', () => {
+    expect(formatYear('≥1600')).toBe('not before 1600');
   });
 
   test('formats not-after year with <', () => {
-    expect(formatYear('<1600')).toBe('before 1600');
+    expect(formatYear('<1600')).toBe('not after 1600');
+  });
+
+  test('formats not-after year with <=', () => {
+    expect(formatYear('<=1600')).toBe('not after 1600');
+  });
+
+  test('formats not-after year with ≤', () => {
+    expect(formatYear('≤1600')).toBe('not after 1600');
   });
 
   test('returns the input string unchanged for unrecognised formats', () => {
