@@ -17,10 +17,9 @@ export interface Props<TData = unknown> {
   defaultSort?: SortingState;
 }
 
-function Table<T>({ columns, data: initialData, defaultSort = [] }: Props<T>) {
+function Table<T>({ columns, data, defaultSort = [] }: Props<T>) {
   const [sorting, setSorting] = useState<SortingState>(defaultSort);
   const [globalFilter, setGlobalFilter] = useState('');
-  const [data] = useState(initialData);
 
   // useReactTable may not work with the React Compiler:
   // https://tanstack.com/table/latest/docs/installation
