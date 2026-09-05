@@ -43,10 +43,7 @@ const types = [
   },
 ];
 
-// type LinkType = 'isni' | 'pnd' | 'wikidata';
-
 export interface Props {
-  button?: boolean;
   showLabel?: boolean;
   className?: string;
   children: string;
