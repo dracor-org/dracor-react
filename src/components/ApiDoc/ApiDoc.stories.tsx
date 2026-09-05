@@ -50,3 +50,9 @@ export const HiddenTitle: Story = {
     },
   },
 };
+
+export const Dracor: Story = {
+  args: {
+    url: 'https://dracor.org/api/v1/openapi.yaml',
+  },
+};
