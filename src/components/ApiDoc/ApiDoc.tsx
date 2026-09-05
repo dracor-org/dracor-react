@@ -50,6 +50,11 @@ const defaults: ApiDocConfiguration = {
  *
  * <ApiDoc url="/api.yaml" configuration={{ hideDownloadButton: true }} />
  * ```
+ *
+ * Scalar's own layout (title, license/TOS toolbar, sidebar, etc.) can be
+ * tweaked via the `customCss` configuration option. See the `HiddenTitle`
+ * Storybook story for a worked example that hides the OpenAPI title and
+ * left-aligns the license / terms-of-service links.
  */
 export default function ApiDoc({ url, title, configuration }: Props) {
   return (
