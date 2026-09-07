@@ -102,7 +102,7 @@
     @apply p-4 align-top;
   }
 
-  input {
+  input:not([type='radio']):not([type='checkbox']):not([type='range']):not([type='color']) {
     @apply shadow-sm appearance-none border rounded-sm py-2 px-3 text-gray-700 bg-white mb-4;
   }
 }
