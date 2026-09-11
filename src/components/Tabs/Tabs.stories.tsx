@@ -28,3 +28,28 @@ export const Basic: Story = {
     ],
   },
 };
+
+export const WithParams: Story = {
+  parameters: {
+    router: {
+      initialEntries: ['/ger/goethe-faust/network'],
+      routes: ['/$corpus/$play/$tab'],
+    },
+  },
+  args: {
+    data: [
+      {
+        label: 'Network',
+        // @ts-expect-error - FIXME: `to` is not fully typed
+        to: '/$corpus/$play/$tab',
+        params: { corpus: 'ger', play: 'goethe-faust', tab: 'network' },
+      },
+      {
+        label: 'Text',
+        // @ts-expect-error - FIXME: `to` is not fully typed
+        to: '/$corpus/$play/$tab',
+        params: { corpus: 'ger', play: 'goethe-faust', tab: 'text' },
+      },
+    ],
+  },
+};
