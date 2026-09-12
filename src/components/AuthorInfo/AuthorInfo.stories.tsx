@@ -76,8 +76,7 @@ export const MockedUnknownDate: Story = {
         {
           authorLabel: { value: 'Victor Grayson' },
           birthDate: {
-            value:
-              'http://www.wikidata.org/.well-known/genid/abc123',
+            value: 'http://www.wikidata.org/.well-known/genid/abc123',
           },
         },
       ])
@@ -155,5 +154,28 @@ export const NoWikidataId: Story = {
     // want the false branch — hence the empty string.
     wikidataId: '',
     name: 'Anonymous',
+  },
+};
+
+export const Translator: Story = {
+  args: {
+    wikidataId: 'Q57281',
+    name: 'August Wilhelm Schlegel',
+    translator: true,
+    fetcher: async () => ({
+      name: 'August Wilhelm Schlegel',
+      birthDate: '1767',
+      deathDate: '1845',
+    }),
+  },
+};
+
+export const TranslatorLocalisedLabel: Story = {
+  args: {
+    wikidataId: 'Q57281',
+    name: 'August Wilhelm Schlegel',
+    translator: true,
+    translatorLabel: 'Übersetzer',
+    fetcher: async () => ({ name: 'August Wilhelm Schlegel' }),
   },
 };
