@@ -15,9 +15,9 @@ export default function Tabs({ data: tabs }: Props) {
   return (
     <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
       <div className="flex flex-wrap -mb-px gap-3">
-        {tabs.map(({ label, to }) => (
+        {tabs.map(({ label, ...linkProps }) => (
           <div key={label}>
-            <Link to={to} className={linkClasses}>
+            <Link {...linkProps} className={linkClasses}>
               {label}
             </Link>
           </div>
