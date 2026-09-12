@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import IdLink from '../IdLink';
 import { formatYear } from '../../utils';
-
-const endpoint = 'https://query.wikidata.org/sparql';
+import {
+  wikidataSparqlFetcher,
+  type AuthorInfoFetcher,
+} from './wikidataSparqlFetcher';
 
 const commonsIcon =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='102' height='137' viewBox='-305 -516 610 820'%3E%3Ctitle%3EWikimedia Commons Logo%3C/title%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Ccircle r='298'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle r='100' fill='%23900'/%3E%3Cg fill='%23069'%3E%3Cg id='arrow' clip-path='url(%23c)'%3E%3Cpath d='m-11 180v118h22v-118'/%3E%3Cpath d='m-43 185l43-75 43 75'/%3E%3C/g%3E%3Cg id='arrows3'%3E%3Cuse xlink:href='%23arrow' transform='rotate(45)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(90)'/%3E%3Cuse xlink:href='%23arrow' transform='rotate(135)'/%3E%3C/g%3E%3Cuse xlink:href='%23arrows3' transform='scale(-1 1)'/%3E%3Cpath id='blue_path' transform='rotate(-45)' stroke='%23069' stroke-width='84' fill='none' d='M 0,-256 A 256 256 0 1 0 256,0 C 256,-100 155,-150 250,-275'/%3E%3Cpath id='arrow_top' d='m-23-515s-36 135-80 185 116-62 170-5-90-180-90-180z'/%3E%3C/g%3E%3C/svg%3E";
@@ -13,15 +15,21 @@ export interface Props {
   birthLabel?: string;
   deathLabel?: string;
   unknownLabel?: string;
+  /**
+   * Async function returning normalised author data for a Wikidata QID.
+   * Defaults to `wikidataSparqlFetcher`, which queries Wikidata's public
+   * SPARQL endpoint. Pass a custom fetcher to route through a backend
+   * proxy for caching / rate-limit protection.
+   */
+  fetcher?: AuthorInfoFetcher;
 }
 
-interface Info {
+interface RenderInfo {
   name: string;
   imageUrl?: string;
   commonsPage?: string;
-  birth?: string[];
-  death?: string[];
-  gender?: string;
+  birth: string[];
+  death: string[];
 }
 
 export default function AuthorInfo({
@@ -30,94 +38,46 @@ export default function AuthorInfo({
   birthLabel = 'b.',
   deathLabel = 'd.',
   unknownLabel = 'unknown',
+  fetcher = wikidataSparqlFetcher,
 }: Props) {
-  const [info, setInfo] = useState<Info | null>(null);
+  const [info, setInfo] = useState<RenderInfo | null>(null);
 
   useEffect(() => {
     function formatDate(value: string): string {
-      // test for unknown values
-      // see https://www.mediawiki.org/wiki/Wikidata_Query_Service/Blank_Node_Skolemization
+      // See https://www.mediawiki.org/wiki/Wikidata_Query_Service/Blank_Node_Skolemization
       if (value.startsWith('http://www.wikidata.org/.well-known/genid')) {
         return unknownLabel;
       }
       return formatYear(value.replace(/^(-?\d{4}).*$/, '$1'));
     }
 
-    async function fetchInfo(id: string) {
-      const sparql = `
-SELECT ?author ?authorLabel ?birthDate ?deathDate ?gender ?genderLabel
-  ?birthPlace ?birthPlaceLabel ?birthCoord
-  ?deathPlace ?deathPlaceLabel ?deathCoord
-  ?img ?gnd
-WHERE {
-  BIND (wd:${id} AS ?author)
-  OPTIONAL { ?author wdt:P569 ?birthDate. }
-  OPTIONAL { ?author wdt:P570 ?deathDate. }
-  OPTIONAL { ?author wdt:P21 ?gender. }
-  OPTIONAL { ?author wdt:P19 ?birthPlace. }
-  OPTIONAL { ?author wdt:P20 ?deathPlace. }
-  #OPTIONAL { ?birthPlace wdt:P625 ?birthCoord. }
-  OPTIONAL { ?author wdt:P18 ?img. }
-  OPTIONAL { ?author wdt:P227 ?gnd. }
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
-}
-`;
-
-      const url = `${endpoint}?query=${encodeURIComponent(sparql)}`;
-      const opts = {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-        },
-      };
-
+    async function load(id: string) {
       try {
-        const response = await fetch(url, opts);
-        if (response.status !== 200) {
-          console.log(response.status);
-          return;
-        }
-        const data = await response.json();
-        const sparqlResults = data.results?.bindings || [];
-        const {
-          authorLabel,
-          img,
-          birthDate,
-          birthPlaceLabel,
-          deathDate,
-          deathPlaceLabel,
-        } = sparqlResults[0];
+        const data = await fetcher(id);
+        if (!data) return;
 
-        const birth = [];
-        const death = [];
+        const birth: string[] = [];
+        const death: string[] = [];
+        if (data.birthDate) birth.push(formatDate(data.birthDate));
+        if (data.birthPlace) birth.push(data.birthPlace);
+        if (data.deathDate) death.push(formatDate(data.deathDate));
+        if (data.deathPlace) death.push(data.deathPlace);
 
-        if (birthDate?.value) {
-          birth.push(formatDate(birthDate.value));
-        }
-        if (birthPlaceLabel?.value) birth.push(birthPlaceLabel.value);
-
-        if (deathDate?.value) {
-          death.push(formatDate(deathDate.value));
-        }
-        if (deathPlaceLabel?.value) death.push(deathPlaceLabel.value);
-
-        const aInfo: Info = { name: authorLabel.value, birth, death };
-
-        if (img?.value) {
-          aInfo.imageUrl = img.value.replace(/^http:/, 'https:');
-          aInfo.commonsPage = img.value
+        const render: RenderInfo = { name: data.name, birth, death };
+        if (data.imageUrl) {
+          render.imageUrl = data.imageUrl.replace(/^http:/, 'https:');
+          render.commonsPage = data.imageUrl
             .replace(/Special:FilePath\//, 'File:')
             .replace(/^http:/, 'https:');
         }
-
-        setInfo(aInfo);
+        setInfo(render);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
-    if (wikidataId) fetchInfo(wikidataId);
-  }, [wikidataId, unknownLabel]);
+    if (wikidataId) load(wikidataId);
+  }, [wikidataId, unknownLabel, fetcher]);
 
   const { name, imageUrl, commonsPage, birth = [], death = [] } = info || {};
 

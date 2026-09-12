@@ -99,3 +99,61 @@ export const MockedNonOK: Story = {
     return () => restoreAllMocks();
   },
 };
+
+export const CustomFetcher: Story = {
+  args: {
+    wikidataId: 'Q692',
+    fetcher: async () => ({
+      name: 'William Shakespeare',
+      birthDate: '1564',
+      birthPlace: 'Stratford-upon-Avon',
+      deathDate: '1616',
+      deathPlace: 'Stratford-upon-Avon',
+    }),
+  },
+};
+
+export const RejectingFetcher: Story = {
+  args: {
+    wikidataId: 'Q692',
+    name: 'William Shakespeare',
+    fetcher: () => Promise.reject(new Error('boom')),
+  },
+};
+
+export const MockedEmptyBindings: Story = {
+  args: { wikidataId: 'Q692', name: 'William Shakespeare' },
+  beforeEach() {
+    spyOn(globalThis, 'fetch').mockResolvedValueOnce(sparqlResponse([]));
+    return () => restoreAllMocks();
+  },
+};
+
+export const MockedMissingResults: Story = {
+  args: { wikidataId: 'Q692', name: 'William Shakespeare' },
+  beforeEach() {
+    spyOn(globalThis, 'fetch').mockResolvedValueOnce(
+      new Response(JSON.stringify({}), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    );
+    return () => restoreAllMocks();
+  },
+};
+
+export const NameOnlyFetcher: Story = {
+  args: {
+    wikidataId: 'Q692',
+    fetcher: async () => ({ name: 'William Shakespeare' }),
+  },
+};
+
+export const NoWikidataId: Story = {
+  args: {
+    // Reachable at runtime because the check is `if (wikidataId)`. We
+    // want the false branch — hence the empty string.
+    wikidataId: '',
+    name: 'Anonymous',
+  },
+};
