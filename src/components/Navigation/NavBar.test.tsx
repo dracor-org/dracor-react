@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
 import NavBar, { NavBarProps } from './NavBar';
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 
 vi.mock('@tanstack/react-router', () => ({
   // simple Link that just renders an anchor around children
