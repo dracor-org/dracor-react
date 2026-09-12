@@ -16,6 +16,16 @@ export interface Props {
   deathLabel?: string;
   unknownLabel?: string;
   /**
+   * When `true`, dims the info block and adds a vertical side badge
+   * (label configurable via `translatorLabel`) on the portrait tile.
+   */
+  translator?: boolean;
+  /**
+   * Label shown on the vertical badge when `translator` is `true`.
+   * Defaults to `'Translator'`.
+   */
+  translatorLabel?: string;
+  /**
    * Async function returning normalised author data for a Wikidata QID.
    * Defaults to `wikidataSparqlFetcher`, which queries Wikidata's public
    * SPARQL endpoint. Pass a custom fetcher to route through a backend
@@ -38,6 +48,8 @@ export default function AuthorInfo({
   birthLabel = 'b.',
   deathLabel = 'd.',
   unknownLabel = 'unknown',
+  translator = false,
+  translatorLabel = 'Translator',
   fetcher = wikidataSparqlFetcher,
 }: Props) {
   const [info, setInfo] = useState<RenderInfo | null>(null);
@@ -109,8 +121,13 @@ export default function AuthorInfo({
             />
           </a>
         )}
+        {translator && (
+          <span className="absolute inset-y-0 left-0 top-0 bottom-0 z-20 w-4 flex items-center justify-center bg-black/65 text-white uppercase text-[0.63em] font-medium tracking-widest opacity-70 p-px [writing-mode:vertical-rl] rotate-180">
+            {translatorLabel}
+          </span>
+        )}
       </div>
-      <span>
+      <span className={translator ? 'opacity-80' : undefined}>
         <div className="text-lg">{fullname || name}</div>
         {wikidataId && (
           <div>

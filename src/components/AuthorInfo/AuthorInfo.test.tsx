@@ -10,6 +10,8 @@ import Meta, {
   NameOnlyFetcher as NameOnlyFetcherStory,
   NoWikidataId as NoWikidataIdStory,
   RejectingFetcher as RejectingFetcherStory,
+  Translator as TranslatorStory,
+  TranslatorLocalisedLabel as TranslatorLocalisedLabelStory,
 } from './AuthorInfo.stories';
 
 const ShakespeareInfo = composeStory(ShakespeareStory, Meta);
@@ -20,6 +22,11 @@ const MockedMissingResultsInfo = composeStory(MockedMissingResultsStory, Meta);
 const NameOnlyFetcherInfo = composeStory(NameOnlyFetcherStory, Meta);
 const NoWikidataIdInfo = composeStory(NoWikidataIdStory, Meta);
 const RejectingFetcherInfo = composeStory(RejectingFetcherStory, Meta);
+const TranslatorInfo = composeStory(TranslatorStory, Meta);
+const TranslatorLocalisedLabelInfo = composeStory(
+  TranslatorLocalisedLabelStory,
+  Meta
+);
 
 describe('AuthorInfo', () => {
   test('renders basic AuthorInfo component', () => {
@@ -78,6 +85,17 @@ describe('AuthorInfo', () => {
     render(<NoWikidataIdInfo />);
     expect(fetchSpy).not.toHaveBeenCalled();
     restoreAllMocks();
+  });
+
+  test('renders a Translator side badge when translator is true', async () => {
+    render(<TranslatorInfo />);
+    expect(await screen.findByText('Translator')).toBeInTheDocument();
+  });
+
+  test('respects a custom translatorLabel', async () => {
+    render(<TranslatorLocalisedLabelInfo />);
+    expect(await screen.findByText('Übersetzer')).toBeInTheDocument();
+    expect(screen.queryByText('Translator')).not.toBeInTheDocument();
   });
 
   test('swallows fetcher rejections without unmounting the component', async () => {
