@@ -1,0 +1,1035 @@
+/*
+ * Baseline stylesheet for TEIText.
+ *
+ * Combines the vendored CETEIcean default stylesheet
+ * (https://teic.github.io/CETEIcean/css/CETEIcean.css) with a set of
+ * drama-focused overrides (title page, epigraph, nested head padding,
+ * Rubik headings, hidden teiHeader/standOff/head-notes) previously
+ * carried locally by dracor-frontend.
+ *
+ * Import in addition to (or instead of) `@dracor/react/dracor.css` when
+ * rendering TEI documents.
+ */
+
+@layer base {
+  tei-tei[lang="ara"],
+  tei-tei[lang="heb"],
+  tei-tei[lang="yid"]
+  {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Choice elements */
+  tei-choice tei-abbr + tei-expan:before,
+  tei-choice tei-expan + tei-abbr:before,
+  tei-choice tei-sic + tei-corr:before,
+  tei-choice tei-corr + tei-sic:before,
+  tei-choice tei-orig + tei-reg:before,
+  tei-choice tei-reg + tei-orig:before {
+    content: " (";
+  }
+  tei-choice tei-abbr + tei-expan:after,
+  tei-choice tei-expan + tei-abbr:after,
+  tei-choice tei-sic + tei-corr:after,
+  tei-choice tei-corr + tei-sic:after,
+  tei-choice tei-orig + tei-reg:after,
+  tei-choice tei-reg + tei-orig:after {
+    content: ")";
+  }
+
+  tei-ab {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-accMat {
+    display: block;
+  }
+  tei-accMat:before {
+    content: "accompanying materials: ";
+  }
+  tei-acquisition {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-acquisition:before {
+    font-weight: bold;
+    content: "acquisition";
+  }
+  tei-activity {
+    display: block;
+  }
+  tei-activity:before {
+    content: "activity: ";
+  }
+  tei-add[place=above] {
+    vertical-align: super;
+  }
+  tei-add[place=inline]:before {
+    content: "«";
+  }
+  tei-add[place=inline]:after {
+    content: "»";
+  }
+  tei-add[place=below] {
+    vertical-align: sub;
+  }
+  tei-additional {
+    display: block;
+  }
+  tei-additions {
+    display: block;
+  }
+  tei-additions:before {
+    content: "Significant additions within the document: ";
+  }
+  tei-addrLine {
+    display: block;
+  }
+  tei-address[data-tei-rend~="block"], addresss[data-tei-rendition~="#block"] {
+    display: block;
+  }
+  tei-adminInfo {
+    display: block;
+  }
+  tei-app tei-note {
+    display: none;
+  }
+  tei-appInfo {
+    display: block;
+  }
+  tei-appInfo:before {
+    content: "Application information: ";
+  }
+  tei-application {
+    display: block;
+  }
+  tei-application:after {
+    content: " " attr(version);
+  }
+  tei-argument {
+    display: block;
+  }
+  tei-att {
+    font-family: Courier,monospace;
+  }
+  tei-att:before {
+    content: "@";
+  }
+  tei-titleStmt > tei-author {
+    display: block;
+    margin-bottom: 1em;
+  }
+  tei-publicationStmt > tei-availability {
+    font-size: 80%;
+  }
+  tei-publicationStmt > tei-availability:before {
+    font-weight: bold;
+    content: "Availability: ";
+  }
+  tei-publicationStmt > tei-availability[data-tei-status]:before {
+    font-weight: bold;
+    content: "Availability (" attr(status) "): ";
+  }
+  tei-back {
+    display: block;
+  }
+  tei-bibl[data-tei-rend~="block"], bibl[data-tei-rendition~="#block"] {
+    display: block;
+    padding-left: 2em;
+    text-indent: -2em;
+  }
+  tei-biblFull {
+    display: block;
+  }
+  tei-binding {
+    display: block;
+  }
+  tei-binding:before {
+    content: "Binding: \a";
+    white-space: pre-wrap;
+  }
+  tei-binding[data-tei-contemporary]:before {
+    content: "Binding: \A" "Contemporary: " attr(contemporary) "\A";
+    white-space: pre-wrap;
+  }
+  tei-bindingDesc {
+    display: block;
+  }
+  tei-bindngDesc:before {
+    content: "Binding Description: \A";
+  }
+  tei-birth {
+    display: block;
+  }
+  tei-birth:before {
+    content: "Birth: ";
+  }
+  tei-cRefPattern {
+    display: none;
+  }
+  tei-caption {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-case[data-tei-value]:before {
+    font-weight: bold;
+    content: attr(value) " ";
+  }
+  tei-castGroup {
+    display: block;
+  }
+  tei-castItem {
+    display: list-item;
+  }
+  tei-castList {
+    display: block;
+    list-style-type: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-cb {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-cb:before {
+    content: "[column break]";
+  }
+  tei-cell {
+    display: table-cell;
+    padding: 1em 1.5em 1em 1em;
+    border: 1px dotted #aaaaaa;
+    width: 100%;
+  }
+  /* for cell or row with @role = label */
+  tei-[data-tei-role=label] {
+    font-weight: bold;
+  }
+  tei-climate {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-climate:before {
+    font-weight: bold;
+    content: "Climate: ";
+  }
+  tei-code {
+    font-family: Courier,monospace;
+  }
+  tei-collation {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-colophon {
+    font-style: italic;
+  }
+  tei-condition {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-constitution {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-constitution:before {
+    font-weight: bold;
+    content: "Constitution: ";
+  }
+  tei-constitution[data-tei-type] {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-constitution[data-tei-type]:before {
+    font-weight: bold;
+    content: "Constitution (" attr(type) "): ";
+  }
+  tei-constitution[data-tei-type=frags] {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-constitution[data-tei-type=frags]:before {
+    font-weight: bold;
+    content: "Constitution (fragments): ";
+  }
+  tei-custEvent {
+    display: list-item;
+  }
+  tei-custodialHist {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-date[data-tei-when]:empty:before {
+    content: attr(when);
+  }
+  tei-editionStmt {
+    display:block;
+  }
+  tei-egXML {
+    display: block;
+    font-size: 80%;
+    margin-left: 1em;
+    padding-left: 1em;
+    border-left: 1px solid #aaaaaa;
+    margin-top: .75em;
+    margin-bottom: .75em;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    font-family: monospace;
+    white-space: pre;
+  }
+  tei-emph {
+    font-style: italic;
+  }
+  tei-encodingDesc {
+    display: none;
+  }
+  tei-epigraph {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-explicit {
+    font-style: italic;
+  }
+  tei-fileDesc > extent {
+    display: none;
+  }
+  tei-figure {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  tei-gap[data-tei-reason='lost']:before {
+    content:'[';
+  }
+  tei-gap[data-tei-reason='lost']:after {
+    content: attr(data-content) ']';
+  }
+  tei-gap[data-tei-reason='illegible']:after {
+    content: attr(data-content);
+  }
+  tei-gi {
+    font-family: Courier,monospace;
+  }
+  tei-gi:before {
+    content: "<";
+  }
+  tei-gi:after {
+    content: ">";
+  }
+  /* Need head with TEI parent to distinguish from HTML head */
+  tei-TEI tei-head {
+    display: block;
+    font-family: Arvo, sans-serif;
+    font-weight: normal;
+  }
+  tei-body > tei-head {
+    font-size: 180%;
+    text-indent: -0.5em;
+  }
+  tei-div.textpart {
+    display: none;
+  }
+  tei-div > tei-head {
+    font-size: 170%;
+    text-indent: -0.5em;
+  }
+  tei-div > tei-div > tei-head {
+    font-size: 155%;
+  }
+  tei-div > tei-div > tei-div > tei-head {
+    font-size: 140%;
+  }
+  tei-div > tei-div > tei-div > tei-div > tei-head, list > tei-head {
+    font-size: 130%;
+  }
+  tei-div > tei-div > tei-div > tei-div > tei-div > tei-head {
+    font-size: 120%;
+  }
+  tei-div > tei-div > tei-div > tei-div > tei-div > tei-div tei-head {
+    font-size: 110%;
+  }
+  tei-figure > tei-head {
+    display: block;
+    margin: 1.5em auto 1.5em auto;
+    padding: .5em 1.5em 1.5em 1.5em;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 325px;
+    position: relative;
+    border: 1px solid #aaaaaa;
+    background: #fafafa;
+    /* reset text-indent for note with <l> ancestors. */
+    text-indent: 0;
+    font-size: 85%;
+    text-align: justify;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    width: 85%;
+    font-family: Georgia, Serif;
+    font-size: 13pt;
+  }
+  tei-hi[rend="caps"] {
+    font-weight:bold;
+  }
+  tei-hi[rend="italic"] {
+    font-style: italic;
+  }
+  tei-ident {
+    font-family: Courier,monospace;
+  }
+  tei-incipit {
+    font-style: italic;
+  }
+  tei-item {
+    display: list-item;
+    margin-left: 1em;
+  }
+  tei-cell item {
+    margin-left: 1em;
+  }
+  tei-l {
+    display: block;
+    width: 35em;
+  }
+  tei-l[data-lineno]:before {
+    content: attr(data-lineno);
+    position: absolute;
+    left: 2em;
+  }
+  tei-lb:after {
+    content: '\a';
+    white-space: pre;
+  }
+  tei-lg {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-list {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style-type: none;
+  }
+  tei-item > tei-list {
+    margin-top: 0;
+  }
+  tei-sourceDesc tei-list {
+    list-style-type: none;
+  }
+  tei-sourceDesc > tei-list > tei-head {
+    font-size: 140%;
+    font-weight: bold;
+  }
+  tei-sourceDesc tei-list > tei-item {
+    display: list-item;
+  }
+  /* Match only lists that are descendants of tei-text.
+     Otherwise they show up in the header. */
+  tei-text tei-list[type=simple] {
+    list-style-type: none;
+  }
+  tei-text tei-list[type=bulleted] {
+    list-style-type: disc;
+  }
+  tei-text tei-list[type=ordered] {
+    list-style-type: none;
+    counter-reset: items 0;
+  }
+  tei-text tei-list[type=ordered] > tei-item {
+    display: list-item;
+    margin-left: 0;
+  }
+  tei-item > tei-list[type=ordered] {
+    margin-left: 1em;
+  }
+  tei-text tei-list[type=ordered] > item:before {
+    counter-increment: items 1;
+    content: counter(items, decimal) ". ";
+  }
+  tei-text tei-list[type=gloss] {
+    list-style-type: none;
+  }
+  tei-list[type="gloss"] > tei-label {
+    display: block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    font-weight: bold;
+  }
+  tei-list[type="gloss"] > tei-item {
+    margin-left: 2em;
+  }
+  tei-item > tei-list[type=ordered] {
+    margin-left: 1em;
+  }
+  tei-listApp {
+    display: block;
+    margin: 1em;
+    padding: 1em;
+  }
+  tei-listBibl {
+    display:block;
+    list-style-type: none;
+    margin-left: .5 em;
+    margin-top: .5em;
+  }
+  tei-listBibl > tei-head {
+    font-size: 120%;
+    font-weight: bold;
+  }
+  tei-listBibl > tei-bibl {
+    display: list-item;
+    margin-left: .5em;
+  }
+  tei-listWit {
+    display:block;
+    list-style-type: none;
+    margin-left: .5em;
+  }
+  tei-listWit > tei-head {
+    font-size: 120%;
+    font-weight: bold;
+  }
+  tei-listWit > tei-witness {
+    display: list-item;
+    margin-left: 2em;
+    text-indent: -1.1em;
+  }
+  tei-witness > tei-listWit {
+    display: inline;
+  }
+  tei-witness > tei-listWit > tei-head {
+    display: inline;
+  }
+  tei-witness > tei-listWit > tei-witness {
+    display: inline;
+  }
+  tei-locus {
+    display: none;
+  }
+  tei-milestone {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  tei-musicNotation {
+    font-weight: bold;
+  }
+  tei-musicNotation:before {
+    font-weight: bold;
+    content: "Musical Notation: ";
+  }
+  tei-notesStmt {
+    /* do we want to box each individual <note> if they're in a <notesStmt>? */
+    display: none;
+  }
+  tei-oVar {
+    font-style: italic;
+  }
+  tei-origPlace {
+    font-weight: bold;
+  }
+  tei-origPlace:before {
+    font-weight: bold;
+    content: "Place of Origin: ";
+  }
+  tei-p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+  }
+  *[data-tei-rendition~="#center"] p {
+    text-align: center;
+  }
+  tei-availability > p:first-child {
+    margin-top: 0em;
+  }
+  tei-performance {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-person {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-personGrp {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-postscript {
+    display: block;
+    margin-top: 2em;
+  }
+  tei-principal {
+    font-weight: bold;
+  }
+  tei-principal:before {
+    font-weight: bold;
+    content: "Principal: ";
+  }
+  tei-profileDesc {
+    display: none;
+  }
+  tei-publicationStmt > * {
+    display: none;
+  }
+  tei-publicationStmt {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-publicationStmt > date {
+    display: none;
+  }
+  tei-publicationStmt > publisher {
+    display: none;
+  }
+  tei-q {
+    quotes: "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d";
+  }
+  tei-q:before {
+    content: "";
+  }
+  tei-q:after {
+    content: "";
+  }
+  tei-q[data-tei-next]:after {
+    content: "" !important;
+  }
+  tei-q[data-tei-prev]:before {
+    content: "" !important;
+  }
+  tei-quote {
+    font-style: italic;
+  }
+  tei-app tei-rdg {
+    /*perhaps choice */
+    display: none;
+  }
+  tei-re {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-recordHist {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-ref {
+    color: #5f0000;
+    text-decoration: underline;
+  }
+  tei-remarks {
+    font-weight: bold;
+  }
+  tei-remarks:before {
+    font-weight: bold;
+    content: "remarks: ";
+  }
+  tei-respStmt {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-revisionDesc {
+    display: none;
+  }
+  tei-row {
+    display: table-row;
+  }
+  /* When TEI document is embedded in HTML page, TEI's <s> element can be 
+     interpreted by browser as HTML <s>, which results in a strike-through from
+     the "user agent" styles. */
+  tei-s {
+    text-decoration: none;
+  }
+  tei-salute {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-samplingDecl {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-scriptNote {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-seal {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-seal:before {
+    font-weight: bold;
+    content: "Seal: ";
+  }
+  tei-sealDesc {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-secFol:before {
+    font-weight: bold;
+    content: "Second Folio: ";
+  }
+  tei-secl>*:first-child:before {
+    content: "\a[";
+    white-space: pre;
+  }
+  tei-secl>*:last-child:after {
+    content: "]\a\a";
+    white-space: pre;
+  }
+  tei-seg {
+    outline: 0px solid transparent;
+  }
+  tei-sense {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-seriesStmt {
+    display: none;
+  }
+  tei-setting {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-signed {
+    display: block;
+    margin-top: 2em;
+    /*should make name a block when contained within  */
+  }
+  tei-soCalled {
+    quotes: "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d";
+  }
+  tei-soCalled:before {
+    content: open-quote;
+  }
+  tei-soCalled:after {
+    content: close-quote;
+  }
+  tei-soCalled[data-tei-next]:after {
+    content: "" !important;
+  }
+  tei-soCalled[data-tei-prev]:before {
+    content: "" !important;
+  }
+  tei-sound {
+    font-style: italic;
+  }
+  tei-source {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  tei-sourceDesc {
+    display: none;
+  }
+  tei-sp {
+    display: block;
+    margin-bottom: 1em;
+  }
+  tei-space:before {
+    font-weight: bold;
+    content: "";
+  }
+  tei-span[data-tei-data-n]:before {
+    content: attr(data-n);
+  }
+  tei-TEI tei-egXML tei-span {
+    display: inline;
+  }
+  tei-speaker {
+    font-weight: bold;
+    margin-right: 0;
+  }
+  tei-sponsor {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* Block element, maybe labeled  */
+  }
+  tei-sponsor:before {
+    font-weight: bold;
+    content: "Sponsor:";
+  }
+  tei-stage {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-style: italic;
+  }
+  tei-p tei-stage, tei-l tei-stage, tei-speaker ~ tei-stage {
+    display: inline;
+  }
+  tei-stamp {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  tei-stamp:before {
+    font-weight: bold;
+    content: "Stamped: ";
+  }
+  tei-surplus>*:first-child:before {
+    content: "\a[";
+    white-space: pre;
+  }
+  tei-surplus>*:last-child:after {
+    content: "]\a\a";
+    white-space: pre;
+  }
+  tei-TEI {
+    display: block;
+  }
+  tei-table {
+    border-collapse: separate;
+    border-spacing: 2px;
+  }
+  tei-TEI tei-table {
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 12pt;
+  }
+  tei-table > head {
+    text-align: center;
+  }
+  tei-teiHeader {
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  tei-TEI > tei-text {
+    display: block;
+    line-height: 1.5;
+  }
+  tei-textClass {
+    display: none;
+  }
+  tei-textDesc {
+    display: none;
+  }
+  tei-TEI tei-title {
+    display: inline;
+  }
+  tei-TEI tei-title[level=a] {
+    quotes: "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d" "\2018" "\2019" "\201c" "\201d";
+  }
+  tei-TEI tei-title[level=a]:before {
+    content: open-quote;
+  }
+  tei-TEI tei-title[level=a]:after {
+    content: close-quote;
+  }
+  tei-TEI tei-title[level=a][next]:after {
+    content: "" !important;
+  }
+  tei-TEI tei-title[level=a][prev]:before {
+    content: "" !important;
+  }
+  tei-title[level=m] {
+    font-style: italic;
+  }
+  tei-titleStmt > tei-title {
+    display: block;
+    font-family: Arvo, sans-serif;
+    font-weight: normal;
+    font-weight: bold !important;
+    font-size: 150%;
+  }
+  tei-typeDesc {
+    display: none;
+  }
+  tei-u:before {
+    content: "-";
+  }
+  tei-view {
+    font-style: italic;
+  }
+  tei-wit {
+    display: none;
+  }
+  tei-witDetail {
+    display: none;
+  }
+
+
+  tei-castgroup {
+    position: relative;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto;
+  }
+  tei-castgroup tei-castitem {
+    grid-column: 1 / 2;
+  }
+  tei-castgroup > tei-castgroup {
+    grid-column: 1 / 2;
+  }
+  tei-castgroup > tei-roledesc {
+    position: relative;
+    grid-area: 999 / 2 / -1 / -1;
+    top: 0;
+    height: 100%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    margin-left: 2.4em;
+  }
+  tei-castgroup::before {
+    content: "";
+    position: relative;
+    grid-area: 999 / 2 / -1 / -1;
+    display: block;
+    width: 13px;
+    height: calc(100% - 1rem);
+    top: .5rem;
+    right: -.4em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+  }
+  tei-castgroup::after {
+    content: "";
+    position: relative;
+    grid-area: 999 / 2 / -1 / -1;
+    right: -1.3em;
+    height: calc(50% + 1px);
+    width: .7em;
+    border-bottom: 2px solid black;
+  }
+  tei-castlist > tei-head {
+    font-weight: bold;
+    margin-bottom: .5em;
+  }
+  tei-role {
+    font-variant: small-caps;
+  }
+  tei-tei[lang="yid"] {
+    tei-castgroup > tei-roledesc {
+      margin-right: 2.4rem;
+      margin-left: initial;
+    }
+    tei-castgroup::before {
+      right: initial;
+      left: -.4rem;
+      border-left: 2px solid black;
+      border-right: initial;
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem;
+      border-top-right-radius: initial;
+      border-bottom-right-radius: initial;
+    }
+    tei-castgroup::after {
+      right: initial;
+      left: -1.3rem;
+    }
+  }
+
+  /* DraCor drama overrides */
+
+  tei-TEI tei-head {
+    font-family: Rubik, sans-serif;
+  }
+
+  tei-titlePage {
+    display: block;
+    margin-bottom: 3em;
+  }
+  tei-titlePage tei-docTitle {
+    display: block;
+    margin-bottom: 1.5em;
+  }
+  tei-titlePage tei-docTitle tei-titlePart {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 170%;
+  }
+  tei-titlePage tei-docTitle tei-titlePart[type='main'] {
+    font-size: 200%;
+    font-weight: 400;
+  }
+  tei-titlePage tei-docAuthor {
+    font-size: large;
+  }
+
+  tei-body > tei-head {
+    text-indent: 0;
+    padding-top: 1.8em;
+  }
+
+  tei-div[type='epigraph'] {
+    padding: 2em;
+    padding-bottom: 1em;
+    font-style: italic;
+  }
+
+  tei-teiheader + tei-text > tei-front > tei-div > tei-head {
+    padding-top: 0;
+  }
+  tei-div > tei-head {
+    text-indent: 0;
+    padding-top: 1.7em;
+  }
+  tei-div > tei-div > tei-head {
+    padding-top: 1.55em;
+  }
+  tei-div > tei-div > tei-div > tei-head {
+    padding-top: 1.4em;
+  }
+  tei-div > tei-div > tei-div > tei-div > tei-head,
+  list > tei-head {
+    padding-top: 1.3em;
+  }
+  tei-div > tei-div > tei-div > tei-div > tei-div > tei-head {
+    padding-top: 1.2em;
+  }
+  tei-div > tei-div > tei-div > tei-div > tei-div > tei-div tei-head {
+    padding-top: 1.1em;
+  }
+
+  tei-figure > tei-head {
+    font-family: Rubik, Serif;
+  }
+  tei-titleStmt > tei-title {
+    font-family: Rubik, sans-serif;
+  }
+  tei-head tei-note {
+    display: none;
+  }
+  tei-standoff {
+    display: none;
+  }
+  tei-teiHeader {
+    display: none;
+}
+}

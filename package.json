@@ -11,7 +11,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "src/dracor.css"
+    "src/dracor.css",
+    "src/tei.css"
   ],
   "exports": {
     ".": {
@@ -20,6 +21,9 @@
     },
     "./dracor.css": {
       "default": "./src/dracor.css"
+    },
+    "./tei.css": {
+      "default": "./src/tei.css"
     }
   },
   "scripts": {
