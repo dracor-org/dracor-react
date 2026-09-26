@@ -57,7 +57,6 @@ you import:
 | Component(s)                                       | Optional peer                                             |
 | -------------------------------------------------- | --------------------------------------------------------- |
 | `ApiDoc`                                           | `@scalar/api-reference-react`                             |
-| `AuthorInfo`, `DocPage`                            | `react-markdown`                                          |
 | `Table`                                            | `@tanstack/react-table`                                   |
 | `TEIText`                                          | `CETEIcean`                                               |
 | `CorpusCard`, `DracorCorpusCard`, `NavBar`, `Tabs` | `@tanstack/react-router`                                  |

@@ -113,7 +113,9 @@
     "generate-icon-components": "svgr --typescript --jsx-runtime automatic --ignore-existing --out-dir src/components/icons src/icons",
     "release": "./prepublish.sh && pnpm publish --access public"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-markdown": "^10.1.0"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.4.0",
     "@eslint/js": "^10.0.1",
@@ -189,8 +191,7 @@
     "@scalar/api-reference-react": { "optional": true },
     "@tanstack/react-router": { "optional": true },
     "@tanstack/react-table": { "optional": true },
-    "CETEIcean": { "optional": true },
-    "react-markdown": { "optional": true }
+    "CETEIcean": { "optional": true }
   },
   "eslintConfig": {
     "extends": [
