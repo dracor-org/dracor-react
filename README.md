@@ -29,6 +29,41 @@ DraCor components are using:
 @source '../node_modules/@dracor/react';
 ```
 
+## Selective imports
+
+`@dracor/react` is built as one file per component, with `sideEffects` in
+`package.json` limited to CSS files, so modern bundlers (Vite, Rollup,
+webpack ≥ 5) will drop unused components automatically:
+
+```ts
+import { IdCopy } from '@dracor/react';
+```
+
+For bundler-less environments (or if you want to be explicit) each component is
+also reachable via a subpath export:
+
+```ts
+import IdCopy from '@dracor/react/IdCopy';
+import CorpusCard, { CorpusCardRow } from '@dracor/react/CorpusCard';
+import NavBar from '@dracor/react/NavBar'; // folder is Navigation/, subpath is NavBar
+```
+
+### Optional peer dependencies
+
+React and react-dom are the only required peers. Everything else is declared
+as an optional peer — you only need to install the ones used by the components
+you import:
+
+| Component(s)                                       | Optional peer                                             |
+| -------------------------------------------------- | --------------------------------------------------------- |
+| `ApiDoc`                                           | `@scalar/api-reference-react`                             |
+| `AuthorInfo`, `DocPage`                            | `react-markdown`                                          |
+| `Table`                                            | `@tanstack/react-table`                                   |
+| `TEIText`                                          | `CETEIcean`                                               |
+| `CorpusCard`, `DracorCorpusCard`, `NavBar`, `Tabs` | `@tanstack/react-router`                                  |
+| `LanguageMenu`, `NavBar`                           | `@headlessui/react`                                       |
+| `Commit`, `IdCopy`, `LanguageMenu`, `NavBar`, `Years` | `@fortawesome/react-fontawesome` + relevant icon packs |
+
 ## Local testing
 
 To test a local build in a consuming project before publishing, use `pnpm pack`:

@@ -7,8 +7,11 @@
   "author": "Carsten Milling <cmil@hashtable.de>",
   "license": "MIT",
   "type": "module",
-  "module": "./dist/index.es.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist",
     "src/dracor.css",
@@ -17,7 +20,79 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js"
+      "import": "./dist/index.js"
+    },
+    "./ApiDoc": {
+      "types": "./dist/components/ApiDoc/index.d.ts",
+      "import": "./dist/components/ApiDoc/index.js"
+    },
+    "./AuthorInfo": {
+      "types": "./dist/components/AuthorInfo/index.d.ts",
+      "import": "./dist/components/AuthorInfo/index.js"
+    },
+    "./Authors": {
+      "types": "./dist/components/Authors/index.d.ts",
+      "import": "./dist/components/Authors/index.js"
+    },
+    "./Commit": {
+      "types": "./dist/components/Commit/index.d.ts",
+      "import": "./dist/components/Commit/index.js"
+    },
+    "./CorpusCard": {
+      "types": "./dist/components/CorpusCard/index.d.ts",
+      "import": "./dist/components/CorpusCard/index.js"
+    },
+    "./DebouncedInput": {
+      "types": "./dist/components/DebouncedInput/index.d.ts",
+      "import": "./dist/components/DebouncedInput/index.js"
+    },
+    "./DocPage": {
+      "types": "./dist/components/DocPage/index.d.ts",
+      "import": "./dist/components/DocPage/index.js"
+    },
+    "./DownloadButton": {
+      "types": "./dist/components/DownloadButton/index.d.ts",
+      "import": "./dist/components/DownloadButton/index.js"
+    },
+    "./DracorCorpusCard": {
+      "types": "./dist/components/DracorCorpusCard/index.d.ts",
+      "import": "./dist/components/DracorCorpusCard/index.js"
+    },
+    "./IdCopy": {
+      "types": "./dist/components/IdCopy/index.d.ts",
+      "import": "./dist/components/IdCopy/index.js"
+    },
+    "./IdLink": {
+      "types": "./dist/components/IdLink/index.d.ts",
+      "import": "./dist/components/IdLink/index.js"
+    },
+    "./LanguageMenu": {
+      "types": "./dist/components/LanguageMenu/index.d.ts",
+      "import": "./dist/components/LanguageMenu/index.js"
+    },
+    "./NavBar": {
+      "types": "./dist/components/Navigation/index.d.ts",
+      "import": "./dist/components/Navigation/index.js"
+    },
+    "./Table": {
+      "types": "./dist/components/Table/index.d.ts",
+      "import": "./dist/components/Table/index.js"
+    },
+    "./Tabs": {
+      "types": "./dist/components/Tabs/index.d.ts",
+      "import": "./dist/components/Tabs/index.js"
+    },
+    "./TEIText": {
+      "types": "./dist/components/TEIText/index.d.ts",
+      "import": "./dist/components/TEIText/index.js"
+    },
+    "./Years": {
+      "types": "./dist/components/Years/index.d.ts",
+      "import": "./dist/components/Years/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js"
     },
     "./dracor.css": {
       "default": "./src/dracor.css"
@@ -38,9 +113,7 @@
     "generate-icon-components": "svgr --typescript --jsx-runtime automatic --ignore-existing --out-dir src/components/icons src/icons",
     "release": "./prepublish.sh && pnpm publish --access public"
   },
-  "dependencies": {
-    "react-markdown": "^10.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@chromatic-com/storybook": "^5.4.0",
     "@eslint/js": "^10.0.1",
@@ -106,6 +179,18 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@fortawesome/fontawesome-svg-core": { "optional": true },
+    "@fortawesome/free-brands-svg-icons": { "optional": true },
+    "@fortawesome/free-solid-svg-icons": { "optional": true },
+    "@fortawesome/react-fontawesome": { "optional": true },
+    "@headlessui/react": { "optional": true },
+    "@scalar/api-reference-react": { "optional": true },
+    "@tanstack/react-router": { "optional": true },
+    "@tanstack/react-table": { "optional": true },
+    "CETEIcean": { "optional": true },
+    "react-markdown": { "optional": true }
   },
   "eslintConfig": {
     "extends": [
