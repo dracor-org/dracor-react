@@ -27,11 +27,14 @@ This is a **published npm component library** (`@dracor/react`), not a standalon
 **Key architectural constraints:**
 - Components are purely presentational — props-driven, no global state, no API calls
 - Consumers are responsible for routing (TanStack Router) and data fetching
-- All peer dependencies (React 19, TanStack Router/Table, FontAwesome, HeadlessUI, CETEIcean, Swagger UI) must be installed by consumers
+- React/react-dom are the only required peers; every other peer (TanStack Router/Table, FontAwesome, HeadlessUI, CETEIcean, `@scalar/api-reference-react`) is declared `optional: true` in `peerDependenciesMeta` and only needs to be installed for the components that use it. `react-markdown` ships as a normal `dependency`.
 
-**Build output** (library mode via Vite):
-- `dist/index.es.js` + `dist/index.d.ts` (ESM only — consumed via bundlers)
-- CSS exported separately as `@dracor/react/dracor.css`
+**Build output** (library mode via Vite with `preserveModules`):
+- `dist/index.js` + `dist/index.d.ts` — barrel entry re-exporting every component
+- One `.js` + `.d.ts` per source module under `dist/components/<Name>/…` and `dist/utils.js`
+- Each component is also exposed via a subpath export (e.g. `@dracor/react/NavBar`, mapped in `package.json`'s `exports` field). Subpath names mirror the barrel export names, not folder names — e.g. `src/components/Navigation/` is exported as `NavBar`.
+- `sideEffects` is limited to CSS so bundlers can tree-shake unused components from the barrel import
+- CSS shipped as source: `@dracor/react/dracor.css` (theme) and `@dracor/react/tei.css` (TEI element styling, used by `TEIText`)
 
 ## Component Conventions
 
@@ -57,3 +60,7 @@ SVG icons in `src/icons/` are auto-generated into React components via SVGR. Run
 ## Testing Strategy
 
 Tests use Vitest with Playwright browser testing. Storybook stories double as interaction tests via `@storybook/addon-vitest`. Write stories first — they provide both documentation and test coverage.
+
+## Deferred for next major
+
+- Move `react-markdown` from `dependencies` to an optional peer (add back to `peerDependenciesMeta` with `"optional": true`). Kept as a runtime dep in 1.x to avoid a breaking change for consumers of `DocPage`/`AuthorInfo`; the per-component tree-shaking already prevents any bundle-size cost for other consumers, so the only benefit is ~1 MB less in `node_modules`. Bundle with the next major.
