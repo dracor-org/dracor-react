@@ -146,7 +146,7 @@
     "@vitest/browser-playwright": "^5.0.3",
     "@vitest/coverage-v8": "^5.0.3",
     "CETEIcean": "^1.9.5",
-    "eslint": "^10.10.0",
+    "eslint": "^10.11.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "eslint-plugin-storybook": "^10.6.1",
@@ -183,15 +183,33 @@
     "react-markdown": "^10.1.0"
   },
   "peerDependenciesMeta": {
-    "@fortawesome/fontawesome-svg-core": { "optional": true },
-    "@fortawesome/free-brands-svg-icons": { "optional": true },
-    "@fortawesome/free-solid-svg-icons": { "optional": true },
-    "@fortawesome/react-fontawesome": { "optional": true },
-    "@headlessui/react": { "optional": true },
-    "@scalar/api-reference-react": { "optional": true },
-    "@tanstack/react-router": { "optional": true },
-    "@tanstack/react-table": { "optional": true },
-    "CETEIcean": { "optional": true }
+    "@fortawesome/fontawesome-svg-core": {
+      "optional": true
+    },
+    "@fortawesome/free-brands-svg-icons": {
+      "optional": true
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "optional": true
+    },
+    "@fortawesome/react-fontawesome": {
+      "optional": true
+    },
+    "@headlessui/react": {
+      "optional": true
+    },
+    "@scalar/api-reference-react": {
+      "optional": true
+    },
+    "@tanstack/react-router": {
+      "optional": true
+    },
+    "@tanstack/react-table": {
+      "optional": true
+    },
+    "CETEIcean": {
+      "optional": true
+    }
   },
   "eslintConfig": {
     "extends": [
