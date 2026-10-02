@@ -1,4 +1,5 @@
 /// <reference types="vitest/config" />
+import { existsSync, readdirSync, statSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -7,11 +8,31 @@ import dts from 'vite-plugin-dts';
 import { playwright } from '@vitest/browser-playwright';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 
-// https://vite.dev/config/
+// Register every `src/components/<Name>/index.ts` as its own entry so that
+// Rollup emits the per-component re-export shells (`dist/components/<Name>/
+// index.js`) that `package.json`'s subpath exports point at. Without this,
+// Rollup collapses the shells when the barrel import pulls through them,
+// and the subpath imports resolve to nothing.
+const componentsDir = resolve(import.meta.dirname, 'src/components');
+const componentEntries = Object.fromEntries(
+  readdirSync(componentsDir)
+    .filter((name) => {
+      const dir = join(componentsDir, name);
+      return statSync(dir).isDirectory() && existsSync(join(dir, 'index.ts'));
+    })
+    .map((name) => [
+      `components/${name}/index`,
+      join(componentsDir, name, 'index.ts'),
+    ])
+);
+
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(import.meta.dirname, './src/index.ts'),
+      entry: {
+        index: resolve(import.meta.dirname, './src/index.ts'),
+        ...componentEntries,
+      },
       formats: ['es'],
     },
     rollupOptions: {
