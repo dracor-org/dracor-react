@@ -13,7 +13,6 @@ export default defineConfig({
     lib: {
       entry: resolve(import.meta.dirname, './src/index.ts'),
       formats: ['es'],
-      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: [
@@ -34,6 +33,11 @@ export default defineConfig({
         'react-markdown',
         'tailwindcss',
       ],
+      output: {
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: '[name].js',
+      },
     },
     sourcemap: true,
     emptyOutDir: true,
@@ -44,7 +48,13 @@ export default defineConfig({
     dts({
       tsconfigPath: './tsconfig.app.json',
       insertTypesEntry: true,
-      exclude: ['**/*.stories.*', '**/*.test.*', 'src/testHelpers.tsx'],
+      exclude: [
+        '**/*.stories.*',
+        '**/*.test.*',
+        'src/testHelpers.tsx',
+        'src/einakter-gh.tsx',
+        'src/Theme.tsx',
+      ],
     }),
   ],
   test: {
