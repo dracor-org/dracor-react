@@ -48,7 +48,13 @@ export default defineConfig({
     dts({
       tsconfigPath: './tsconfig.app.json',
       insertTypesEntry: true,
-      exclude: ['**/*.stories.*', '**/*.test.*', 'src/testHelpers.tsx'],
+      exclude: [
+        '**/*.stories.*',
+        '**/*.test.*',
+        'src/testHelpers.tsx',
+        'src/einakter-gh.tsx',
+        'src/Theme.tsx',
+      ],
     }),
   ],
   test: {
