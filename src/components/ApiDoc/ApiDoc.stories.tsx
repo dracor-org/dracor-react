@@ -51,6 +51,18 @@ export const HiddenTitle: Story = {
   },
 };
 
+/**
+ * Adds a Modern / Classic switch in the top right corner. The choice is
+ * remembered in localStorage; `configuration.layout` is the starting layout.
+ */
+export const LayoutSwitch: Story = {
+  args: {
+    url: 'ecocor.yaml',
+    layoutSwitch: true,
+    configuration: { layout: 'modern' },
+  },
+};
+
 export const Dracor: Story = {
   args: {
     url: 'https://dracor.org/api/v1/openapi.yaml',
