@@ -12,19 +12,19 @@ export type ApiDocConfiguration = Omit<
 
 export type ApiDocLayout = 'modern' | 'classic';
 
-export interface LayoutSwitchOptions {
+/**
+ * The `modern` and `classic` keys take configuration applied only while that
+ * layout is active, merged on top of `configuration` (`customCss` is appended
+ * rather than replaced). E.g. `{ modern: { showSidebar: true } }`.
+ */
+export interface LayoutSwitchOptions extends Partial<
+  Record<ApiDocLayout, ApiDocConfiguration>
+> {
   /**
    * localStorage key the chosen layout is remembered under.
    * Defaults to `dracor.apiDocLayout`.
    */
   storageKey?: string;
-
-  /**
-   * Configuration applied only while the given layout is active, merged on
-   * top of `configuration` (`customCss` is appended rather than replaced).
-   * E.g. `{ modern: { showSidebar: true } }`.
-   */
-  configurations?: Partial<Record<ApiDocLayout, ApiDocConfiguration>>;
 }
 
 export interface Props {
@@ -149,7 +149,7 @@ function storeLayout(key: string, layout: ApiDocLayout) {
  * The sidebar is off by default; pass `configuration.showSidebar: true` to
  * enable it. Note that on wide screens the modern layout only offers a search
  * button inside the sidebar. With the switch, enable it for the modern layout
- * alone via `layoutSwitch.configurations.modern`.
+ * alone via `layoutSwitch.modern`.
  */
 export default function ApiDoc({
   url,
@@ -171,7 +171,7 @@ export default function ApiDoc({
     storeLayout(storageKey, value);
   }
 
-  const forLayout = layoutSwitch ? options.configurations?.[layout] : undefined;
+  const forLayout = layoutSwitch ? options[layout] : undefined;
   const customCss = [
     merged.customCss,
     forLayout?.customCss,

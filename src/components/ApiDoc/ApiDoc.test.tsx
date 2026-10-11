@@ -84,7 +84,7 @@ describe('ApiDoc', () => {
         '/',
         <ApiDoc
           url="ecocor.yml"
-          layoutSwitch={{ configurations: { modern: { showSidebar: true } } }}
+          layoutSwitch={{ modern: { showSidebar: true } }}
         />
       );
       expect(await screen.findByTestId('scalar-stub')).toHaveAttribute(
