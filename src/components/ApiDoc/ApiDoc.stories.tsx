@@ -63,6 +63,16 @@ export const LayoutSwitch: Story = {
   },
 };
 
+/**
+ * Shows the API version without the "v" Scalar prepends to it.
+ */
+export const PlainVersion: Story = {
+  args: {
+    url: 'ecocor.yaml',
+    plainVersion: true,
+  },
+};
+
 export const Dracor: Story = {
   args: {
     url: 'https://dracor.org/api/v1/openapi.yaml',

@@ -64,6 +64,26 @@ describe('ApiDoc', () => {
     expect(css).toContain('a[href^="https://scalar.com/"]');
   });
 
+  test('hides the version prefix on request only', async () => {
+    const { unmount } = renderWithProviders('/', <ApiDoc url="ecocor.yml" />);
+    expect(
+      (await screen.findByTestId('scalar-stub')).getAttribute('data-css') ?? ''
+    ).not.toContain('::first-letter');
+    unmount();
+    renderWithProviders(
+      '/',
+      <ApiDoc
+        url="ecocor.yml"
+        plainVersion
+        configuration={{ customCss: '.mine {}' }}
+      />
+    );
+    const css =
+      (await screen.findByTestId('scalar-stub')).getAttribute('data-css') ?? '';
+    expect(css).toContain('.mine {}');
+    expect(css).toContain('.badge:has(+ .badge)::first-letter');
+  });
+
   describe('showSidebar', () => {
     test('is off by default, in either layout', async () => {
       renderWithProviders('/', <ApiDoc url="ecocor.yml" layoutSwitch />);

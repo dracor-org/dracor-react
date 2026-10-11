@@ -58,6 +58,14 @@ export interface Props {
    * option for this, so it is done with CSS.
    */
   hidePoweredBy?: boolean;
+
+  /**
+   * Show the API version without the "v" Scalar prepends to versions that
+   * start with a digit. Scalar has no option for this, so it is done with
+   * CSS, which hides the first character of the version badge: only use it
+   * when the version starts with a digit.
+   */
+  plainVersion?: boolean;
 }
 
 const defaults: ApiDocConfiguration = {
@@ -98,6 +106,11 @@ const layoutSwitchCss = `
 
 const hidePoweredByCss = `
   .darklight-reference a[href^="https://scalar.com/"] { display: none; }
+`;
+
+// The version badge is the one followed by the OpenAPI version badge.
+const plainVersionCss = `
+  .introduction-section .badge:has(+ .badge)::first-letter { font-size: 0; }
 `;
 
 function isLayout(value: unknown): value is ApiDocLayout {
@@ -157,6 +170,7 @@ export default function ApiDoc({
   configuration,
   layoutSwitch,
   hidePoweredBy,
+  plainVersion,
 }: Props) {
   const merged = { ...defaults, ...configuration };
   const options = typeof layoutSwitch === 'object' ? layoutSwitch : {};
@@ -177,6 +191,7 @@ export default function ApiDoc({
     forLayout?.customCss,
     layoutSwitch && layoutSwitchCss,
     hidePoweredBy && hidePoweredByCss,
+    plainVersion && plainVersionCss,
   ]
     .filter(Boolean)
     .join('\n');
