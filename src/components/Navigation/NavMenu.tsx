@@ -60,7 +60,7 @@ export default function NavMenu({ label, items, menuClass }: Props) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItems className="absolute left-0 mt-2 min-w-fit whitespace-nowrap origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg focus:outline-hidden">
+        <MenuItems className="absolute left-0 z-10 mt-2 min-w-fit whitespace-nowrap origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg focus:outline-hidden">
           <div className="px-1 py-1">
             {items.map(({ to, href, params, label }) => (
               <MenuItem key={label}>
