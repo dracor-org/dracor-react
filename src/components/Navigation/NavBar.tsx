@@ -80,16 +80,20 @@ export default function NavBar({
         )}
         {addItem}
         {gitHubUrl && (
-          <div>
+          <div className="mt-2 md:mt-0">
             <a
               href={gitHubUrl}
               title={gitHubTitle || 'GitHub'}
-              className="text-white text-2xl"
+              className="flex items-center gap-2 text-white hover:text-blue-100 uppercase md:text-2xl"
             >
+              <span className="md:hidden">{gitHubTitle || 'GitHub'}</span>
               {gitHubIcon ? (
                 gitHubIcon
               ) : (
-                <FontAwesomeIcon icon={faGithub} size="2xl" />
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className="text-xl md:text-[2em]"
+                />
               )}
             </a>
           </div>
