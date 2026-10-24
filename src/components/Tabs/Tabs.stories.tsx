@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, within } from 'storybook/test';
+import { useRouter } from '@tanstack/react-router';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import Tabs from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
@@ -126,5 +127,67 @@ export const Wrapping: Story = {
     const row = active.parentElement!.parentElement!;
     await expect(row.scrollWidth).toBe(row.clientWidth);
     await expect(row.clientHeight).toBeGreaterThan(active.offsetHeight);
+  },
+};
+
+function HistoryButtons() {
+  const router = useRouter();
+  return (
+    <div className="flex gap-2 mt-4">
+      <button onClick={() => router.history.back()}>Back</button>
+      <button onClick={() => router.history.forward()}>Forward</button>
+    </div>
+  );
+}
+
+// The tabs stay mounted while the location changes, as they do in a layout
+// route, so the active tab has to be scrolled into view on every navigation.
+export const BackForward: Story = {
+  ...Scrollable,
+  parameters: {
+    router: {
+      initialEntries: ['/downloads', '/network'],
+      initialIndex: 1,
+      routes: ['/$tab'],
+    },
+  },
+  render: (args) => (
+    <>
+      <Tabs {...args} />
+      <HistoryButtons />
+    </>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const network = await canvas.findByRole('link', { name: 'Network' });
+    const row = network.parentElement!.parentElement!;
+    await expect(row.scrollLeft).toBe(0);
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Back' }));
+    await waitFor(() => expect(row.scrollLeft).toBeGreaterThan(0));
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Forward' }));
+    await waitFor(() => expect(row.scrollLeft).toBe(0));
+  },
+};
+
+export const CustomBaseline: Story = {
+  ...Basic,
+  decorators: [
+    (story) => (
+      <div className="p-4 bg-primary [--tabs-baseline:transparent]">
+        {story()}
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const link = await within(canvasElement).findByRole('link', {
+      name: 'Entities',
+    });
+    const row = link.parentElement!.parentElement!;
+    // Tailwind composes several shadow layers; the baseline is the inset one
+    await expect(getComputedStyle(row).boxShadow).toMatch(
+      /rgba\(0, 0, 0, 0\) 0px -1px 0px 0px inset$/
+    );
   },
 };
