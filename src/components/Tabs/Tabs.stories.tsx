@@ -97,6 +97,22 @@ export const Scrollable: Story = {
   },
 };
 
+export const NoActiveTab: Story = {
+  ...Scrollable,
+  parameters: {
+    router: {
+      initialEntries: ['/unknown'],
+      routes: ['/$tab'],
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const first = await within(canvasElement).findByRole('link', {
+      name: 'Network',
+    });
+    await expect(first.parentElement!.parentElement!.scrollLeft).toBe(0);
+  },
+};
+
 export const Wrapping: Story = {
   ...Scrollable,
   args: {

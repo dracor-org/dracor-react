@@ -13,23 +13,23 @@ export interface Props {
   className?: string;
 }
 
-export default function Tabs({ data: tabs, wrap = false, className = '' }: Props) {
+export default function Tabs({
+  data: tabs,
+  wrap = false,
+  className = '',
+}: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
 
   // Make sure a deep-linked tab at the end of the row is visible. We set
   // scrollLeft directly since scrollIntoView would also scroll the page.
   useEffect(() => {
-    const row = rowRef.current;
-    if (wrap || !row) return;
+    // The row starts at scrollLeft 0, so we only need to scroll to the right.
+    const row = rowRef.current!;
     const active = row.querySelector<HTMLElement>('[data-status="active"]');
-    if (!active) return;
-    const rowRect = row.getBoundingClientRect();
-    const tabRect = active.getBoundingClientRect();
-    if (tabRect.left < rowRect.left) {
-      row.scrollLeft += tabRect.left - rowRect.left;
-    } else if (tabRect.right > rowRect.right) {
-      row.scrollLeft += Math.ceil(tabRect.right - rowRect.right);
-    }
+    if (wrap || !active) return;
+    const overflow =
+      active.getBoundingClientRect().right - row.getBoundingClientRect().right;
+    if (overflow > 0) row.scrollLeft += Math.ceil(overflow);
   }, [wrap]);
 
   const linkClasses =
