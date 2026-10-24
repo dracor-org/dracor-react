@@ -191,3 +191,19 @@ export const CustomBaseline: Story = {
     );
   },
 };
+
+export const KeyboardFocus: Story = {
+  ...Scrollable,
+  play: async ({ canvasElement }) => {
+    const link = await within(canvasElement).findByRole('link', {
+      name: 'Network',
+    });
+    await userEvent.tab();
+    await expect(link).toHaveFocus();
+    // focus is shown as an inset ring rather than an outline that the
+    // scrolling row would clip
+    const style = getComputedStyle(link);
+    await expect(style.outlineStyle).toBe('none');
+    await expect(style.boxShadow).toMatch(/inset/);
+  },
+};

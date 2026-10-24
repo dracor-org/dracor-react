@@ -52,7 +52,10 @@ export default function Tabs({
 
   const linkClasses =
     'inline-block p-4 border-b-2  text-gray-500 hover:text-gray-600 ' +
-    'border-transparent hover:border-gray-300 [&.active]:border-primary';
+    'border-transparent hover:border-gray-300 [&.active]:border-primary ' +
+    // inset ring, since an outline would be clipped by the scrolling row
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset ' +
+    'focus-visible:ring-primary';
 
   // The baseline is drawn as an inset shadow on the row itself (rather than
   // a border on a wrapper with a -1px overlap) so that the active tab's
